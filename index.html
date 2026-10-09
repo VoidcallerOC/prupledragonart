@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Purple Dragon Artwork</title>
+  <meta name="description" content="Handmade resin coasters, custom coaster sets, and accessories by Purple Dragon Artwork (@purpledragonartwork).">
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #fbf3e6;
+      --paper-2: #f4e6d0;
+      --ink: #22142f;
+      --ink-soft: #4d3d5c;
+      --red: #d3203b;
+      --purple: #6a2bb8;
+      --purple-deep: #34115e;
+      --blue: #1d5bd6;
+      --amber: #f3a712;
+      --white: #fffdf8;
+      --radius: 22px;
+      --shadow: 0 2px 0 rgba(34, 20, 47, .9), 0 14px 30px -14px rgba(34, 20, 47, .45);
+      --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+      --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+      --gutter: clamp(16px, 4vw, 48px);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 400 1.0625rem/1.6 var(--body);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: var(--display); line-height: 1.02; margin: 0; letter-spacing: -0.02em; }
+    p { margin: 0; }
+
+    .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); }
+
+    .skip {
+      position: absolute; left: 12px; top: -60px; z-index: 50;
+      background: var(--ink); color: var(--white); padding: 10px 14px; border-radius: 10px;
+    }
+    .skip:focus { top: 12px; }
+
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+
+    /* ---------- Header ---------- */
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: color-mix(in srgb, var(--paper) 92%, transparent);
+      backdrop-filter: blur(8px);
+      border-bottom: 2px solid var(--ink);
+    }
+    .site-header .wrap {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 12px 20px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .brand-mark {
+      width: 38px; height: 38px; border-radius: 50%; flex: none;
+      background:
+        radial-gradient(circle at 32% 28%, rgba(255,255,255,.85) 0 8%, transparent 22%),
+        conic-gradient(from 200deg, var(--purple), var(--red), var(--amber), var(--blue), var(--purple));
+      border: 2px solid var(--ink);
+    }
+    .brand-name { font: 800 1.15rem/1 var(--display); letter-spacing: -0.02em; }
+    .brand-handle { display: block; font: 500 .8rem/1.2 var(--body); color: var(--ink-soft); letter-spacing: 0; }
+
+    .nav { display: flex; flex-wrap: wrap; gap: 4px 6px; list-style: none; margin: 0; padding: 0; }
+    .nav a {
+      display: inline-block; padding: 8px 12px; border-radius: 999px;
+      text-decoration: none; font-weight: 600; font-size: .95rem;
+    }
+    .nav a:hover { background: var(--paper-2); }
+    .nav .nav-ig { background: var(--ink); color: var(--white); }
+    .nav .nav-ig:hover { background: var(--purple); }
+
+    /* ---------- Buttons & small bits ---------- */
+    .btn {
+      position: relative; display: inline-flex; align-items: center; gap: 8px;
+      padding: 14px 22px; border-radius: 999px; border: 2px solid var(--ink);
+      font: 700 1rem/1 var(--body); text-decoration: none; overflow: hidden;
+      box-shadow: 0 3px 0 var(--ink); transition: transform .12s ease, box-shadow .12s ease;
+    }
+    /* glossy resin highlight */
+    .btn::before {
+      content: ""; position: absolute; inset: 3px 14px auto; height: 42%;
+      border-radius: 999px; background: linear-gradient(rgba(255,255,255,.55), rgba(255,255,255,0));
+      pointer-events: none;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--ink); }
+    .btn:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--ink); }
+    .btn-red { background: var(--red); color: var(--white); }
+    .btn-amber { background: var(--amber); color: var(--ink); }
+    .btn-white { background: var(--white); color: var(--ink); }
+    .btn-blue { background: var(--blue); color: var(--white); }
+    .ext::after { content: "↗"; font-weight: 700; }
+
+    .eyebrow {
+      display: inline-block; font: 700 .78rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase;
+      padding: 7px 12px; border: 2px solid currentColor; border-radius: 999px;
+    }
+
+    /* ---------- Photo placeholders ---------- */
+    .ph {
+      position: relative; margin: 0; overflow: hidden;
+      display: grid; place-items: center; text-align: center;
+      border: 2px dashed var(--ink); border-radius: var(--radius);
+      background:
+        repeating-linear-gradient(-45deg, rgba(34,20,47,.06) 0 10px, transparent 10px 20px),
+        var(--tint, var(--paper-2));
+      color: var(--ink);
+      min-height: 180px;
+      padding: 18px;
+    }
+    .ph-label { max-width: 26ch; }
+    .ph-tag {
+      display: inline-block; margin-bottom: 8px; padding: 5px 9px; border-radius: 6px;
+      background: var(--ink); color: var(--white);
+      font: 700 .7rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase;
+    }
+    .ph-desc { display: block; font: 600 .95rem/1.35 var(--body); }
+    .ph.round { border-radius: 50%; aspect-ratio: 1; min-height: 0; padding: 14%; }
+    .tint-red { --tint: #f6c9cf; }
+    .tint-purple { --tint: #dccbf3; }
+    .tint-blue { --tint: #c9d8f7; }
+    .tint-amber { --tint: #fbe2ae; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: clamp(40px, 7vw, 88px) 0 clamp(48px, 7vw, 96px); position: relative; }
+    .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+    .hero .eyebrow { color: var(--purple); }
+    .hero h1 { font-size: clamp(2.6rem, 7vw, 5.4rem); margin: 18px 0 20px; font-weight: 800; }
+    .hero h1 .pour {
+      background: linear-gradient(100deg, var(--red) 0%, var(--purple) 45%, var(--blue) 80%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero-intro { font-size: clamp(1.08rem, 1.6vw, 1.25rem); max-width: 34ch; color: var(--ink-soft); }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+    .hero-media { position: relative; }
+    .hero-media .ph { aspect-ratio: 4 / 5; min-height: 0; border-radius: 30px; box-shadow: var(--shadow); border-style: dashed; }
+    .sticker {
+      position: absolute; display: grid; place-items: center; text-align: center;
+      width: 112px; height: 112px; border-radius: 50%; border: 2px solid var(--ink);
+      font: 800 .95rem/1.05 var(--display); padding: 10px;
+      box-shadow: 0 3px 0 var(--ink);
+    }
+    .sticker::before {
+      content: ""; position: absolute; top: 12px; left: 20px; width: 34px; height: 16px;
+      border-radius: 50%; background: rgba(255,255,255,.55); transform: rotate(-25deg);
+    }
+    .sticker-1 { background: var(--amber); top: -22px; right: -14px; transform: rotate(10deg); }
+    .sticker-2 { background: var(--red); color: var(--white); bottom: 26px; left: -26px; transform: rotate(-8deg); width: 100px; height: 100px; }
+
+    /* ---------- Chip band ---------- */
+    .band { background: var(--ink); color: var(--paper); border-block: 2px solid var(--ink); }
+    .band ul {
+      list-style: none; margin: 0; padding: 14px var(--gutter);
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
+      font: 700 clamp(1rem, 2vw, 1.3rem)/1.2 var(--display);
+    }
+    .band li { display: flex; align-items: center; gap: 22px; }
+    .band li + li::before { content: "✦"; color: var(--amber); }
+
+    /* ---------- Sections ---------- */
+    section { scroll-margin-top: 84px; }
+    .section { padding: clamp(56px, 8vw, 110px) 0; }
+    .section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px; margin-bottom: clamp(28px, 4vw, 48px); }
+    .section-head h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; }
+    .section-head p { max-width: 46ch; color: var(--ink-soft); }
+
+    .collection { display: grid; gap: clamp(20px, 3vw, 36px); align-items: center; padding: clamp(24px, 3vw, 36px); border: 2px solid var(--ink); border-radius: 28px; background: var(--white); box-shadow: var(--shadow); }
+    .collection + .collection { margin-top: clamp(24px, 4vw, 44px); }
+    .collection h3 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 800; margin: 12px 0 10px; }
+    .collection p { color: var(--ink-soft); max-width: 44ch; }
+    .collection .more { display: inline-block; margin-top: 16px; font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+    .num { font: 800 .85rem/1 var(--display); letter-spacing: .1em; }
+
+    /* Coasters: copy left, a cluster of round "coasters" right */
+    .c-coasters { grid-template-columns: 1fr 1.25fr; }
+    .c-coasters .num { color: var(--red); }
+    .coaster-cluster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: center; }
+    .coaster-cluster .ph:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+    .coaster-cluster .ph:nth-child(2) { transform: rotate(6deg); }
+    .coaster-cluster .ph:nth-child(3) { transform: rotate(-5deg); }
+
+    /* Custom sets: wide stacked photo left, copy right */
+    .c-sets { grid-template-columns: 1.3fr 1fr; background: #fff7f8; }
+    .c-sets .num { color: var(--purple); }
+    .sets-media { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
+    .sets-media .ph:first-child { aspect-ratio: 4 / 3; min-height: 0; grid-row: span 2; }
+    .sets-media .ph:not(:first-child) { min-height: 0; aspect-ratio: 1; }
+
+    /* Accessories: copy on top, a row of three */
+    .c-acc { grid-template-columns: 1fr; background: #f6f8ff; }
+    .c-acc .num { color: var(--blue); }
+    .acc-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; }
+    .acc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .acc-row .ph { aspect-ratio: 1; min-height: 0; }
+    .acc-row .ph:nth-child(2) { transform: translateY(18px); }
+
+    .aside-digital {
+      margin-top: clamp(28px, 4vw, 44px);
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px;
+      padding: 20px 24px; border: 2px dashed var(--ink); border-radius: 18px; background: var(--paper-2);
+    }
+    .aside-digital strong { font-family: var(--display); font-size: 1.2rem; display: block; margin-bottom: 2px; }
+    .aside-digital p { color: var(--ink-soft); max-width: 60ch; }
+    .aside-digital a { font-weight: 700; text-underline-offset: 4px; }
+
+    /* ---------- Custom orders ---------- */
+    .custom {
+      background:
+        radial-gradient(60% 80% at 100% 0%, rgba(243,167,18,.35), transparent 60%),
+        radial-gradient(50% 70% at 0% 100%, rgba(211,32,59,.35), transparent 60%),
+        var(--purple-deep);
+      color: var(--paper);
+      border-block: 2px solid var(--ink);
+    }
+    .custom .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+    .custom .eyebrow { color: var(--amber); }
+    .custom h2 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; margin: 18px 0 18px; }
+    .custom h2 em { font-style: normal; color: var(--amber); }
+    .custom p { max-width: 46ch; color: #eadff7; font-size: 1.1rem; }
+    .custom .btn { margin-top: 26px; }
+    .ask-card { background: var(--white); color: var(--ink); border: 2px solid var(--ink); border-radius: 24px; padding: 26px; box-shadow: 0 4px 0 var(--ink); transform: rotate(1.5deg); }
+    .ask-card h3 { font-size: 1.4rem; margin-bottom: 14px; }
+    .ask-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+    .ask-card li { display: flex; gap: 10px; align-items: baseline; }
+    .ask-card li::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--dot, var(--red)); border: 2px solid var(--ink); transform: translateY(1px); }
+    .ask-card li:nth-child(2) { --dot: var(--amber); }
+    .ask-card li:nth-child(3) { --dot: var(--blue); }
+    .ask-card li:nth-child(4) { --dot: var(--purple); }
+    .ask-card .fine { margin-top: 16px; font-size: .92rem; color: var(--ink-soft); border-top: 2px dashed var(--paper-2); padding-top: 14px; }
+
+    /* ---------- Pop-up ---------- */
+    .popup .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+    .popup .ph { aspect-ratio: 5 / 4; min-height: 0; box-shadow: var(--shadow); transform: rotate(-1.5deg); }
+    .popup .eyebrow { color: var(--red); }
+    .popup h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; margin: 18px 0 16px; }
+    .popup p { color: var(--ink-soft); max-width: 44ch; }
+    .popup .where {
+      margin: 22px 0 6px; padding: 16px 18px; border: 2px solid var(--ink); border-radius: 16px;
+      background: var(--amber); font-weight: 600; color: var(--ink); max-width: 44ch;
+    }
+    .popup .where b { font-family: var(--display); font-size: 1.25rem; display: block; }
+    .popup .btn { margin-top: 18px; }
+
+    /* ---------- Footer ---------- */
+    .site-footer { background: var(--ink); color: var(--paper); padding: 48px 0 36px; }
+    .site-footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
+    .site-footer .brand-handle { color: #c9bdd8; }
+    .site-footer .ig {
+      display: inline-flex; align-items: center; gap: 10px; font: 700 1.05rem/1 var(--body);
+      color: var(--paper); text-decoration: none; padding: 12px 18px; border: 2px solid var(--paper); border-radius: 999px;
+    }
+    .site-footer .ig:hover { background: var(--paper); color: var(--ink); }
+    .site-footer .note { width: 100%; font-size: .85rem; color: #b5a8c6; border-top: 1px solid #3c2d4d; padding-top: 18px; }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 900px) {
+      .hero .wrap, .custom .wrap, .popup .wrap { grid-template-columns: 1fr; }
+      .hero-media { max-width: 520px; width: 100%; margin: 0 auto; }
+      .c-coasters, .c-sets { grid-template-columns: 1fr; }
+      .c-sets .sets-media { order: 2; }
+      .ask-card { transform: none; }
+    }
+    @media (max-width: 600px) {
+      body { font-size: 1rem; }
+      .site-header { position: static; }
+      section { scroll-margin-top: 0; }
+      .site-header .wrap { justify-content: center; }
+      .nav { justify-content: center; }
+      .nav a { padding: 7px 10px; font-size: .9rem; }
+      .hero-ctas .btn { width: 100%; justify-content: center; }
+      .sticker { width: 88px; height: 88px; font-size: .8rem; }
+      .sticker-1 { right: -4px; top: -16px; }
+      .sticker-2 { left: -6px; width: 82px; height: 82px; }
+      .acc-row { grid-template-columns: 1fr 1fr; }
+      .acc-row .ph:nth-child(2) { transform: none; }
+      .acc-row .ph:nth-child(3) { grid-column: span 2; aspect-ratio: 2 / 1; }
+      .ph-desc { font-size: .82rem; }
+      .ph.round .ph-tag { font-size: .6rem; }
+      .coaster-cluster .ph:not(:first-child) .ph-desc { display: none; }
+      .custom .btn, .popup .btn { width: 100%; justify-content: center; }
+      .band li { gap: 14px; }
+      .band ul { gap: 6px 14px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Purple Dragon Artwork, back to top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Purple Dragon Artwork<span class="brand-handle">@purpledragonartwork</span></span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav">
+          <li><a href="#work">The work</a></li>
+          <li><a href="#custom">Custom orders</a></li>
+          <li><a href="#popup">Pop-up</a></li>
+          <li><a class="nav-ig ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Instagram </a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- 1. HERO -->
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Handmade resin art</span>
+          <h1 id="hero-title">Glossy little <span class="pour">worlds</span>, poured by hand.</h1>
+          <p class="hero-intro">Purple Dragon Artwork makes resin coasters, custom coaster sets, and accessories that are bright, colorful, and full of pop-culture fun.</p>
+          <div class="hero-ctas">
+            <a class="btn btn-red" href="#work">Browse the work</a>
+            <a class="btn btn-white ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Latest on Instagram </a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <!-- REPLACE: the artist's strongest product photo, e.g. <img src="images/hero.jpg" alt="..."> -->
+          <figure class="ph tint-purple" role="img" aria-label="Photo placeholder: artist's strongest product photo">
+            <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Artist's strongest product photo, such as a glossy resin coaster set</span></span>
+          </figure>
+          <span class="sticker sticker-1" aria-hidden="true">Made by hand</span>
+          <span class="sticker sticker-2" aria-hidden="true">Custom requests</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="band" aria-hidden="true">
+      <ul>
+        <li>Resin coasters</li>
+        <li>Custom sets</li>
+        <li>Accessories</li>
+        <li>Pop-up sales</li>
+      </ul>
+    </div>
+
+    <!-- 2. FEATURED WORK -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 id="work-title">The work</h2>
+          <p>Colorful, glossy, and made by hand. Browse by type below, and check Instagram for the newest pieces and what's already sold.</p>
+        </div>
+
+        <article class="collection c-coasters" aria-labelledby="coasters-title">
+          <div>
+            <span class="num">01</span>
+            <h3 id="coasters-title">Resin coasters</h3>
+            <p>Saturated color, deep gloss, and little details you notice up close. Each coaster is poured by hand.</p>
+            <a class="more ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">See recent coasters on Instagram </a>
+          </div>
+          <div class="coaster-cluster">
+            <!-- REPLACE each with the artist's coaster photos -->
+            <figure class="ph round tint-red" role="img" aria-label="Photo placeholder: resin coaster">
+              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Resin coaster, top-down shot</span></span>
+            </figure>
+            <figure class="ph round tint-amber" role="img" aria-label="Photo placeholder: resin coaster">
+              <span class="ph-label"><span class="ph-tag">Photo</span><span class="ph-desc">Coaster detail</span></span>
+            </figure>
+            <figure class="ph round tint-blue" role="img" aria-label="Photo placeholder: resin coaster">
+              <span class="ph-label"><span class="ph-tag">Photo</span><span class="ph-desc">Coaster detail</span></span>
+            </figure>
+          </div>
+        </article>
+
+        <article class="collection c-sets" aria-labelledby="sets-title">
+          <div class="sets-media">
+            <!-- REPLACE with photos of finished custom sets -->
+            <figure class="ph tint-purple" role="img" aria-label="Photo placeholder: custom coaster set">
+              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">A finished custom coaster set, shown together</span></span>
+            </figure>
+            <figure class="ph tint-red" role="img" aria-label="Photo placeholder: custom set detail">
+              <span class="ph-label"><span class="ph-tag">Photo</span><span class="ph-desc">Set detail</span></span>
+            </figure>
+            <figure class="ph tint-amber" role="img" aria-label="Photo placeholder: custom set detail">
+              <span class="ph-label"><span class="ph-tag">Photo</span><span class="ph-desc">Set detail</span></span>
+            </figure>
+          </div>
+          <div>
+            <span class="num">02</span>
+            <h3 id="sets-title">Custom sets</h3>
+            <p>Coaster sets made around your colors, your theme, or the person you're gifting them to. Start from your idea.</p>
+            <a class="more" href="#custom">Ask about a custom set</a>
+          </div>
+        </article>
+
+        <article class="collection c-acc" aria-labelledby="acc-title">
+          <div class="acc-top">
+            <div>
+              <span class="num">03</span>
+              <h3 id="acc-title">Accessories</h3>
+              <p>Handmade accessories with the same colorful, glossy energy as the coasters.</p>
+            </div>
+            <a class="more ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">See accessories on Instagram </a>
+          </div>
+          <div class="acc-row">
+            <!-- REPLACE with the artist's accessory photos -->
+            <figure class="ph tint-blue" role="img" aria-label="Photo placeholder: accessory">
+              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Accessory</span></span>
+            </figure>
+            <figure class="ph tint-amber" role="img" aria-label="Photo placeholder: accessory">
+              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Accessory</span></span>
+            </figure>
+            <figure class="ph tint-red" role="img" aria-label="Photo placeholder: accessory">
+              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Accessory</span></span>
+            </figure>
+          </div>
+        </article>
+
+        <!-- Digital art kept separate: products and ordering details not confirmed -->
+        <aside class="aside-digital" aria-label="Digital art">
+          <div>
+            <strong>Also: digital art</strong>
+            <p>Purple Dragon Artwork also creates high-resolution digital art. Follow along on Instagram to see it.</p>
+          </div>
+          <a class="ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">View on Instagram </a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 3. CUSTOM ORDERS -->
+    <section class="section custom" id="custom" aria-labelledby="custom-title">
+      <div class="wrap">
+        <div>
+          <span class="eyebrow">Custom orders</span>
+          <h2 id="custom-title">Got an idea? <em>Let's pour it.</em></h2>
+          <p>Thinking about a coaster set in your favorite colors, a gift for a fan in your life, or something you haven't seen yet? Send a message on Instagram and tell the artist what you have in mind.</p>
+          <a class="btn btn-amber ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Message on Instagram </a>
+        </div>
+        <div class="ask-card">
+          <h3>Helpful to include</h3>
+          <ul>
+            <li>What you'd like made (coasters, a set, an accessory)</li>
+            <li>Colors or a theme you love</li>
+            <li>How many pieces you're picturing</li>
+            <li>A photo or two for inspiration</li>
+          </ul>
+          <p class="fine">Pricing and timing aren't listed here. Ask about them in your message.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. POP-UP -->
+    <section class="section popup" id="popup" aria-labelledby="popup-title">
+      <div class="wrap">
+        <!-- REPLACE with a photo of the pop-up display -->
+        <figure class="ph tint-amber" role="img" aria-label="Photo placeholder: pop-up display">
+          <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">The pop-up display, if the artist has a photo of it</span></span>
+        </figure>
+        <div>
+          <span class="eyebrow">See it in person</span>
+          <h2 id="popup-title">Catch the pop-up</h2>
+          <p>Gloss looks even better in real life. Purple Dragon Artwork holds pop-up sales where you can see the pieces up close.</p>
+          <div class="where">
+            <b>Fine Fettle, Newington</b>
+            Days and hours change, so check Instagram for the current schedule before you go.
+          </div>
+          <a class="btn btn-blue ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Check current hours on Instagram </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 5. FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Purple Dragon Artwork, back to top">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Purple Dragon Artwork<span class="brand-handle">Handmade resin art</span></span>
+      </a>
+      <a class="ig ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">@purpledragonartwork on Instagram </a>
+      <p class="note">Concept preview. Photo placeholders mark where the artist's own photos will go.</p>
+    </div>
+  </footer>
+</body>
+</html>
