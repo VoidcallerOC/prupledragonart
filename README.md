@@ -28,6 +28,16 @@ A restrained psychedelic layer that sits around the work, never over it:
 
 The photos are never filtered or overlaid. A geometry check confirms the rings don't overlap any image or text at 1000, 1366 and 1920px. On phones the frames shrink to a single ring and the radiating rings are hidden.
 
+## Starfield
+
+`assets/starfield.js` (no dependencies) draws a fixed canvas behind all content. It ignores clicks and scrolling, which keep working normally.
+- **Stars:** about 320 at 1366×900, in three depth layers of cool white, violet, amber and pink, with a few larger glowing points.
+- **Mouse or pen:** stars spring toward the cursor and get dragged along by its motion, with short trails. They ease back home within about 2 seconds of the pointer stopping.
+- **Touch screens:** slow ambient drift, no pointer response.
+- **Reduced motion:** one still frame, with no trails and no pointer response.
+- **Readability:** stars behind text blocks, labels and buttons are drawn at about a third of their brightness. Photos sit above the canvas.
+- **Cost:** about 0.6 ms of script per frame at 60 fps in headless Chromium.
+
 ## Photos
 
 Every image is the artist's own: a photo from a public Instagram post, or a still from one of the artist's Reels. All are saved locally in `assets/photos/` (no hotlinking).
