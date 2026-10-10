@@ -18,6 +18,16 @@ All fonts are packaged in `assets/fonts/`: latin woff2 files from `@fontsource` 
 
 `font-synthesis: none` is set, so the browser never fakes a bold or italic. Chrome DevTools platform-font checks confirm each text style renders in its webfont, with no system fallback.
 
+## Accents
+
+A restrained psychedelic layer that sits around the work, never over it:
+- **Colors:** eight colors sampled from the resin pieces (`--r-*` tokens in `index.html`).
+- **Frames:** warped prismatic rings behind seven photos, peeking out around the edges.
+- **Dividers:** wavy line dividers between sections.
+- **Poster accents:** radiating rings in two empty areas, short prismatic bars under headings, prismatic hairlines on the header, footer and labels, and an offset color shadow on the hero heading.
+
+The photos are never filtered or overlaid. A geometry check confirms the rings don't overlap any image or text at 1000, 1366 and 1920px. On phones the frames shrink to a single ring and the radiating rings are hidden.
+
 ## Photos
 
 Every image is the artist's own: a photo from a public Instagram post, or a still from one of the artist's Reels. All are saved locally in `assets/photos/` (no hotlinking).

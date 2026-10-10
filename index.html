@@ -33,6 +33,11 @@
       --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
       --gutter: clamp(16px, 4vw, 56px);
       --max: 1320px;
+      /* accent colors sampled from the resin work */
+      --r-red: #e23b3b; --r-orange: #f07a2a; --r-gold: #e9b44c; --r-green: #48b04f;
+      --r-teal: #33c4b4; --r-blue: #3a6fe0; --r-purple: #8a5ad6; --r-magenta: #e0479a;
+      --prism: linear-gradient(90deg, var(--r-red), var(--r-orange), var(--r-gold), var(--r-green), var(--r-teal), var(--r-blue), var(--r-purple), var(--r-magenta));
+      --prism-ring: conic-gradient(from 210deg, var(--r-red), var(--r-orange), var(--r-gold), var(--r-green), var(--r-teal), var(--r-blue), var(--r-purple), var(--r-magenta), var(--r-red));
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -208,6 +213,39 @@
     .foot-line { margin-top: 10px; color: var(--cream-dim); }
     .credit { width: 100%; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; margin-top: 8px; }
 
+    /* ---------- psychedelic accents (around photos and between sections, never over the work) ---------- */
+    .hero, .section { overflow-x: clip; }
+    .site-header, .site-footer { border-image: var(--prism) 1; }
+    .hero h1 { text-shadow: .035em .035em 0 rgba(224, 71, 154, .55), .07em .07em 0 rgba(51, 196, 180, .35); }
+    .head h2::after, .hio-intro h2::after, .k-copy h2::after, .ff-row h2::after {
+      content: ""; display: block; width: 112px; height: 6px; margin-top: 18px; border-radius: 6px; background: var(--prism);
+    }
+    .label { border-top: 3px solid transparent; border-image: var(--prism) 1; }
+
+    /* warped prismatic rings behind selected photos */
+    .frame { position: relative; display: block; isolation: isolate; }
+    .frame::before, .frame::after {
+      content: ""; position: absolute; z-index: -1; pointer-events: none; padding: 2px;
+      background: var(--prism-ring);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+    }
+    .frame::before { inset: -14px -18px; border-radius: 47% 53% 44% 56% / 58% 42% 58% 42%; opacity: .85; transform: rotate(-1.2deg); }
+    .frame::after  { inset: -26px -30px; border-radius: 55% 45% 52% 48% / 44% 56% 44% 56%; opacity: .4; transform: rotate(1.4deg); }
+    .frame.b::before { border-radius: 40% 60% 55% 45% / 50% 50% 50% 50%; transform: rotate(1deg); }
+    .frame.b::after  { border-radius: 50% 50% 40% 60% / 60% 40% 60% 40%; transform: rotate(-1.6deg); }
+
+    /* liquid section dividers */
+    .wave { display: block; width: 100%; height: 44px; }
+    .wave-row { padding-top: 8px; padding-bottom: 8px; }
+
+    /* radiating rings, placed in empty space */
+    .has-rings { position: relative; }
+    .has-rings > :not(.rings) { position: relative; }
+    .rings { position: absolute; pointer-events: none; width: clamp(150px, 17vw, 240px); height: auto; }
+    .rings-hero { right: var(--gutter); top: -18px; }
+    .rings-custom { left: calc(var(--gutter) - 20px); bottom: -40px; }
+
     /* ---------- responsive ---------- */
     @media (max-width: 960px) {
       .hero-top, .head { grid-template-columns: 1fr; }
@@ -216,6 +254,7 @@
       .k-copy, .k-doom { grid-column: 1 / -1; }
       .k-db { grid-column: 3 / span 8; }
       .ff-row { grid-template-columns: 1fr; }
+      .rings-custom { display: none; }
     }
     @media (max-width: 720px) {
       body { font-size: 1.0625rem; }
@@ -234,6 +273,10 @@
       .k-db { grid-column: 1 / -1; }
       .btn { width: 100%; }
       .label { max-width: 100%; }
+      .frame::before { inset: -8px -10px; }
+      .frame::after { display: none; }
+      .rings { display: none; }
+      .wave { height: 32px; }
     }
   </style>
 </head>
@@ -259,7 +302,8 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="wrap">
+      <div class="wrap has-rings">
+        <svg class="rings rings-hero" viewBox="0 0 240 240" aria-hidden="true"><g fill="none" stroke-width="1.6" opacity=".55"><circle cx="120" cy="120" r="18" style="stroke:var(--r-red)" /><circle cx="120" cy="120" r="30" style="stroke:var(--r-gold)" /><circle cx="120" cy="120" r="42" style="stroke:var(--r-teal)" /><circle cx="120" cy="120" r="54" style="stroke:var(--r-blue)" /><circle cx="120" cy="120" r="66" style="stroke:var(--r-magenta)" /><circle cx="120" cy="120" r="78" style="stroke:var(--r-green)" /><circle cx="120" cy="120" r="90" style="stroke:var(--r-purple)" /><circle cx="120" cy="120" r="102" style="stroke:var(--r-orange)" /><circle cx="120" cy="120" r="114" style="stroke:var(--r-red)" /></g></svg>
         <div class="hero-top">
           <div>
             <p class="eyebrow">Handmade epoxy resin</p>
@@ -275,15 +319,16 @@
         </div>
 
         <figure class="photo hero-shot">
-          <img src="assets/photos/hio-191-grateful-dead-1600.jpg"
+          <span class="frame"><img src="assets/photos/hio-191-grateful-dead-1600.jpg"
                srcset="assets/photos/hio-191-grateful-dead-800.jpg 800w, assets/photos/hio-191-grateful-dead-1600.jpg 1600w"
                sizes="(max-width: 1320px) 100vw, 1220px" width="1600" height="600" fetchpriority="high"
-               alt="A red resin ashtray and a clear resin coaster, both printed with the Grateful Dead's red-and-blue lightning-bolt skull, on a table crowded with glitter-rimmed coasters.">
+               alt="A red resin ashtray and a clear resin coaster, both printed with the Grateful Dead's red-and-blue lightning-bolt skull, on a table crowded with glitter-rimmed coasters."></span>
           <figcaption class="label"><span class="no">Hole in One No. 191</span>Grateful Dead &middot; <span class="sold">Sold</span></figcaption>
         </figure>
       </div>
     </section>
 
+    <div class="wrap wave-row" aria-hidden="true"><svg class="wave" viewBox="0 0 1200 48" preserveAspectRatio="none"><g fill="none" stroke-width="2" vector-effect="non-scaling-stroke" opacity=".8"><polyline vector-effect="non-scaling-stroke" points="0,12.0 20,14.2 40,16.1 60,17.7 80,18.7 100,19.0 120,18.7 140,17.7 160,16.1 180,14.2 200,12.0 220,9.8 240,7.9 260,6.3 280,5.3 300,5.0 320,5.3 340,6.3 360,7.9 380,9.8 400,12.0 420,14.2 440,16.1 460,17.7 480,18.7 500,19.0 520,18.7 540,17.7 560,16.1 580,14.2 600,12.0 620,9.8 640,7.9 660,6.3 680,5.3 700,5.0 720,5.3 740,6.3 760,7.9 780,9.8 800,12.0 820,14.2 840,16.1 860,17.7 880,18.7 900,19.0 920,18.7 940,17.7 960,16.1 980,14.2 1000,12.0 1020,9.8 1040,7.9 1060,6.3 1080,5.3 1100,5.0 1120,5.3 1140,6.3 1160,7.9 1180,9.8 1200,12.0" style="stroke:var(--r-magenta)" /><polyline vector-effect="non-scaling-stroke" points="0,25.5 20,26.6 40,27.0 60,26.7 80,25.8 100,24.4 120,22.4 140,20.3 160,18.1 180,16.1 200,14.5 220,13.4 240,13.0 260,13.3 280,14.2 300,15.6 320,17.6 340,19.7 360,21.9 380,23.9 400,25.5 420,26.6 440,27.0 460,26.7 480,25.8 500,24.4 520,22.4 540,20.3 560,18.1 580,16.1 600,14.5 620,13.4 640,13.0 660,13.3 680,14.2 700,15.6 720,17.6 740,19.7 760,21.9 780,23.9 800,25.5 820,26.6 840,27.0 860,26.7 880,25.8 900,24.4 920,22.4 940,20.3 960,18.1 980,16.1 1000,14.5 1020,13.4 1040,13.0 1060,13.3 1080,14.2 1100,15.6 1120,17.6 1140,19.7 1160,21.9 1180,23.9 1200,25.5" style="stroke:var(--r-gold)" /><polyline vector-effect="non-scaling-stroke" points="0,34.8 20,34.0 40,32.6 60,30.7 80,28.6 100,26.4 120,24.4 140,22.7 160,21.6 180,21.0 200,21.2 220,22.0 240,23.4 260,25.3 280,27.4 300,29.6 320,31.6 340,33.3 360,34.4 380,35.0 400,34.8 420,34.0 440,32.6 460,30.7 480,28.6 500,26.4 520,24.4 540,22.7 560,21.6 580,21.0 600,21.2 620,22.0 640,23.4 660,25.3 680,27.4 700,29.6 720,31.6 740,33.3 760,34.4 780,35.0 800,34.8 820,34.0 840,32.6 860,30.7 880,28.6 900,26.4 920,24.4 940,22.7 960,21.6 980,21.0 1000,21.2 1020,22.0 1040,23.4 1060,25.3 1080,27.4 1100,29.6 1120,31.6 1140,33.3 1160,34.4 1180,35.0 1200,34.8" style="stroke:var(--r-teal)" /><polyline vector-effect="non-scaling-stroke" points="0,39.0 20,36.9 40,34.7 60,32.6 80,30.9 100,29.7 120,29.1 140,29.1 160,29.9 180,31.2 200,33.0 220,35.1 240,37.3 260,39.4 280,41.1 300,42.3 320,42.9 340,42.9 360,42.1 380,40.8 400,39.0 420,36.9 440,34.7 460,32.6 480,30.9 500,29.7 520,29.1 540,29.1 560,29.9 580,31.2 600,33.0 620,35.1 640,37.3 660,39.4 680,41.1 700,42.3 720,42.9 740,42.9 760,42.1 780,40.8 800,39.0 820,36.9 840,34.7 860,32.6 880,30.9 900,29.7 920,29.1 940,29.1 960,29.9 980,31.2 1000,33.0 1020,35.1 1040,37.3 1060,39.4 1080,41.1 1100,42.3 1120,42.9 1140,42.9 1160,42.1 1180,40.8 1200,39.0" style="stroke:var(--r-purple)" /></g></svg></div>
     <!-- THE WORK -->
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="wrap">
@@ -326,10 +371,10 @@
           </figure>
 
           <figure class="photo w-bowie">
-            <img src="assets/photos/custom-bowie-pair-1600.jpg"
+            <span class="frame b"><img src="assets/photos/custom-bowie-pair-1600.jpg"
                  srcset="assets/photos/custom-bowie-pair-800.jpg 800w, assets/photos/custom-bowie-pair-1600.jpg 1600w"
                  sizes="(max-width: 720px) 100vw, 58vw" width="1600" height="1200" loading="lazy"
-                 alt="Two glitter-framed resin coasters of David Bowie on an order bag marked 'David Bowie,' laid over a table covered in more coasters.">
+                 alt="Two glitter-framed resin coasters of David Bowie on an order bag marked 'David Bowie,' laid over a table covered in more coasters."></span>
             <figcaption class="cap">Custom pair &middot; David Bowie</figcaption>
           </figure>
 
@@ -354,10 +399,10 @@
 
         <div class="grid">
           <figure class="photo c-plain">
-            <img src="assets/photos/finish-plain-glitter-1600.jpg"
+            <span class="frame"><img src="assets/photos/finish-plain-glitter-1600.jpg"
                  srcset="assets/photos/finish-plain-glitter-800.jpg 800w, assets/photos/finish-plain-glitter-1600.jpg 1600w"
                  sizes="(max-width: 720px) 100vw, 50vw" width="1600" height="1434" loading="lazy"
-                 alt="Three square glitter resin coasters with raised rims and no printed image, in orange, red, and pink, against a white surface.">
+                 alt="Three square glitter resin coasters with raised rims and no printed image, in orange, red, and pink, against a white surface."></span>
             <figcaption class="cap">Plain glitter coasters &middot; Orange, red, pink</figcaption>
           </figure>
 
@@ -412,6 +457,7 @@
       </div>
     </section>
 
+    <div class="wrap wave-row" aria-hidden="true"><svg class="wave" viewBox="0 0 1200 48" preserveAspectRatio="none"><g fill="none" stroke-width="2" vector-effect="non-scaling-stroke" opacity=".8"><polyline vector-effect="non-scaling-stroke" points="0,12.0 20,14.2 40,16.1 60,17.7 80,18.7 100,19.0 120,18.7 140,17.7 160,16.1 180,14.2 200,12.0 220,9.8 240,7.9 260,6.3 280,5.3 300,5.0 320,5.3 340,6.3 360,7.9 380,9.8 400,12.0 420,14.2 440,16.1 460,17.7 480,18.7 500,19.0 520,18.7 540,17.7 560,16.1 580,14.2 600,12.0 620,9.8 640,7.9 660,6.3 680,5.3 700,5.0 720,5.3 740,6.3 760,7.9 780,9.8 800,12.0 820,14.2 840,16.1 860,17.7 880,18.7 900,19.0 920,18.7 940,17.7 960,16.1 980,14.2 1000,12.0 1020,9.8 1040,7.9 1060,6.3 1080,5.3 1100,5.0 1120,5.3 1140,6.3 1160,7.9 1180,9.8 1200,12.0" style="stroke:var(--r-magenta)" /><polyline vector-effect="non-scaling-stroke" points="0,25.5 20,26.6 40,27.0 60,26.7 80,25.8 100,24.4 120,22.4 140,20.3 160,18.1 180,16.1 200,14.5 220,13.4 240,13.0 260,13.3 280,14.2 300,15.6 320,17.6 340,19.7 360,21.9 380,23.9 400,25.5 420,26.6 440,27.0 460,26.7 480,25.8 500,24.4 520,22.4 540,20.3 560,18.1 580,16.1 600,14.5 620,13.4 640,13.0 660,13.3 680,14.2 700,15.6 720,17.6 740,19.7 760,21.9 780,23.9 800,25.5 820,26.6 840,27.0 860,26.7 880,25.8 900,24.4 920,22.4 940,20.3 960,18.1 980,16.1 1000,14.5 1020,13.4 1040,13.0 1060,13.3 1080,14.2 1100,15.6 1120,17.6 1140,19.7 1160,21.9 1180,23.9 1200,25.5" style="stroke:var(--r-gold)" /><polyline vector-effect="non-scaling-stroke" points="0,34.8 20,34.0 40,32.6 60,30.7 80,28.6 100,26.4 120,24.4 140,22.7 160,21.6 180,21.0 200,21.2 220,22.0 240,23.4 260,25.3 280,27.4 300,29.6 320,31.6 340,33.3 360,34.4 380,35.0 400,34.8 420,34.0 440,32.6 460,30.7 480,28.6 500,26.4 520,24.4 540,22.7 560,21.6 580,21.0 600,21.2 620,22.0 640,23.4 660,25.3 680,27.4 700,29.6 720,31.6 740,33.3 760,34.4 780,35.0 800,34.8 820,34.0 840,32.6 860,30.7 880,28.6 900,26.4 920,24.4 940,22.7 960,21.6 980,21.0 1000,21.2 1020,22.0 1040,23.4 1060,25.3 1080,27.4 1100,29.6 1120,31.6 1140,33.3 1160,34.4 1180,35.0 1200,34.8" style="stroke:var(--r-teal)" /><polyline vector-effect="non-scaling-stroke" points="0,39.0 20,36.9 40,34.7 60,32.6 80,30.9 100,29.7 120,29.1 140,29.1 160,29.9 180,31.2 200,33.0 220,35.1 240,37.3 260,39.4 280,41.1 300,42.3 320,42.9 340,42.9 360,42.1 380,40.8 400,39.0 420,36.9 440,34.7 460,32.6 480,30.9 500,29.7 520,29.1 540,29.1 560,29.9 580,31.2 600,33.0 620,35.1 640,37.3 660,39.4 680,41.1 700,42.3 720,42.9 740,42.9 760,42.1 780,40.8 800,39.0 820,36.9 840,34.7 860,32.6 880,30.9 900,29.7 920,29.1 940,29.1 960,29.9 980,31.2 1000,33.0 1020,35.1 1040,37.3 1060,39.4 1080,41.1 1100,42.3 1120,42.9 1140,42.9 1160,42.1 1180,40.8 1200,39.0" style="stroke:var(--r-purple)" /></g></svg></div>
     <!-- HOLE IN ONE -->
     <section class="section hio" id="hio" aria-labelledby="hio-title">
       <div class="wrap">
@@ -423,10 +469,10 @@
           </div>
 
           <figure class="photo h-wu">
-            <img src="assets/photos/hio-194-wu-tang-1311.jpg"
+            <span class="frame b"><img src="assets/photos/hio-194-wu-tang-1311.jpg"
                  srcset="assets/photos/hio-194-wu-tang-800.jpg 800w, assets/photos/hio-194-wu-tang-1311.jpg 1311w"
                  sizes="(max-width: 960px) 100vw, 56vw" width="1311" height="1076" loading="lazy"
-                 alt="Close-up of a clear resin coaster with a gold, dripping Wu-Tang logo on red, flecked with glitter, with a round hole cut near one corner.">
+                 alt="Close-up of a clear resin coaster with a gold, dripping Wu-Tang logo on red, flecked with glitter, with a round hole cut near one corner."></span>
             <figcaption class="label"><span class="no">No. 194</span>Wu-Tang &middot; <span class="sold">Sold</span></figcaption>
           </figure>
 
@@ -441,6 +487,7 @@
       </div>
     </section>
 
+    <div class="wrap wave-row" aria-hidden="true"><svg class="wave" viewBox="0 0 1200 48" preserveAspectRatio="none"><g fill="none" stroke-width="2" vector-effect="non-scaling-stroke" opacity=".8"><polyline vector-effect="non-scaling-stroke" points="0,12.0 20,14.2 40,16.1 60,17.7 80,18.7 100,19.0 120,18.7 140,17.7 160,16.1 180,14.2 200,12.0 220,9.8 240,7.9 260,6.3 280,5.3 300,5.0 320,5.3 340,6.3 360,7.9 380,9.8 400,12.0 420,14.2 440,16.1 460,17.7 480,18.7 500,19.0 520,18.7 540,17.7 560,16.1 580,14.2 600,12.0 620,9.8 640,7.9 660,6.3 680,5.3 700,5.0 720,5.3 740,6.3 760,7.9 780,9.8 800,12.0 820,14.2 840,16.1 860,17.7 880,18.7 900,19.0 920,18.7 940,17.7 960,16.1 980,14.2 1000,12.0 1020,9.8 1040,7.9 1060,6.3 1080,5.3 1100,5.0 1120,5.3 1140,6.3 1160,7.9 1180,9.8 1200,12.0" style="stroke:var(--r-magenta)" /><polyline vector-effect="non-scaling-stroke" points="0,25.5 20,26.6 40,27.0 60,26.7 80,25.8 100,24.4 120,22.4 140,20.3 160,18.1 180,16.1 200,14.5 220,13.4 240,13.0 260,13.3 280,14.2 300,15.6 320,17.6 340,19.7 360,21.9 380,23.9 400,25.5 420,26.6 440,27.0 460,26.7 480,25.8 500,24.4 520,22.4 540,20.3 560,18.1 580,16.1 600,14.5 620,13.4 640,13.0 660,13.3 680,14.2 700,15.6 720,17.6 740,19.7 760,21.9 780,23.9 800,25.5 820,26.6 840,27.0 860,26.7 880,25.8 900,24.4 920,22.4 940,20.3 960,18.1 980,16.1 1000,14.5 1020,13.4 1040,13.0 1060,13.3 1080,14.2 1100,15.6 1120,17.6 1140,19.7 1160,21.9 1180,23.9 1200,25.5" style="stroke:var(--r-gold)" /><polyline vector-effect="non-scaling-stroke" points="0,34.8 20,34.0 40,32.6 60,30.7 80,28.6 100,26.4 120,24.4 140,22.7 160,21.6 180,21.0 200,21.2 220,22.0 240,23.4 260,25.3 280,27.4 300,29.6 320,31.6 340,33.3 360,34.4 380,35.0 400,34.8 420,34.0 440,32.6 460,30.7 480,28.6 500,26.4 520,24.4 540,22.7 560,21.6 580,21.0 600,21.2 620,22.0 640,23.4 660,25.3 680,27.4 700,29.6 720,31.6 740,33.3 760,34.4 780,35.0 800,34.8 820,34.0 840,32.6 860,30.7 880,28.6 900,26.4 920,24.4 940,22.7 960,21.6 980,21.0 1000,21.2 1020,22.0 1040,23.4 1060,25.3 1080,27.4 1100,29.6 1120,31.6 1140,33.3 1160,34.4 1180,35.0 1200,34.8" style="stroke:var(--r-teal)" /><polyline vector-effect="non-scaling-stroke" points="0,39.0 20,36.9 40,34.7 60,32.6 80,30.9 100,29.7 120,29.1 140,29.1 160,29.9 180,31.2 200,33.0 220,35.1 240,37.3 260,39.4 280,41.1 300,42.3 320,42.9 340,42.9 360,42.1 380,40.8 400,39.0 420,36.9 440,34.7 460,32.6 480,30.9 500,29.7 520,29.1 540,29.1 560,29.9 580,31.2 600,33.0 620,35.1 640,37.3 660,39.4 680,41.1 700,42.3 720,42.9 740,42.9 760,42.1 780,40.8 800,39.0 820,36.9 840,34.7 860,32.6 880,30.9 900,29.7 920,29.1 940,29.1 960,29.9 980,31.2 1000,33.0 1020,35.1 1040,37.3 1060,39.4 1080,41.1 1100,42.3 1120,42.9 1140,42.9 1160,42.1 1180,40.8 1200,39.0" style="stroke:var(--r-purple)" /></g></svg></div>
     <!-- PROCESS -->
     <section class="section" id="process" aria-labelledby="process-title">
       <div class="wrap">
@@ -450,10 +497,10 @@
 
         <div class="grid">
           <figure class="photo p-torch">
-            <img src="assets/photos/process-torch-1265.jpg"
+            <span class="frame b"><img src="assets/photos/process-torch-1265.jpg"
                  srcset="assets/photos/process-torch-800.jpg 800w, assets/photos/process-torch-1265.jpg 1265w"
                  sizes="(max-width: 720px) 100vw, 58vw" width="1265" height="1129" loading="lazy"
-                 alt="A person in a respirator, safety glasses, and a blue nitrile glove passes a small torch over a board of coasters under a bright work light, inside a booth of cardboard and blue tarp.">
+                 alt="A person in a respirator, safety glasses, and a blue nitrile glove passes a small torch over a board of coasters under a bright work light, inside a booth of cardboard and blue tarp."></span>
             <figcaption class="cap">Finishing touches.</figcaption>
           </figure>
 
@@ -478,7 +525,8 @@
 
     <!-- CUSTOM -->
     <section class="section" id="custom" aria-labelledby="custom-title" style="padding-top:0">
-      <div class="wrap">
+      <div class="wrap has-rings">
+        <svg class="rings rings-custom" viewBox="0 0 240 240" aria-hidden="true"><g fill="none" stroke-width="1.6" opacity=".55"><circle cx="120" cy="120" r="18" style="stroke:var(--r-red)" /><circle cx="120" cy="120" r="30" style="stroke:var(--r-gold)" /><circle cx="120" cy="120" r="42" style="stroke:var(--r-teal)" /><circle cx="120" cy="120" r="54" style="stroke:var(--r-blue)" /><circle cx="120" cy="120" r="66" style="stroke:var(--r-magenta)" /><circle cx="120" cy="120" r="78" style="stroke:var(--r-green)" /><circle cx="120" cy="120" r="90" style="stroke:var(--r-purple)" /><circle cx="120" cy="120" r="102" style="stroke:var(--r-orange)" /><circle cx="120" cy="120" r="114" style="stroke:var(--r-red)" /></g></svg>
         <div class="custom-grid">
           <div class="k-copy">
             <h2 id="custom-title">Custom work</h2>
@@ -487,16 +535,16 @@
           </div>
 
           <figure class="photo k-doom">
-            <img src="assets/photos/custom-doom-set-1600.jpg"
+            <span class="frame"><img src="assets/photos/custom-doom-set-1600.jpg"
                  srcset="assets/photos/custom-doom-set-800.jpg 800w, assets/photos/custom-doom-set-1600.jpg 1600w"
                  sizes="(max-width: 960px) 100vw, 50vw" width="1600" height="1268" loading="lazy"
-                 alt="Three matching coasters with the DOOM game cover art and green glitter rims, on a white marble-look surface.">
+                 alt="Three matching coasters with the DOOM game cover art and green glitter rims, on a white marble-look surface."></span>
             <figcaption class="cap">Custom set &middot; DOOM</figcaption>
           </figure>
 
           <figure class="photo k-db">
-            <img src="assets/photos/custom-dragon-ball-lamplit-795.jpg" width="795" height="697" loading="lazy"
-                 alt="A square resin piece with a purple-and-blue glitter rim, holding Dragon Ball Z art, lit by a single lamp in a dark room.">
+            <span class="frame b"><img src="assets/photos/custom-dragon-ball-lamplit-795.jpg" width="795" height="697" loading="lazy"
+                 alt="A square resin piece with a purple-and-blue glitter rim, holding Dragon Ball Z art, lit by a single lamp in a dark room."></span>
             <figcaption class="cap">Custom piece &middot; Dragon Ball Z</figcaption>
           </figure>
         </div>
@@ -525,6 +573,7 @@
     </section>
   </main>
 
+  <div class="wrap wave-row" aria-hidden="true"><svg class="wave" viewBox="0 0 1200 48" preserveAspectRatio="none"><g fill="none" stroke-width="2" vector-effect="non-scaling-stroke" opacity=".8"><polyline vector-effect="non-scaling-stroke" points="0,12.0 20,14.2 40,16.1 60,17.7 80,18.7 100,19.0 120,18.7 140,17.7 160,16.1 180,14.2 200,12.0 220,9.8 240,7.9 260,6.3 280,5.3 300,5.0 320,5.3 340,6.3 360,7.9 380,9.8 400,12.0 420,14.2 440,16.1 460,17.7 480,18.7 500,19.0 520,18.7 540,17.7 560,16.1 580,14.2 600,12.0 620,9.8 640,7.9 660,6.3 680,5.3 700,5.0 720,5.3 740,6.3 760,7.9 780,9.8 800,12.0 820,14.2 840,16.1 860,17.7 880,18.7 900,19.0 920,18.7 940,17.7 960,16.1 980,14.2 1000,12.0 1020,9.8 1040,7.9 1060,6.3 1080,5.3 1100,5.0 1120,5.3 1140,6.3 1160,7.9 1180,9.8 1200,12.0" style="stroke:var(--r-magenta)" /><polyline vector-effect="non-scaling-stroke" points="0,25.5 20,26.6 40,27.0 60,26.7 80,25.8 100,24.4 120,22.4 140,20.3 160,18.1 180,16.1 200,14.5 220,13.4 240,13.0 260,13.3 280,14.2 300,15.6 320,17.6 340,19.7 360,21.9 380,23.9 400,25.5 420,26.6 440,27.0 460,26.7 480,25.8 500,24.4 520,22.4 540,20.3 560,18.1 580,16.1 600,14.5 620,13.4 640,13.0 660,13.3 680,14.2 700,15.6 720,17.6 740,19.7 760,21.9 780,23.9 800,25.5 820,26.6 840,27.0 860,26.7 880,25.8 900,24.4 920,22.4 940,20.3 960,18.1 980,16.1 1000,14.5 1020,13.4 1040,13.0 1060,13.3 1080,14.2 1100,15.6 1120,17.6 1140,19.7 1160,21.9 1180,23.9 1200,25.5" style="stroke:var(--r-gold)" /><polyline vector-effect="non-scaling-stroke" points="0,34.8 20,34.0 40,32.6 60,30.7 80,28.6 100,26.4 120,24.4 140,22.7 160,21.6 180,21.0 200,21.2 220,22.0 240,23.4 260,25.3 280,27.4 300,29.6 320,31.6 340,33.3 360,34.4 380,35.0 400,34.8 420,34.0 440,32.6 460,30.7 480,28.6 500,26.4 520,24.4 540,22.7 560,21.6 580,21.0 600,21.2 620,22.0 640,23.4 660,25.3 680,27.4 700,29.6 720,31.6 740,33.3 760,34.4 780,35.0 800,34.8 820,34.0 840,32.6 860,30.7 880,28.6 900,26.4 920,24.4 940,22.7 960,21.6 980,21.0 1000,21.2 1020,22.0 1040,23.4 1060,25.3 1080,27.4 1100,29.6 1120,31.6 1140,33.3 1160,34.4 1180,35.0 1200,34.8" style="stroke:var(--r-teal)" /><polyline vector-effect="non-scaling-stroke" points="0,39.0 20,36.9 40,34.7 60,32.6 80,30.9 100,29.7 120,29.1 140,29.1 160,29.9 180,31.2 200,33.0 220,35.1 240,37.3 260,39.4 280,41.1 300,42.3 320,42.9 340,42.9 360,42.1 380,40.8 400,39.0 420,36.9 440,34.7 460,32.6 480,30.9 500,29.7 520,29.1 540,29.1 560,29.9 580,31.2 600,33.0 620,35.1 640,37.3 660,39.4 680,41.1 700,42.3 720,42.9 740,42.9 760,42.1 780,40.8 800,39.0 820,36.9 840,34.7 860,32.6 880,30.9 900,29.7 920,29.1 940,29.1 960,29.9 980,31.2 1000,33.0 1020,35.1 1040,37.3 1060,39.4 1080,41.1 1100,42.3 1120,42.9 1140,42.9 1160,42.1 1180,40.8 1200,39.0" style="stroke:var(--r-purple)" /></g></svg></div>
   <footer class="site-footer">
     <div class="wrap">
       <div>
