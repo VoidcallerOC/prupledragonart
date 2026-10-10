@@ -1,32 +1,55 @@
 # Purple Dragon Artwork — homepage concept
 
-Concept redesign for Forge-CT's client Purple Dragon Artwork ([@purpledragonartwork](https://www.instagram.com/purpledragonartwork/)). **Preview only. Not published or deployed.**
+Concept redesign for Forge-CT's client Purple Dragon Artwork ([@purpledragonartwork](https://www.instagram.com/purpledragonartwork/)).
 
 ## Preview
 
-Open `index.html` in a browser. It's a single static page; only the Google Fonts load from the network.
+Serve the folder and open `index.html`, for example `python3 -m http.server` and then http://localhost:8000. The page is static and loads nothing from other hosts.
+
+## Type
+
+All fonts are packaged in `assets/fonts/`: latin woff2 files from `@fontsource` 5.3.0, under the SIL Open Font License (licences included).
+
+| Use | Font | Weights |
+|---|---|---|
+| Headings, nav, buttons | Barlow Condensed | 700, 800 |
+| Body, captions | Barlow | 400, 400 italic, 600 |
+| Item numbers, source lines only | IBM Plex Mono | 500 |
+
+`font-synthesis: none` is set, so the browser never fakes a bold or italic. Chrome DevTools platform-font checks confirm each text style renders in its webfont, with no system fallback.
 
 ## Photos
 
-Every image is the artist's own photo, downloaded from their public Instagram posts into `assets/photos/` (no hotlinking). `assets/photos/manifest.json` records, for each file, the source post URL, the carousel item, the post date, the original pixel size, and any crop.
+Every image is the artist's own: a photo from a public Instagram post, or a still from one of the artist's Reels. All are saved locally in `assets/photos/` (no hotlinking).
+
+`assets/photos/manifest.json` records, for each file:
+- the source post or Reel URL
+- the carousel item, or the time in the video for Reel stills
+- the post date
+- the original pixel size
+- any crop
+
+Crops only remove things the page must not show:
+- price overlays
+- printed or burned-in hours
+- handwritten sales tallies
+- burned-in Reel titles
+- one coaster with profanity, and a cannabis-leaf coaster
+
+Left out entirely:
+- photos showing a price sign, the shop's licence certificate, an email address, private people's faces, or profanity that couldn't be cropped
+- Reels with hours on every frame
 
 Assets live in `assets/`, not `public/`, on purpose: with Vercel's "Other" preset, a `public/` folder becomes the site root and would hide `index.html`.
 
-Crops were made only to remove things the page must not show:
-- Instagram text overlays with prices ("$50 order")
-- Printed pop-up hours on tag cards
-- The artist's handwritten sales tallies
-- One coaster with profanity, and a cannabis-leaf coaster
-- An email address on a tag card (that photo was left out entirely)
+## Copy rules
 
-Photos with printed hours that couldn't be cropped out (Frozen set, HiO #195 Korn) or with schedule text on the image (two Reel covers) are not used.
+- Quotes come word for word from the artist's captions, bio and tag cards, with emoji removed. One quote drops a doubled word from the original ("Anything thing you can screenshot…").
+- Hole in One numbers and "Sold" come from the artist's posts.
+- No prices, shipping, turnaround times, reviews, contact details other than Instagram, or pop-up days and hours.
 
 ## Gaps
 
-- **Logan piece:** not in any of the 12 posts visible on the public profile. Not shown.
-- **Fine Fettle pop-up display:** no retrievable photo of the display itself. The "In person" section uses a custom-order photo of the coaster-covered table from a post that tags Fine Fettle, captioned without claiming where it was taken.
-- **Highlights and older posts** need a logged-in session and weren't retrieved.
-
-## Content rules followed
-
-No prices, shipping, turnaround times, reviews, contact details other than Instagram, or pop-up days and hours. Hole in One numbers and "Sold" tags come from the artist's own posts. Handwritten quotes are taken verbatim from the artist's captions and tag cards.
+- **Logan piece:** not found in any public post or search result.
+- **Unavailable on Instagram:** two posts returned "Post isn't available": DZBU8XQk5UZ (Wu-Tang designs) and DZWK6wLxKoK (a Reel).
+- **Not checked:** Highlights and most of the ~2,770 posts need a logged-in session.

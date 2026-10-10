@@ -4,30 +4,33 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Purple Dragon Artwork</title>
-  <meta name="description" content="Handmade epoxy resin coasters, ashtrays, Hole in One pieces, and custom work by Purple Dragon Artwork (@purpledragonartwork).">
+  <meta name="description" content="Handmade resin coasters, ashtrays, cupholders, and custom pieces by Purple Dragon Artwork (@purpledragonartwork).">
   <meta name="robots" content="noindex">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500;1,9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/barlow-condensed-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <style>
+    /* Fonts are packaged in assets/fonts (OFL, from @fontsource 5.3.0). */
+    @font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("assets/fonts/barlow-condensed-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Barlow Condensed"; font-style: normal; font-weight: 800; font-display: swap; src: url("assets/fonts/barlow-condensed-latin-800-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Barlow"; font-style: normal; font-weight: 400; font-display: swap; src: url("assets/fonts/barlow-latin-400-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Barlow"; font-style: italic; font-weight: 400; font-display: swap; src: url("assets/fonts/barlow-latin-400-italic.woff2") format("woff2"); }
+    @font-face { font-family: "Barlow"; font-style: normal; font-weight: 600; font-display: swap; src: url("assets/fonts/barlow-latin-600-normal.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("assets/fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2"); }
+
     :root {
       --char: #16130f;
       --char-2: #1e1913;
-      --wood: #2a1d13;
-      --wood-2: #3b2818;
       --olive: #2f321d;
-      --olive-2: #444828;
       --rust: #b4552f;
       --amber: #e9a84c;
       --amber-soft: #f4cb8b;
       --cream: #f1e6d0;
-      --cream-dim: #c9bba0;
-      --smoke: rgba(20, 17, 13, .72);
+      --cream-dim: #cbbea4;
+      --muted: #a1957f;
       --line: rgba(241, 230, 208, .16);
-      --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
-      --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+      --head: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+      --body: "Barlow", "Helvetica Neue", Arial, sans-serif;
       --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
-      --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
       --gutter: clamp(16px, 4vw, 56px);
       --max: 1320px;
     }
@@ -40,223 +43,196 @@
       margin: 0;
       color: var(--cream);
       background-color: var(--char);
-      /* warm lamp light falling across dark wood */
+      /* warm lamp light over dark wood */
       background-image:
-        radial-gradient(80vw 46vw at 82% -6%, rgba(233, 168, 76, .17), transparent 62%),
-        radial-gradient(60vw 60vw at -14% 48%, rgba(180, 85, 47, .10), transparent 60%),
+        radial-gradient(80vw 46vw at 82% -6%, rgba(233, 168, 76, .16), transparent 62%),
+        radial-gradient(60vw 60vw at -14% 48%, rgba(180, 85, 47, .09), transparent 60%),
         repeating-linear-gradient(91deg, rgba(59, 40, 24, .20) 0 2px, transparent 2px 11px, rgba(42, 29, 19, .22) 11px 12px, transparent 12px 27px),
         linear-gradient(180deg, var(--char-2), var(--char));
-      font: 400 1.0625rem/1.65 var(--sans);
+      font: 400 1.125rem/1.6 var(--body);
+      font-synthesis: none;
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
     img { display: block; max-width: 100%; height: auto; }
     a { color: inherit; }
-    p { margin: 0; }
-    h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 600; line-height: .98; letter-spacing: -0.015em; }
+    p, figure { margin: 0; }
+    h1, h2, h3 {
+      margin: 0; font-family: var(--head); font-weight: 800;
+      text-transform: uppercase; line-height: .9; letter-spacing: .005em;
+    }
     :focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 
     .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-
     .skip { position: absolute; left: 12px; top: -80px; z-index: 50; background: var(--amber); color: var(--char); padding: 10px 14px; font-weight: 600; }
     .skip:focus { top: 12px; }
 
-    /* ---------- small shared pieces ---------- */
-    .kicker { font: 500 .75rem/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
-    .hand { font-family: var(--hand); font-weight: 600; color: var(--amber-soft); line-height: 1.05; }
+    /* ---------- type pieces ---------- */
+    .eyebrow { font: 600 .9rem/1.3 var(--body); letter-spacing: .08em; text-transform: uppercase; color: var(--amber); }
+    .no { font: 500 .78rem/1 var(--mono); letter-spacing: .04em; color: var(--amber); white-space: nowrap; }
+    .quote { font-style: italic; color: var(--cream); }
+    .sold { font: 700 .82rem/1 var(--head); letter-spacing: .1em; text-transform: uppercase; color: var(--amber); }
 
     .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: .5em;
-      padding: 15px 22px; min-height: 48px;
-      font: 600 .98rem/1.1 var(--sans); letter-spacing: .01em; text-decoration: none;
-      border: 1.5px solid var(--cream); color: var(--cream); background: transparent;
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 50px; padding: 13px 22px;
+      font: 700 1.15rem/1 var(--head); letter-spacing: .06em; text-transform: uppercase; text-decoration: none;
+      border: 2px solid var(--cream); color: var(--cream); background: transparent;
       transition: background-color .15s ease, color .15s ease, border-color .15s ease;
     }
     .btn:hover { background: var(--cream); color: var(--char); }
     .btn-amber { background: var(--amber); border-color: var(--amber); color: var(--char); }
     .btn-amber:hover { background: var(--amber-soft); border-color: var(--amber-soft); }
-    .ext::after { content: "\2197"; font-weight: 500; }
 
-    /* framed print */
-    .print { margin: 0; position: relative; }
-    .print img {
-      width: 100%; object-fit: cover;
-      box-shadow: 0 1px 0 rgba(241, 230, 208, .08), 0 24px 50px -22px rgba(0, 0, 0, .85);
-    }
-
-    /* gallery wall label */
+    /* photos and captions */
+    .photo img { width: 100%; object-fit: cover; box-shadow: 0 26px 52px -26px rgba(0, 0, 0, .9); }
+    .cap { margin-top: 14px; max-width: 46ch; font-size: 1rem; line-height: 1.5; color: var(--cream-dim); }
+    .cap .no { margin-right: 8px; }
+    /* gallery wall label, used for numbered pieces */
     .label {
-      background: var(--cream); color: #2a2219;
-      padding: 10px 13px 11px; max-width: 250px;
-      font: 400 .76rem/1.45 var(--mono);
-      box-shadow: 0 10px 22px -12px rgba(0, 0, 0, .7);
+      background: var(--cream); color: #241d15; padding: 11px 14px 12px; max-width: 280px;
+      font-size: .98rem; line-height: 1.4; box-shadow: 0 12px 24px -14px rgba(0, 0, 0, .8);
     }
-    .label b { display: block; font: 600 italic 1rem/1.2 var(--serif); letter-spacing: 0; margin-bottom: 3px; color: #1c1611; }
-    .label .tag { display: inline-block; margin-top: 5px; padding: 1px 6px; background: var(--rust); color: var(--cream); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
-    figcaption.label { margin-top: 12px; }
+    .label .no { display: block; color: var(--rust); margin-bottom: 5px; }
+    .label .sold { color: var(--rust); }
 
     /* ---------- header ---------- */
     .site-header { border-bottom: 1px solid var(--line); }
-    .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 28px; padding-top: 16px; padding-bottom: 16px; }
-    .brand { text-decoration: none; display: flex; flex-direction: column; }
-    .brand-name { font: 700 italic 1.3rem/1 var(--serif); letter-spacing: -0.01em; }
-    .brand-handle { font: 400 .72rem/1.4 var(--mono); color: var(--cream-dim); letter-spacing: .06em; margin-top: 4px; }
+    .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 32px; padding-top: 16px; padding-bottom: 16px; }
+    .brand { text-decoration: none; font: 800 1.6rem/1 var(--head); text-transform: uppercase; letter-spacing: .01em; }
     .nav { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 0; padding: 0; list-style: none; }
-    .nav a { display: inline-block; padding: 6px 0; text-decoration: none; font-weight: 500; font-size: .95rem; border-bottom: 1px solid transparent; }
-    .nav a:hover { border-bottom-color: var(--amber); color: var(--amber-soft); }
-    .nav .ext { color: var(--amber); }
+    .nav a { display: inline-block; padding: 6px 0; text-decoration: none; font: 700 1.05rem/1 var(--head); letter-spacing: .06em; text-transform: uppercase; border-bottom: 2px solid transparent; }
+    .nav a:hover { border-bottom-color: var(--amber); }
+    .nav .ig { color: var(--amber); }
 
     /* ---------- hero ---------- */
-    .hero { padding: clamp(36px, 6vw, 80px) 0 clamp(56px, 7vw, 96px); }
-    .hero-top { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px clamp(28px, 5vw, 72px); align-items: end; }
-    .hero h1 { font-size: clamp(2.9rem, 8.2vw, 7.2rem); font-weight: 600; }
-    .hero h1 em { font-style: italic; font-weight: 500; color: var(--amber); }
-    .hero-attrib { margin-top: 14px; font-size: 1.55rem; }
-    .hero-side p { color: var(--cream-dim); font-size: 1.1rem; max-width: 38ch; }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-
-    .hero-shot { position: relative; margin-top: clamp(32px, 5vw, 56px); }
+    .hero { padding: clamp(40px, 6vw, 84px) 0 clamp(64px, 8vw, 112px); }
+    .hero-top { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px clamp(28px, 5vw, 72px); align-items: end; }
+    .hero h1 { font-size: clamp(3.6rem, 10.5vw, 9.4rem); margin-top: 14px; }
+    .hero h1 .art { color: var(--amber); }
+    .hero .source { margin-top: 14px; font-size: .95rem; color: var(--muted); }
+    .hero-side p { color: var(--cream-dim); font-size: 1.2rem; max-width: 34ch; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
+    .hero-shot { position: relative; margin-top: clamp(36px, 5vw, 60px); }
     .hero-shot img { aspect-ratio: 1600 / 600; }
-    .hero-shot .label { position: absolute; right: clamp(12px, 3vw, 36px); bottom: -34px; }
-    .hero-shot .note { position: absolute; left: clamp(10px, 3vw, 40px); top: -46px; font-size: 1.7rem; transform: rotate(-4deg); display: flex; align-items: flex-end; gap: 6px; }
-    .note svg { width: 46px; height: 40px; flex: none; stroke: var(--amber-soft); fill: none; stroke-width: 2; stroke-linecap: round; }
+    .hero-shot .label { position: absolute; right: clamp(12px, 3vw, 36px); bottom: -36px; }
 
-    /* ---------- section heads ---------- */
+    /* ---------- sections ---------- */
     section { scroll-margin-top: 16px; }
-    .section { padding: clamp(72px, 9vw, 128px) 0; }
-    .head { display: grid; grid-template-columns: auto 1fr; gap: 10px 32px; align-items: end; margin-bottom: clamp(32px, 4vw, 56px); }
-    .head h2 { font-size: clamp(2.4rem, 5.6vw, 4.6rem); grid-column: 1; }
-    .head .kicker { grid-column: 1; grid-row: 1; }
-    .head p:not(.kicker) { grid-column: 2; grid-row: 2; justify-self: end; max-width: 40ch; color: var(--cream-dim); }
+    .section { padding: clamp(84px, 10vw, 150px) 0; }
+    .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px clamp(28px, 5vw, 72px); align-items: end; margin-bottom: clamp(40px, 5vw, 72px); }
+    .head h2 { font-size: clamp(3rem, 7.4vw, 6.4rem); }
+    .head p { color: var(--cream-dim); max-width: 44ch; }
+    .grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2.4vw, 36px); row-gap: clamp(56px, 7vw, 100px); align-items: start; }
 
-    /* ---------- the work: asymmetric gallery ---------- */
-    .gallery {
-      display: grid; grid-template-columns: repeat(12, 1fr);
-      column-gap: clamp(14px, 2vw, 28px); row-gap: clamp(40px, 5vw, 72px);
-      align-items: start;
-    }
-    .g-order   { grid-column: 1 / span 5; }
-    .g-order img { aspect-ratio: 1229 / 1536; }
-    .g-who     { grid-column: 7 / span 6; margin-top: clamp(40px, 8vw, 120px); }
-    .g-who img { aspect-ratio: 4 / 3; }
-    .g-cup     { grid-column: 2 / span 5; }
-    .g-cup img { aspect-ratio: 4 / 3; }
-    .g-cupd    { grid-column: 8 / span 3; margin-top: clamp(30px, 6vw, 90px); }
-    .g-cupd img { aspect-ratio: 3 / 4; object-position: 52% 60%; }
-    .g-bowie   { grid-column: 1 / span 8; }
-    .g-bowie img { aspect-ratio: 16 / 10; object-position: 40% 55%; }
-    .g-wall    { grid-column: 9 / span 4; align-self: end; padding-bottom: 8px; }
-    .g-wall p { color: var(--cream-dim); }
-    .g-wall p + p { margin-top: 14px; }
-    .g-wall a { color: var(--amber-soft); text-underline-offset: 4px; }
+    /* the work */
+    .w-order { grid-column: 1 / span 5; }
+    .w-order img { aspect-ratio: 1229 / 1536; }
+    .w-who   { grid-column: 7 / span 6; margin-top: clamp(40px, 9vw, 140px); }
+    .w-who img { aspect-ratio: 4 / 3; }
+    .w-cup   { grid-column: 2 / span 5; }
+    .w-cup img { aspect-ratio: 4 / 3; }
+    .w-cupd  { grid-column: 8 / span 4; margin-top: clamp(30px, 6vw, 100px); }
+    .w-cupd img { aspect-ratio: 4 / 5; object-position: 52% 60%; }
+    .w-bowie { grid-column: 1 / span 7; }
+    .w-bowie img { aspect-ratio: 16 / 10; object-position: 40% 55%; }
+    .w-cure  { grid-column: 9 / span 4; margin-top: clamp(30px, 8vw, 120px); }
+    .w-cure img { aspect-ratio: 4 / 5; object-position: 55% 50%; }
 
-    .with-note { position: relative; }
-    .with-note .hand { position: absolute; font-size: 1.6rem; max-width: 15ch; }
-    .g-order .hand { right: -28px; top: -40px; transform: rotate(5deg); text-align: right; }
-    .g-cup .hand { left: -6px; top: -42px; transform: rotate(-4deg); }
-    .tilt-r { transform: rotate(1.2deg); }
-    .tilt-l { transform: rotate(-1deg); }
+    /* up close */
+    .closeup { background: rgba(0, 0, 0, .28); border-block: 1px solid var(--line); }
+    .c-plain { grid-column: 1 / span 6; }
+    .c-plain img { aspect-ratio: 2048 / 1836; }
+    .c-rim   { grid-column: 8 / span 4; margin-top: clamp(20px, 5vw, 80px); }
+    .c-rim img { aspect-ratio: 1; }
+    .c-edge  { grid-column: 2 / span 4; }
+    .c-edge img { aspect-ratio: 861 / 737; }
+    .c-hole  { grid-column: 7 / span 3; margin-top: clamp(20px, 4vw, 60px); }
+    .c-hole img { aspect-ratio: 1; }
+    .c-led   { grid-column: 10 / span 3; }
+    .c-led img { aspect-ratio: 1; }
+    .c-tiger { grid-column: 1 / span 5; }
+    .c-tiger img { aspect-ratio: 4 / 3; }
+    .c-dog   { grid-column: 7 / span 5; margin-top: clamp(30px, 6vw, 90px); }
+    .c-dog img { aspect-ratio: 4 / 3; }
+    .c-glow  { grid-column: 3 / span 8; }
+    .c-glow img { aspect-ratio: 720 / 243; max-width: 720px; }
 
-    /* ---------- hole in one ---------- */
-    .hio {
-      background:
-        radial-gradient(60vw 40vw at 15% 0%, rgba(233, 168, 76, .12), transparent 60%),
-        repeating-linear-gradient(0deg, rgba(0, 0, 0, .10) 0 1px, transparent 1px 4px),
-        var(--olive);
-      border-block: 1px solid rgba(0, 0, 0, .4);
-    }
-    .hio-grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: clamp(14px, 2vw, 28px); row-gap: 40px; align-items: start; }
-    .hio-intro { grid-column: 1 / span 4; position: sticky; top: 24px; }
-    .hio-intro h2 { font-size: clamp(2.8rem, 6vw, 5.2rem); margin: 10px 0 18px; }
-    .hio-intro h2 em { font-style: italic; color: var(--amber); font-weight: 500; }
-    .hio-intro p { color: #d9cfb8; max-width: 34ch; }
-    .hio-intro .hand { font-size: 1.75rem; margin-top: 22px; display: block; transform: rotate(-3deg); }
-    .hio-intro .btn { margin-top: 28px; }
+    /* hole in one */
+    .hio { background: radial-gradient(60vw 40vw at 15% 0%, rgba(233, 168, 76, .10), transparent 60%), var(--olive); border-block: 1px solid rgba(0, 0, 0, .4); }
+    .hio-intro { grid-column: 1 / span 4; position: sticky; top: 28px; }
+    .hio-intro h2 { font-size: clamp(3.2rem, 7vw, 6.4rem); margin: 0 0 22px; }
+    .hio-intro p { color: #ddd3bd; max-width: 34ch; }
+    .hio-intro p + p { margin-top: 14px; }
+    .hio-intro .btn { margin-top: 30px; }
     .h-wu { grid-column: 6 / span 7; }
     .h-wu img { aspect-ratio: 1311 / 1076; }
-    .h-sc { grid-column: 5 / span 5; margin-top: clamp(0px, 2vw, 24px); }
+    .h-sc { grid-column: 6 / span 5; }
     .h-sc img { aspect-ratio: 1434 / 1183; }
-    .h-num {
-      grid-column: 10 / span 3; align-self: center;
-      font: 500 italic clamp(4rem, 9vw, 8rem)/.9 var(--serif); color: rgba(241, 230, 208, .14);
-      text-align: right; letter-spacing: -0.04em; user-select: none;
-    }
+    .h-wu .label, .h-sc .label { margin-top: 14px; }
 
-    /* ---------- custom ---------- */
-    .custom-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(36px, 6vw, 96px); align-items: center; }
-    .custom-photo { position: relative; padding: clamp(14px, 2vw, 22px); background: #0f0d0a; border: 1px solid var(--line); }
-    .custom-photo img { aspect-ratio: 795 / 697; }
-    .custom-photo .hand { position: absolute; right: -18px; bottom: -30px; font-size: 1.75rem; transform: rotate(-5deg); }
-    .custom-copy h2 { font-size: clamp(2.4rem, 5vw, 4.2rem); margin: 12px 0 22px; }
-    .custom-copy h2 em { font-style: italic; color: var(--amber); font-weight: 500; }
-    .custom-copy p { color: var(--cream-dim); max-width: 44ch; font-size: 1.08rem; }
-    .custom-copy p + p { margin-top: 14px; }
-    .custom-copy .fine { font: 400 .82rem/1.5 var(--mono); color: var(--cream-dim); border-left: 2px solid var(--rust); padding-left: 12px; margin-top: 22px; }
-    .custom-copy .btn { margin-top: 28px; }
+    /* process */
+    .proc-quote { font-size: clamp(1.35rem, 2.4vw, 1.9rem); line-height: 1.35; max-width: 30ch; }
+    .proc-quote cite { display: block; margin-top: 12px; font: 500 .8rem/1.3 var(--mono); font-style: normal; color: var(--muted); }
+    .p-torch { grid-column: 1 / span 7; }
+    .p-torch img { aspect-ratio: 1265 / 1129; }
+    .p-shelf { grid-column: 9 / span 4; margin-top: clamp(40px, 8vw, 130px); }
+    .p-shelf img { aspect-ratio: 1536 / 1920; }
+    .p-prints { grid-column: 3 / span 6; }
+    .p-prints img { aspect-ratio: 2048 / 1658; }
 
-    /* ---------- in person ---------- */
-    .visit-stage { position: relative; }
-    .visit-stage img { aspect-ratio: 16 / 9; object-position: 50% 45%; }
-    .visit-panel {
-      position: absolute; right: clamp(16px, 4vw, 56px); bottom: clamp(16px, 4vw, 56px);
-      width: min(440px, 46%);
-      background: var(--smoke);
-      -webkit-backdrop-filter: blur(10px) saturate(1.1); backdrop-filter: blur(10px) saturate(1.1);
-      border: 1px solid rgba(241, 230, 208, .2);
-      padding: clamp(20px, 2.6vw, 32px);
-    }
-    .visit-panel h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); margin: 10px 0 14px; }
-    .visit-panel .place { font: 600 italic 1.35rem/1.2 var(--serif); color: var(--amber-soft); }
-    .visit-panel p { color: #e3d8c2; }
-    .visit-panel p + p { margin-top: 10px; }
-    .visit-panel .btn { margin-top: 20px; }
-    .visit-stage .label { position: absolute; left: clamp(16px, 4vw, 56px); top: clamp(16px, 3vw, 36px); }
-    .visit-quote { margin-top: 20px; font-size: 1.7rem; transform: rotate(-2deg); display: inline-block; }
+    /* custom */
+    .custom-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(16px, 2.4vw, 36px); row-gap: 56px; align-items: start; }
+    .k-copy { grid-column: 1 / span 5; }
+    .k-copy h2 { font-size: clamp(3rem, 7vw, 6rem); margin-bottom: 22px; }
+    .k-copy p { color: var(--cream-dim); max-width: 40ch; }
+    .k-copy p + p { margin-top: 14px; }
+    .k-copy .quote { font-size: 1.35rem; line-height: 1.35; color: var(--cream); }
+    .k-copy .btn { margin-top: 30px; }
+    .k-doom { grid-column: 7 / span 6; }
+    .k-doom img { aspect-ratio: 2048 / 1623; }
+    .k-db { grid-column: 8 / span 4; }
+    .k-db img { aspect-ratio: 795 / 697; }
 
-    /* ---------- footer ---------- */
+    /* fine fettle */
+    .ff-strip img { aspect-ratio: 1280 / 263; }
+    .ff-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: end; margin-top: clamp(28px, 4vw, 48px); }
+    .ff-row h2 { font-size: clamp(3rem, 7.4vw, 6.4rem); }
+    .ff-row p { color: var(--cream-dim); margin-top: 16px; max-width: 46ch; }
+
+    /* footer */
     .site-footer { border-top: 1px solid var(--line); padding: 56px 0 40px; background: rgba(0, 0, 0, .25); }
     .site-footer .wrap { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; }
-    .foot-name { font: 700 italic clamp(1.8rem, 4vw, 2.8rem)/1 var(--serif); }
-    .foot-line { margin-top: 8px; color: var(--cream-dim); }
-    .site-footer .credit { width: 100%; font: 400 .75rem/1.5 var(--mono); color: #9d917b; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 8px; }
+    .foot-name { font: 800 clamp(2.2rem, 5vw, 3.6rem)/.9 var(--head); text-transform: uppercase; }
+    .foot-line { margin-top: 10px; color: var(--cream-dim); }
+    .credit { width: 100%; font-size: .9rem; color: var(--muted); border-top: 1px solid var(--line); padding-top: 18px; margin-top: 8px; }
 
     /* ---------- responsive ---------- */
     @media (max-width: 960px) {
-      .hero-top { grid-template-columns: 1fr; }
-      .head { grid-template-columns: 1fr; }
-      .head p:not(.kicker) { grid-column: 1; grid-row: auto; justify-self: start; }
+      .hero-top, .head { grid-template-columns: 1fr; }
       .hio-intro { grid-column: 1 / -1; position: static; }
-      .h-wu { grid-column: 1 / -1; }
-      .h-sc { grid-column: 1 / span 8; margin-top: 0; }
-      .h-num { grid-column: 9 / span 4; }
-      .custom-grid { grid-template-columns: 1fr; }
-      .custom-photo { max-width: 620px; }
-      .visit-panel { position: static; width: auto; margin: -48px clamp(12px, 4vw, 40px) 0; position: relative; }
+      .h-wu, .h-sc { grid-column: 1 / -1; }
+      .k-copy, .k-doom { grid-column: 1 / -1; }
+      .k-db { grid-column: 3 / span 8; }
+      .ff-row { grid-template-columns: 1fr; }
     }
     @media (max-width: 720px) {
+      body { font-size: 1.0625rem; }
       .site-header .wrap { flex-direction: column; align-items: flex-start; }
       .nav { gap: 2px 18px; }
-      .hero-shot { margin-top: 64px; }
       .hero-shot img { aspect-ratio: 4 / 3; object-position: 22% 50%; }
-      .hero-shot .label { position: static; margin: -28px 12px 0 auto; position: relative; }
-      .hero-shot .note { top: -44px; font-size: 1.5rem; }
+      .hero-shot .label { position: relative; right: auto; bottom: auto; margin: -28px 12px 0 auto; }
       .hero-ctas .btn { flex: 1 1 100%; }
-      .gallery { grid-template-columns: repeat(6, 1fr); row-gap: 48px; }
-      .g-order { grid-column: 1 / span 5; }
-      .g-who { grid-column: 2 / span 5; margin-top: 0; }
-      .g-cup { grid-column: 1 / -1; }
-      .g-cupd { grid-column: 3 / span 4; margin-top: -8px; }
-      .g-bowie { grid-column: 1 / -1; }
-      .g-wall { grid-column: 1 / -1; }
-      .with-note .hand { position: static; display: block; max-width: none; margin: 0 0 10px; font-size: 1.45rem; transform: rotate(-2deg); text-align: left; }
-      .h-sc { grid-column: 1 / -1; }
-      .h-num { display: none; }
-      .custom-photo .hand { position: static; display: block; margin-top: 14px; font-size: 1.5rem; transform: rotate(-2deg); }
-      .visit-stage img { aspect-ratio: 4 / 3; }
-      .visit-stage .label { position: static; margin-top: 12px; }
-      .visit-panel { margin: 16px 0 0; }
-      .tilt-r, .tilt-l { transform: none; }
+      .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 56px; }
+      .w-order, .w-cup, .w-bowie, .c-plain, .c-tiger, .c-glow, .p-torch, .p-prints { grid-column: 1 / -1; margin-top: 0; }
+      .w-who, .w-cure, .c-dog, .p-shelf { grid-column: 2 / -1; margin-top: 0; }
+      .w-cupd, .c-rim { grid-column: 1 / span 5; margin-top: 0; }
+      .c-edge { grid-column: 1 / -1; }
+      .c-hole { grid-column: 1 / span 3; margin-top: 0; }
+      .c-led { grid-column: 4 / span 3; }
+      .k-db { grid-column: 1 / -1; }
+      .btn { width: 100%; }
       .label { max-width: 100%; }
     }
   </style>
@@ -266,17 +242,15 @@
 
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="#top">
-        <span class="brand-name">Purple Dragon Artwork</span>
-        <span class="brand-handle">@purpledragonartwork</span>
-      </a>
+      <a class="brand" href="#top">Purple Dragon Artwork</a>
       <nav aria-label="Main">
         <ul class="nav">
-          <li><a href="#work">The work</a></li>
+          <li><a href="#work">Work</a></li>
           <li><a href="#hio">Hole in One</a></li>
+          <li><a href="#process">Process</a></li>
           <li><a href="#custom">Custom</a></li>
-          <li><a href="#visit">In person</a></li>
-          <li><a class="ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Instagram </a></li>
+          <li><a href="#visit">Fine Fettle</a></li>
+          <li><a class="ig" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         </ul>
       </nav>
     </div>
@@ -288,34 +262,25 @@
       <div class="wrap">
         <div class="hero-top">
           <div>
-            <p class="kicker">Handmade epoxy resin</p>
-            <h1 id="hero-title" style="margin-top:14px">I make <em>Art</em> that sets me apart.</h1>
-            <p class="hand hero-attrib">&mdash; the artist, in caption after caption</p>
+            <p class="eyebrow">Handmade epoxy resin</p>
+            <h1 id="hero-title">I make <span class="art">Art</span> that sets me apart.</h1>
+            <p class="source">From the artist's Instagram bio.</p>
           </div>
           <div class="hero-side">
-            <p>Coasters, ashtrays, numbered Hole in One pieces, and custom work, glittered up and loaded with the bands, films, and anime people love. Every photo here comes straight from the artist's own posts.</p>
+            <p>Handmade resin coasters, ashtrays, cupholders, and custom pieces. Find the table inside Fine Fettle in Newington, or ask about a custom order on Instagram.</p>
             <div class="hero-ctas">
               <a class="btn btn-amber" href="#work">See the work</a>
-              <a class="btn ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Ask about a custom piece </a>
+              <a class="btn" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Ask about a custom order</a>
             </div>
           </div>
         </div>
 
-        <figure class="print hero-shot">
-          <span class="hand note" aria-hidden="true">
-            #191 &mdash; $old!!
-            <svg viewBox="0 0 46 40"><path d="M4 6 C 18 8, 30 16, 36 32"/><path d="M28 28 L36 33 L39 24"/></svg>
-          </span>
+        <figure class="photo hero-shot">
           <img src="assets/photos/hio-191-grateful-dead-1600.jpg"
                srcset="assets/photos/hio-191-grateful-dead-800.jpg 800w, assets/photos/hio-191-grateful-dead-1600.jpg 1600w"
-               sizes="(max-width: 1320px) 100vw, 1220px"
-               width="1600" height="600" fetchpriority="high"
+               sizes="(max-width: 1320px) 100vw, 1220px" width="1600" height="600" fetchpriority="high"
                alt="A red resin ashtray and a clear resin coaster, both printed with the Grateful Dead's red-and-blue lightning-bolt skull, on a table crowded with glitter-rimmed coasters.">
-          <figcaption class="label">
-            <b>Hole in One No. 191</b>
-            Grateful Dead, shown with a matching ashtray.
-            <span class="tag">Sold</span>
-          </figcaption>
+          <figcaption class="label"><span class="no">Hole in One No. 191</span>Grateful Dead, with a matching ashtray. <span class="sold">Sold</span></figcaption>
         </figure>
       </div>
     </section>
@@ -324,59 +289,126 @@
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="wrap">
         <div class="head">
-          <p class="kicker">01 &middot; The work</p>
-          <h2 id="work-title">Fresh off the table</h2>
-          <p>Coasters, light-up ashtrays, and cupholders, rimmed in glitter and sealed in resin. Photos straight from the artist's posts.</p>
+          <h2 id="work-title">The work</h2>
+          <p>Coasters, light-up ashtrays, and cupholders. Everything in this section was a custom order or has already sold. New pieces go up on Instagram.</p>
         </div>
 
-        <div class="gallery">
-          <figure class="print g-order with-note">
-            <span class="hand" aria-hidden="true">&ldquo;Orders are getting bigger and bigger!!!!&rdquo;</span>
+        <div class="grid">
+          <figure class="photo w-order">
             <img src="assets/photos/order-coasters-light-up-ashtray-1229.jpg"
                  srcset="assets/photos/order-coasters-light-up-ashtray-800.jpg 800w, assets/photos/order-coasters-light-up-ashtray-1229.jpg 1229w"
-                 sizes="(max-width: 720px) 85vw, 42vw" width="1229" height="1536" loading="lazy"
+                 sizes="(max-width: 720px) 100vw, 42vw" width="1229" height="1536" loading="lazy"
                  alt="A green light-up ashtray printed with Lilo and Stitch, glowing teal, on a pink bag beside a coaster of an alien on a red mushroom and a Venom coaster.">
-            <figcaption class="label"><b>One order</b>Four coasters and a light-up ashtray.</figcaption>
+            <figcaption class="cap">One order: four coasters and a light-up ashtray. <span class="quote">&ldquo;Orders are getting bigger and bigger!!!!&rdquo;</span></figcaption>
           </figure>
 
-          <figure class="print g-who tilt-r">
+          <figure class="photo w-who">
             <img src="assets/photos/the-who-light-up-ashtray-1600.jpg"
                  srcset="assets/photos/the-who-light-up-ashtray-800.jpg 800w, assets/photos/the-who-light-up-ashtray-1600.jpg 1600w"
                  sizes="(max-width: 720px) 85vw, 50vw" width="1600" height="1200" loading="lazy"
                  alt="A light-up ashtray glowing blue with The Who's target logo inside, on a pale blue order bag with the band's name written in marker.">
-            <figcaption class="label"><b>Light-up ashtray</b>Custom order, bagged and tagged.</figcaption>
+            <figcaption class="cap">Light-up ashtray, The Who. Custom order.</figcaption>
           </figure>
 
-          <figure class="print g-cup with-note">
-            <span class="hand" aria-hidden="true">&ldquo;I said I GOT YOU.&rdquo;</span>
+          <figure class="photo w-cup">
             <img src="assets/photos/cupholder-scarface-ashtray-1600.jpg"
                  srcset="assets/photos/cupholder-scarface-ashtray-800.jpg 800w, assets/photos/cupholder-scarface-ashtray-1600.jpg 1600w"
                  sizes="(max-width: 720px) 100vw, 42vw" width="1600" height="1200" loading="lazy"
                  alt="A red ashtray with Scarface art inside, sitting in a glittery orange cupholder in a car's center console.">
-            <figcaption class="label"><b>Cupholder + ashtray</b>Red, to match the Scarface. A customer flagged the artist down on the way out for this one.</figcaption>
+            <figcaption class="cap">Cupholder ashtray in red. The customer picked it to match her Scarface ashtray.</figcaption>
           </figure>
 
-          <figure class="print g-cupd tilt-l">
+          <figure class="photo w-cupd">
             <img src="assets/photos/cupholder-anime-print-800.jpg"
                  srcset="assets/photos/cupholder-anime-print-800.jpg 800w, assets/photos/cupholder-anime-print-1600.jpg 1600w"
-                 sizes="(max-width: 720px) 66vw, 25vw" width="800" height="600" loading="lazy"
+                 sizes="(max-width: 720px) 85vw, 33vw" width="800" height="600" loading="lazy"
                  alt="The red Scarface ashtray lifted off its cupholder, showing an anime print of a golden-haired fighter in the bottom of the cup.">
-            <figcaption class="label"><b>Lift the lid</b>Anime art at the bottom of the cup.</figcaption>
+            <figcaption class="cap">Under the ashtray: anime art in the bottom of the cupholder.</figcaption>
           </figure>
 
-          <figure class="print g-bowie">
+          <figure class="photo w-bowie">
             <img src="assets/photos/custom-bowie-pair-1600.jpg"
                  srcset="assets/photos/custom-bowie-pair-800.jpg 800w, assets/photos/custom-bowie-pair-1600.jpg 1600w"
-                 sizes="(max-width: 720px) 100vw, 66vw" width="1600" height="1200" loading="lazy"
+                 sizes="(max-width: 720px) 100vw, 58vw" width="1600" height="1200" loading="lazy"
                  alt="Two glitter-framed resin coasters of David Bowie on an order bag marked 'David Bowie,' laid over a table covered in more coasters.">
-            <figcaption class="label"><b>Custom pair</b>David Bowie, two ways. From the artist's &ldquo;Custom Orders Dump.&rdquo;</figcaption>
+            <figcaption class="cap">Custom pair, David Bowie.</figcaption>
           </figure>
 
-          <div class="g-wall">
-            <p class="kicker">Wall text</p>
-            <p style="margin-top:10px">Glitter rims, clear resin, and a band, a movie, or a cartoon somebody grew up on. Orders go out bagged and tagged.</p>
-            <p>New pieces show up on <a href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Instagram</a>, sometimes with a &ldquo;$old!!&rdquo; right behind them.</p>
-          </div>
+          <figure class="photo w-cure">
+            <img src="assets/photos/order-the-cure-table-800.jpg"
+                 srcset="assets/photos/order-the-cure-table-800.jpg 800w, assets/photos/order-the-cure-table-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 85vw, 33vw" width="800" height="600" loading="lazy"
+                 alt="Two glitter-framed coasters for The Cure, one showing the band under the title 'Happy the Man,' on a green order bag with a tag card, over a table covered in coasters.">
+            <figcaption class="cap">Custom order, The Cure, bagged with a tag card.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- UP CLOSE -->
+    <section class="section closeup" id="closeup" aria-labelledby="closeup-title">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="closeup-title">Up close</h2>
+          <p>Rims, edges, holes, and lights, cropped from the artist's own photos.</p>
+        </div>
+
+        <div class="grid">
+          <figure class="photo c-plain">
+            <img src="assets/photos/finish-plain-glitter-1600.jpg"
+                 srcset="assets/photos/finish-plain-glitter-800.jpg 800w, assets/photos/finish-plain-glitter-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 100vw, 50vw" width="1600" height="1434" loading="lazy"
+                 alt="Three square glitter resin coasters with raised rims and no printed image, in orange, red, and pink, against a white surface.">
+            <figcaption class="cap">Plain glitter coasters, no print. The artist's caption: <span class="quote">&ldquo;Orange be creative / Red be warey / Pink be loving.&rdquo;</span></figcaption>
+          </figure>
+
+          <figure class="photo c-rim">
+            <img src="assets/photos/detail-bowie-rim-615.jpg" width="615" height="583" loading="lazy"
+                 alt="Close-up of a coaster corner where pink and red glitter fills the raised resin rim around a David Bowie print.">
+            <figcaption class="cap">Glitter in the rim of the Bowie coaster.</figcaption>
+          </figure>
+
+          <figure class="photo c-edge">
+            <img src="assets/photos/detail-hio-191-edge-861.jpg"
+                 srcset="assets/photos/detail-hio-191-edge-800.jpg 800w, assets/photos/detail-hio-191-edge-861.jpg 861w"
+                 sizes="(max-width: 720px) 100vw, 33vw" width="861" height="737" loading="lazy"
+                 alt="Close-up of a clear resin coaster with a gold glitter edge and a round hole through the Grateful Dead skull print.">
+            <figcaption class="cap"><span class="no">No. 191</span>Clear resin, gold glitter edge, and the hole.</figcaption>
+          </figure>
+
+          <figure class="photo c-hole">
+            <img src="assets/photos/detail-hio-194-hole-615.jpg" width="615" height="584" loading="lazy"
+                 alt="Close-up of the round hole cut through the clear resin of the Wu-Tang coaster, showing the thickness of the resin.">
+            <figcaption class="cap"><span class="no">No. 194</span>The hole, cut through clear resin.</figcaption>
+          </figure>
+
+          <figure class="photo c-led">
+            <img src="assets/photos/detail-who-led-614.jpg" width="614" height="522" loading="lazy"
+                 alt="Close-up of a small LED attached at the rim of a light-up ashtray, glowing blue over The Who logo.">
+            <figcaption class="cap">The LED on a light-up ashtray.</figcaption>
+          </figure>
+
+          <figure class="photo c-tiger">
+            <img src="assets/photos/batch-tiger-clear-rim-1600.jpg"
+                 srcset="assets/photos/batch-tiger-clear-rim-800.jpg 800w, assets/photos/batch-tiger-clear-rim-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 100vw, 42vw" width="1600" height="1200" loading="lazy"
+                 alt="A hand holding a coaster with a white tiger among flowers, set in a clear resin rim, over a cluttered work table.">
+            <figcaption class="cap">Clear rim. From the batch the artist posted in July: <span class="quote">&ldquo;My latest batch is magnetic!!&rdquo;</span></figcaption>
+          </figure>
+
+          <figure class="photo c-dog">
+            <img src="assets/photos/batch-dog-rainbow-rim-1600.jpg"
+                 srcset="assets/photos/batch-dog-rainbow-rim-800.jpg 800w, assets/photos/batch-dog-rainbow-rim-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 85vw, 42vw" width="1600" height="1200" loading="lazy"
+                 alt="A hand holding a coaster of a dog in a suit sipping a drink, framed by a rainbow glitter rim.">
+            <figcaption class="cap">Rainbow glitter rim, same batch.</figcaption>
+          </figure>
+
+          <figure class="photo c-glow">
+            <img src="assets/photos/light-up-row-still-720.jpg" width="720" height="243" loading="lazy"
+                 alt="A row of round light-up ashtrays glowing orange, blue, purple, and green in a dark room, lined up on striped fabric.">
+            <figcaption class="cap">Light-up ashtrays with the room lights off. Still from a Reel, June 2026.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
@@ -384,76 +416,119 @@
     <!-- HOLE IN ONE -->
     <section class="section hio" id="hio" aria-labelledby="hio-title">
       <div class="wrap">
-        <div class="hio-grid">
+        <div class="grid">
           <div class="hio-intro">
-            <p class="kicker">02 &middot; Numbered series</p>
-            <h2 id="hio-title">Hole <em>in</em> One</h2>
-            <p>The HiO pieces are clear resin with a round hole cut through, and each one gets its own number. The count is past 190 and still climbing.</p>
-            <span class="hand" aria-hidden="true">&ldquo;Inventor of the HiO!&rdquo; &mdash; it says so right on the tag</span>
-            <a class="btn ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Follow the numbers </a>
+            <h2 id="hio-title">Hole in One</h2>
+            <p>Clear resin pieces with a hole cut through, each one numbered. No. 197 was posted in October.</p>
+            <p>The artist's tag cards read <span class="quote">&ldquo;Inventor of the HiO!&rdquo;</span></p>
+            <a class="btn" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">New numbers on Instagram</a>
           </div>
 
-          <figure class="print h-wu">
+          <figure class="photo h-wu">
             <img src="assets/photos/hio-194-wu-tang-1311.jpg"
                  srcset="assets/photos/hio-194-wu-tang-800.jpg 800w, assets/photos/hio-194-wu-tang-1311.jpg 1311w"
                  sizes="(max-width: 960px) 100vw, 56vw" width="1311" height="1076" loading="lazy"
                  alt="Close-up of a clear resin coaster with a gold, dripping Wu-Tang logo on red, flecked with glitter, with a round hole cut near one corner.">
-            <figcaption class="label"><b>Hole in One No. 194</b>Wu-Tang, gold on red. <span class="tag">Sold</span></figcaption>
+            <figcaption class="label"><span class="no">No. 194</span>Wu-Tang on red. <span class="sold">Sold</span></figcaption>
           </figure>
 
-          <figure class="print h-sc tilt-l">
+          <figure class="photo h-sc">
             <img src="assets/photos/hio-192-scarface-1434.jpg"
                  srcset="assets/photos/hio-192-scarface-800.jpg 800w, assets/photos/hio-192-scarface-1434.jpg 1434w"
                  sizes="(max-width: 960px) 100vw, 40vw" width="1434" height="1183" loading="lazy"
                  alt="A clear resin coaster printed with the Scarface poster and the line 'The World Is Yours,' with a round hole through it, resting on a green order bag beside a tag card.">
-            <figcaption class="label"><b>Hole in One No. 192</b>Scarface. <span class="tag">Sold</span></figcaption>
+            <figcaption class="label"><span class="no">No. 192</span>Scarface. <span class="sold">Sold</span></figcaption>
           </figure>
-          <p class="h-num" aria-hidden="true">#19_</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="section" id="process" aria-labelledby="process-title">
+      <div class="wrap">
+        <div class="head">
+          <h2 id="process-title">Making them</h2>
+          <blockquote class="proc-quote" style="margin:0">
+            <span class="quote">&ldquo;Told you I am addicted to making and printing and cutting and coating then selling drink coasters!!!!&rdquo;</span>
+            <cite>@purpledragonartwork &middot; Dec 2025</cite>
+          </blockquote>
+        </div>
+
+        <div class="grid">
+          <figure class="photo p-torch">
+            <img src="assets/photos/process-torch-1265.jpg"
+                 srcset="assets/photos/process-torch-800.jpg 800w, assets/photos/process-torch-1265.jpg 1265w"
+                 sizes="(max-width: 720px) 100vw, 58vw" width="1265" height="1129" loading="lazy"
+                 alt="A person in a respirator, safety glasses, and a blue nitrile glove passes a small torch over a board of coasters under a bright work light, inside a booth of cardboard and blue tarp.">
+            <figcaption class="cap">Respirator on, torch over a board of coasters under the work light. The artist's caption: <span class="quote">&ldquo;Finishing touches.&rdquo;</span></figcaption>
+          </figure>
+
+          <figure class="photo p-shelf">
+            <img src="assets/photos/process-curing-shelf-800.jpg"
+                 srcset="assets/photos/process-curing-shelf-800.jpg 800w, assets/photos/process-curing-shelf-1536.jpg 1536w"
+                 sizes="(max-width: 720px) 85vw, 33vw" width="800" height="1000" loading="lazy"
+                 alt="A plastic shelf unit inside a booth of cardboard and blue tarp, with boards of freshly poured coasters on three shelves and resin drips on the boards.">
+            <figcaption class="cap"><span class="quote">&ldquo;80 poured in one session.&rdquo;</span> Boards on a shelf inside a tarp-and-cardboard booth.</figcaption>
+          </figure>
+
+          <figure class="photo p-prints">
+            <img src="assets/photos/process-prints-1600.jpg"
+                 srcset="assets/photos/process-prints-800.jpg 800w, assets/photos/process-prints-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 100vw, 50vw" width="1600" height="1295" loading="lazy"
+                 alt="A tattooed hand fanning out a stack of printed images, including The Who, Metallica, Elvis, The Cure, and Fallout, over a paint-splattered surface.">
+            <figcaption class="cap">Printed artwork for coasters: The Who, Metallica, Elvis, The Cure, Fallout, and more.</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- CUSTOM -->
-    <section class="section" id="custom" aria-labelledby="custom-title">
+    <section class="section" id="custom" aria-labelledby="custom-title" style="padding-top:0">
       <div class="wrap">
         <div class="custom-grid">
-          <figure class="print custom-photo">
+          <div class="k-copy">
+            <h2 id="custom-title">Custom orders</h2>
+            <p>Custom orders built around a theme, image, or idea.</p>
+            <p class="quote">&ldquo;Anything you can screenshot I can put under resin!&rdquo;</p>
+            <p>Send a message on Instagram with what you have in mind. Prices and timing aren't listed here, so ask in your message.</p>
+            <a class="btn btn-amber" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Message on Instagram</a>
+          </div>
+
+          <figure class="photo k-doom">
+            <img src="assets/photos/custom-doom-set-1600.jpg"
+                 srcset="assets/photos/custom-doom-set-800.jpg 800w, assets/photos/custom-doom-set-1600.jpg 1600w"
+                 sizes="(max-width: 960px) 100vw, 50vw" width="1600" height="1268" loading="lazy"
+                 alt="Three matching coasters with the DOOM game cover art and green glitter rims, on a white marble-look surface.">
+            <figcaption class="cap">Custom set: DOOM, three coasters.</figcaption>
+          </figure>
+
+          <figure class="photo k-db">
             <img src="assets/photos/custom-dragon-ball-lamplit-795.jpg" width="795" height="697" loading="lazy"
                  alt="A square resin piece with a purple-and-blue glitter rim, holding Dragon Ball Z art, lit by a single lamp in a dark room.">
-            <span class="hand" aria-hidden="true">&ldquo;Another happy customer!&rdquo;</span>
+            <figcaption class="cap">Custom piece: Dragon Ball Z. <span class="quote">&ldquo;Another happy customer!&rdquo;</span></figcaption>
           </figure>
-          <div class="custom-copy">
-            <p class="kicker">03 &middot; Custom work</p>
-            <h2 id="custom-title">Your favorite thing, <em>sealed in resin.</em></h2>
-            <p>A band, a movie, an anime, the cartoon you still quote. If you can picture it on a coaster or an ashtray, send it over and ask.</p>
-            <p>The Dragon Ball piece here and the Bowie pair up top were both custom orders.</p>
-            <p class="fine">Pricing, timing, and details aren't posted here. Ask the artist directly on Instagram.</p>
-            <a class="btn btn-amber ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Message @purpledragonartwork </a>
-          </div>
         </div>
       </div>
     </section>
 
-    <!-- IN PERSON -->
+    <!-- FINE FETTLE -->
     <section class="section" id="visit" aria-labelledby="visit-title" style="padding-top:0">
       <div class="wrap">
-        <div class="visit-stage">
-          <figure class="print" style="margin:0">
-            <img src="assets/photos/order-the-cure-table-1600.jpg"
-                 srcset="assets/photos/order-the-cure-table-800.jpg 800w, assets/photos/order-the-cure-table-1600.jpg 1600w"
-                 sizes="(max-width: 1320px) 100vw, 1220px" width="1600" height="1200" loading="lazy"
-                 alt="Two glitter-framed coasters for The Cure, one showing the band under the title 'Happy the Man,' on a green order bag with a tag card, over a table covered edge to edge with coasters.">
-            <figcaption class="label"><b>Bagged and tagged</b>A custom order waiting on the table.</figcaption>
-          </figure>
-          <div class="visit-panel">
-            <p class="kicker">04 &middot; In person</p>
-            <h2 id="visit-title">Find the table</h2>
-            <p class="place">Pop-up inside Fine Fettle, Newington</p>
-            <p style="margin-top:12px">See the glitter up close. The pop-up days have been shifting, so check Instagram for current hours before you head over.</p>
-            <a class="btn btn-amber ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Current hours on Instagram </a>
+        <figure class="photo ff-strip">
+          <img src="assets/photos/popup-table-still-1280.jpg"
+               srcset="assets/photos/popup-table-still-800.jpg 800w, assets/photos/popup-table-still-1280.jpg 1280w"
+               sizes="(max-width: 1320px) 100vw, 1220px" width="1280" height="263" loading="lazy"
+               alt="The pop-up table inside Fine Fettle: stacks of colorful round ashtrays on the left, and rows of glitter-rimmed coasters in acrylic racks and laid flat across a purple tablecloth.">
+          <figcaption class="cap">The table inside Fine Fettle, Newington. Still from a Reel, August 2026.</figcaption>
+        </figure>
+        <div class="ff-row">
+          <div>
+            <p class="eyebrow" style="margin-bottom:12px">Pop-up &middot; Newington</p>
+            <h2 id="visit-title">Fine Fettle</h2>
+            <p>Purple Dragon Artwork has a pop-up table inside Fine Fettle in Newington. Check Instagram for current hours.</p>
           </div>
+          <a class="btn btn-amber" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Current hours on Instagram</a>
         </div>
-        <p class="hand visit-quote">&ldquo;the best place in the world&rdquo; &mdash; the artist, on the Newington spot</p>
       </div>
     </section>
   </main>
@@ -462,10 +537,10 @@
     <div class="wrap">
       <div>
         <p class="foot-name">Purple Dragon Artwork</p>
-        <p class="foot-line">Handmade epoxy resin art.</p>
+        <p class="foot-line">Handmade epoxy resin.</p>
       </div>
-      <a class="btn ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">@purpledragonartwork on Instagram </a>
-      <p class="credit">All photos by Purple Dragon Artwork, from the artist's Instagram posts. Sources are listed in assets/photos/manifest.json. Concept preview.</p>
+      <a class="btn" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">@purpledragonartwork on Instagram</a>
+      <p class="credit">All photos are the artist's own, from Instagram posts and Reels. Concept preview.</p>
     </div>
   </footer>
 </body>

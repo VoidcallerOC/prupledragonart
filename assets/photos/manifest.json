@@ -1,54 +1,54 @@
 {
   "retrieved": "2026-10-10",
   "profile": "https://www.instagram.com/purpledragonartwork/",
-  "note": "All photos are the artist's own Instagram posts, downloaded as files (no hotlinking). Alt text lives in index.html.",
+  "note": "All images are the artist's own Instagram photos or stills from the artist's Reels, saved as local files (no hotlinking). Alt text lives in index.html.",
   "photos": [
     {
       "slug": "hio-191-grateful-dead",
       "files": [
-        "hio-191-grateful-dead-1600.jpg",
-        "hio-191-grateful-dead-800.jpg"
+        "hio-191-grateful-dead-800.jpg",
+        "hio-191-grateful-dead-1600.jpg"
       ],
       "width": 2048,
       "height": 768,
       "source_post": "https://www.instagram.com/p/DeFJHAsF6l3/",
-      "source_item": "1",
       "source_type": "photo",
       "post_date": "October 4, 2026",
       "source_pixels": "2048x1536",
       "crop": "Bottom half only; removes the post's \"#191 HiO! $old!! $50 order!\" text overlay.",
+      "source_item": "1",
       "caption_excerpt": "I believe Sundays will be good 😊 "
     },
     {
       "slug": "hio-194-wu-tang",
       "files": [
-        "hio-194-wu-tang-1311.jpg",
-        "hio-194-wu-tang-800.jpg"
+        "hio-194-wu-tang-800.jpg",
+        "hio-194-wu-tang-1311.jpg"
       ],
       "width": 1311,
       "height": 1076,
       "source_post": "https://www.instagram.com/p/DeHkdQKl4ka/",
-      "source_item": "1",
       "source_type": "photo",
       "post_date": "October 5, 2026",
       "source_pixels": "2048x1536",
       "crop": "Cropped to the coaster; removes handwritten sales tallies.",
+      "source_item": "1",
       "caption_excerpt": "#194 HiO! $old!!! "
     },
     {
       "slug": "hio-192-scarface",
       "files": [
-        "hio-192-scarface-1434.jpg",
-        "hio-192-scarface-800.jpg"
+        "hio-192-scarface-800.jpg",
+        "hio-192-scarface-1434.jpg"
       ],
       "width": 1434,
       "height": 1183,
       "source_post": "https://www.instagram.com/p/DeFQDXrjbLL/",
-      "source_item": "1",
       "source_type": "photo",
       "post_date": "October 4, 2026",
       "source_pixels": "2048x1536",
       "crop": "Removes the \"#192 HiO! $old!!\" overlay and emoji.",
+      "source_item": "1",
       "caption_excerpt": "#200 is weak and waiting to be crushed by the Dragons jaws..."
     },
     {
@@ -59,108 +59,312 @@
       "width": 795,
       "height": 697,
       "source_post": "https://www.instagram.com/p/DePEbwQjyaY/",
-      "source_item": "1",
       "source_type": "carousel_item",
       "post_date": "October 8, 2026",
       "source_pixels": "795x697",
       "crop": "Uncropped (largest size Instagram serves for this carousel: 795x697).",
+      "source_item": "1",
       "caption_excerpt": "I make Art that sets me apart. "
     },
     {
       "slug": "cupholder-scarface-ashtray",
       "files": [
-        "cupholder-scarface-ashtray-1600.jpg",
-        "cupholder-scarface-ashtray-800.jpg"
+        "cupholder-scarface-ashtray-800.jpg",
+        "cupholder-scarface-ashtray-1600.jpg"
       ],
       "width": 2048,
       "height": 1536,
       "source_post": "https://www.instagram.com/p/DeFszBtDlnv/",
-      "source_item": "2",
       "source_type": "carousel_item",
       "post_date": "October 4, 2026",
       "source_pixels": "2048x1536",
       "crop": "Uncropped.",
+      "source_item": "2",
       "caption_excerpt": "As I was literally leaving outside I was stopped by someone hoping I was still set-up to buy a cup holder for the ash tray they bought recently. "
     },
     {
       "slug": "cupholder-anime-print",
       "files": [
-        "cupholder-anime-print-1600.jpg",
-        "cupholder-anime-print-800.jpg"
+        "cupholder-anime-print-800.jpg",
+        "cupholder-anime-print-1600.jpg"
       ],
       "width": 2048,
       "height": 1536,
       "source_post": "https://www.instagram.com/p/DeFszBtDlnv/",
-      "source_item": "1",
       "source_type": "carousel_item",
       "post_date": "October 4, 2026",
       "source_pixels": "2048x1536",
       "crop": "Uncropped.",
+      "source_item": "1",
       "caption_excerpt": "As I was literally leaving outside I was stopped by someone hoping I was still set-up to buy a cup holder for the ash tray they bought recently. "
     },
     {
       "slug": "order-coasters-light-up-ashtray",
       "files": [
-        "order-coasters-light-up-ashtray-1229.jpg",
-        "order-coasters-light-up-ashtray-800.jpg"
+        "order-coasters-light-up-ashtray-800.jpg",
+        "order-coasters-light-up-ashtray-1229.jpg"
       ],
       "width": 1229,
       "height": 1536,
       "source_post": "https://www.instagram.com/p/DeFcewVjT5B/",
-      "source_item": "1",
       "source_type": "photo",
       "post_date": "October 4, 2026",
       "source_pixels": "2048x1536",
       "crop": "Right side only; excludes a coaster with profanity and a cannabis-leaf coaster.",
+      "source_item": "1",
       "caption_excerpt": "Orders are getting bigger and bigger!!!!"
     },
     {
       "slug": "the-who-light-up-ashtray",
       "files": [
-        "the-who-light-up-ashtray-1600.jpg",
-        "the-who-light-up-ashtray-800.jpg"
+        "the-who-light-up-ashtray-800.jpg",
+        "the-who-light-up-ashtray-1600.jpg"
       ],
       "width": 2048,
       "height": 1536,
       "source_post": "https://www.instagram.com/p/DeANNz8F0PF/",
-      "source_item": "4",
       "source_type": "carousel_item",
       "post_date": "October 2, 2026",
       "source_pixels": "2048x1536",
       "crop": "Uncropped (carousel item 4).",
+      "source_item": "4",
       "caption_excerpt": "Custom Orders Dump!!!!!"
     },
     {
       "slug": "custom-bowie-pair",
       "files": [
-        "custom-bowie-pair-1600.jpg",
-        "custom-bowie-pair-800.jpg"
+        "custom-bowie-pair-800.jpg",
+        "custom-bowie-pair-1600.jpg"
       ],
       "width": 2048,
       "height": 1536,
       "source_post": "https://www.instagram.com/p/DeANNz8F0PF/",
-      "source_item": "1",
       "source_type": "carousel_item",
       "post_date": "October 2, 2026",
       "source_pixels": "2048x1536",
       "crop": "Uncropped (carousel item 1).",
+      "source_item": "1",
       "caption_excerpt": "Custom Orders Dump!!!!!"
     },
     {
       "slug": "order-the-cure-table",
       "files": [
-        "order-the-cure-table-1600.jpg",
-        "order-the-cure-table-800.jpg"
+        "order-the-cure-table-800.jpg",
+        "order-the-cure-table-1600.jpg"
       ],
       "width": 2048,
       "height": 1536,
       "source_post": "https://www.instagram.com/p/DeANNz8F0PF/",
-      "source_item": "2",
       "source_type": "carousel_item",
       "post_date": "October 2, 2026",
       "source_pixels": "2048x1536",
       "crop": "Uncropped (carousel item 2).",
+      "source_item": "2",
       "caption_excerpt": "Custom Orders Dump!!!!!"
+    },
+    {
+      "slug": "detail-bowie-rim",
+      "files": [
+        "detail-bowie-rim-615.jpg"
+      ],
+      "width": 615,
+      "height": 583,
+      "source_post": "https://www.instagram.com/p/DeANNz8F0PF/",
+      "source_type": "carousel_item",
+      "post_date": "October 2, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Detail crop of the glitter rim (carousel item 1).",
+      "source_item": "1",
+      "caption_excerpt": "Custom Orders Dump!!!!!"
+    },
+    {
+      "slug": "detail-hio-191-edge",
+      "files": [
+        "detail-hio-191-edge-800.jpg",
+        "detail-hio-191-edge-861.jpg"
+      ],
+      "width": 861,
+      "height": 737,
+      "source_post": "https://www.instagram.com/p/DeFJHAsF6l3/",
+      "source_type": "photo",
+      "post_date": "October 4, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Detail crop of the clear coaster edge; below the text overlay.",
+      "source_item": "1",
+      "caption_excerpt": "I believe Sundays will be good 😊 "
+    },
+    {
+      "slug": "detail-hio-194-hole",
+      "files": [
+        "detail-hio-194-hole-615.jpg"
+      ],
+      "width": 615,
+      "height": 584,
+      "source_post": "https://www.instagram.com/p/DeHkdQKl4ka/",
+      "source_type": "photo",
+      "post_date": "October 5, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Detail crop of the hole and resin edge.",
+      "source_item": "1",
+      "caption_excerpt": "#194 HiO! $old!!! "
+    },
+    {
+      "slug": "detail-who-led",
+      "files": [
+        "detail-who-led-614.jpg"
+      ],
+      "width": 614,
+      "height": 522,
+      "source_post": "https://www.instagram.com/p/DeANNz8F0PF/",
+      "source_type": "carousel_item",
+      "post_date": "October 2, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Detail crop of the LED on the ashtray rim (carousel item 4).",
+      "source_item": "4",
+      "caption_excerpt": "Custom Orders Dump!!!!!"
+    },
+    {
+      "slug": "finish-plain-glitter",
+      "files": [
+        "finish-plain-glitter-800.jpg",
+        "finish-plain-glitter-1600.jpg"
+      ],
+      "width": 2048,
+      "height": 1836,
+      "source_post": "https://www.instagram.com/p/DSNj8OlDxkg/",
+      "source_type": "photo",
+      "post_date": "2025-12-13",
+      "source_pixels": "2048x1836",
+      "crop": "Uncropped.",
+      "source_item": "1",
+      "caption_excerpt": "Orange 🧡 be creative "
+    },
+    {
+      "slug": "batch-dog-rainbow-rim",
+      "files": [
+        "batch-dog-rainbow-rim-800.jpg",
+        "batch-dog-rainbow-rim-1600.jpg"
+      ],
+      "width": 2048,
+      "height": 1536,
+      "source_post": "https://www.instagram.com/p/DaV0ah-Dk5h/",
+      "source_type": "carousel_item",
+      "post_date": "2026-07-03",
+      "source_pixels": "2048x1536",
+      "crop": "Uncropped (carousel item 1).",
+      "source_item": "1",
+      "caption_excerpt": "My latest batch is magnetic 🧲🧭!!"
+    },
+    {
+      "slug": "batch-tiger-clear-rim",
+      "files": [
+        "batch-tiger-clear-rim-800.jpg",
+        "batch-tiger-clear-rim-1600.jpg"
+      ],
+      "width": 2048,
+      "height": 1536,
+      "source_post": "https://www.instagram.com/p/DaV0ah-Dk5h/",
+      "source_type": "carousel_item",
+      "post_date": "2026-07-03",
+      "source_pixels": "2048x1536",
+      "crop": "Uncropped (carousel item 3).",
+      "source_item": "3",
+      "caption_excerpt": "My latest batch is magnetic 🧲🧭!!"
+    },
+    {
+      "slug": "process-torch",
+      "files": [
+        "process-torch-800.jpg",
+        "process-torch-1265.jpg"
+      ],
+      "width": 1265,
+      "height": 1129,
+      "source_post": "https://www.instagram.com/p/DU6BOWwjzE1/",
+      "source_type": "photo",
+      "post_date": "2026-02-18",
+      "source_pixels": "1265x1129",
+      "crop": "Uncropped.",
+      "source_item": "1",
+      "caption_excerpt": "Finishing touches 😉 "
+    },
+    {
+      "slug": "process-curing-shelf",
+      "files": [
+        "process-curing-shelf-800.jpg",
+        "process-curing-shelf-1536.jpg"
+      ],
+      "width": 1536,
+      "height": 1920,
+      "source_post": "https://www.instagram.com/p/DTjJZKmk9Sk/",
+      "source_type": "photo",
+      "post_date": "2026-01-15",
+      "source_pixels": "1536x1920",
+      "crop": "Uncropped.",
+      "source_item": "1",
+      "caption_excerpt": "80 poured in one session 😸 "
+    },
+    {
+      "slug": "process-prints",
+      "files": [
+        "process-prints-800.jpg",
+        "process-prints-1600.jpg"
+      ],
+      "width": 2048,
+      "height": 1658,
+      "source_post": "https://www.instagram.com/p/DdWnmSelBmw/",
+      "source_type": "carousel_item",
+      "post_date": "2026-09-16",
+      "source_pixels": "2048x1658",
+      "crop": "Uncropped (carousel item 1).",
+      "source_item": "1",
+      "caption_excerpt": "Custom orders every week for Purpledragonartwork 💜🐲🎨 from inside Fine Fettle "
+    },
+    {
+      "slug": "custom-doom-set",
+      "files": [
+        "custom-doom-set-800.jpg",
+        "custom-doom-set-1600.jpg"
+      ],
+      "width": 2048,
+      "height": 1623,
+      "source_post": "https://www.instagram.com/p/DU_F6gZD3jw/",
+      "source_type": "carousel_item",
+      "post_date": "2026-02-20",
+      "source_pixels": "2048x1623",
+      "crop": "Uncropped (carousel item 1).",
+      "source_item": "1",
+      "caption_excerpt": "\"DOOM\" the legendary game that has changed many lives! 🔥 "
+    },
+    {
+      "slug": "popup-table-still",
+      "files": [
+        "popup-table-still-800.jpg",
+        "popup-table-still-1280.jpg"
+      ],
+      "width": 1280,
+      "height": 263,
+      "source_post": "https://www.instagram.com/reel/DcByXrAjOnL/",
+      "source_type": "reel_video_still",
+      "post_date": "2026-08-14T16:53:10+00:00",
+      "source_pixels": "1280x720",
+      "crop": "Still at ~34s of a 720p reel; middle band only, removing the burned-in \"FINE FETTLE NEWINGTON\" and handle text.",
+      "video_time_s": 34,
+      "caption_excerpt": "Inside Fine Fettle 12-6pm 😁 "
+    },
+    {
+      "slug": "light-up-row-still",
+      "files": [
+        "light-up-row-still-720.jpg"
+      ],
+      "width": 720,
+      "height": 243,
+      "source_post": "https://www.instagram.com/reel/DZvtjdRROA5/",
+      "source_type": "reel_video_still",
+      "post_date": "2026-06-18T23:22:34+00:00",
+      "source_pixels": "720x1280",
+      "crop": "Still at ~2s of a reel; middle band only, removing burned-in \"Purpledragonartwork\" and \"Light Up Ash Trays\" text and black bars.",
+      "video_time_s": 2,
+      "caption_excerpt": "Did I say it was coming soon oh I meant now baby!!!!! Only available inside @finefettlect NEWINGTON CT 🌿 🔥 💕 "
     }
   ]
 }
