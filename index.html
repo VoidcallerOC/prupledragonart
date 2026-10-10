@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>document.documentElement.classList.add("js");</script>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Purple Dragon Artwork</title>
@@ -33,6 +34,7 @@
       --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
       --gutter: clamp(16px, 4vw, 56px);
       --max: 1320px;
+      --header-h: 72px;
       /* accent colors sampled from the resin work */
       --r-red: #e23b3b; --r-orange: #f07a2a; --r-gold: #e9b44c; --r-green: #48b04f;
       --r-teal: #33c4b4; --r-blue: #3a6fe0; --r-purple: #8a5ad6; --r-magenta: #e0479a;
@@ -104,12 +106,19 @@
 
     /* ---------- header ---------- */
     .site-header { border-bottom: 1px solid var(--line); }
-    .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 32px; padding-top: 16px; padding-bottom: 16px; }
-    .brand { text-decoration: none; font: 800 1.6rem/1 var(--head); text-transform: uppercase; letter-spacing: .01em; }
-    .nav { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 0; padding: 0; list-style: none; }
-    .nav a { display: inline-block; padding: 6px 0; text-decoration: none; font: 700 1.05rem/1 var(--head); letter-spacing: .06em; text-transform: uppercase; border-bottom: 2px solid transparent; }
-    .nav a:hover { border-bottom-color: var(--amber); }
+    .header-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 4px 40px; min-height: var(--header-h); padding-top: 6px; padding-bottom: 6px; }
+    .brand { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; white-space: nowrap; font: 800 1.6rem/1 var(--head); text-transform: uppercase; letter-spacing: .01em; }
+    .nav { display: flex; flex-wrap: wrap; column-gap: clamp(18px, 2vw, 30px); margin: 0; padding: 0; list-style: none; }
+    .nav a {
+      position: relative; display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px;
+      text-decoration: none; white-space: nowrap; font: 700 1.08rem/1 var(--head); letter-spacing: .06em; text-transform: uppercase;
+    }
+    .nav a::after { content: ""; position: absolute; left: 2px; right: 2px; bottom: 9px; height: 2px; background: var(--amber); transform: scaleX(0); transform-origin: left; transition: transform .15s ease; }
+    .nav a:hover::after, .nav a:focus-visible::after { transform: scaleX(1); }
+    .nav a:hover { color: var(--amber-soft); }
     .nav .ig { color: var(--amber); }
+    .menu-toggle { display: none; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
     /* ---------- hero ---------- */
     .hero { padding: clamp(40px, 6vw, 84px) 0 clamp(64px, 8vw, 112px); }
@@ -121,10 +130,11 @@
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 26px; }
     .hero-shot { position: relative; margin-top: clamp(36px, 5vw, 60px); }
     .hero-shot img { aspect-ratio: 1600 / 600; }
-    .hero-shot .label { position: absolute; right: clamp(12px, 3vw, 36px); bottom: -36px; }
+    .hero-shot .label { position: relative; margin: 16px clamp(0px, 2vw, 24px) 0 auto; }
 
     /* ---------- sections ---------- */
-    section { scroll-margin-top: 16px; }
+    section, main { scroll-margin-top: calc(var(--header-h) + 12px); }
+    #custom { scroll-margin-top: calc(var(--header-h) + 64px); }
     .section { padding: clamp(84px, 10vw, 150px) 0; }
     .head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px clamp(28px, 5vw, 72px); align-items: end; margin-bottom: clamp(40px, 5vw, 72px); }
     .head h2 { font-size: clamp(3rem, 7.4vw, 6.4rem); }
@@ -166,7 +176,7 @@
 
     /* hole in one */
     .hio { background: radial-gradient(60vw 40vw at 15% 0%, rgba(233, 168, 76, .10), transparent 60%), var(--olive); border-block: 1px solid rgba(0, 0, 0, .4); }
-    .hio-intro { grid-column: 1 / span 4; position: sticky; top: 28px; }
+    .hio-intro { grid-column: 1 / span 4; position: sticky; top: calc(var(--header-h) + 28px); }
     .hio-intro h2 { font-size: clamp(3.2rem, 7vw, 6.4rem); margin: 0 0 22px; }
     .hio-intro p { color: #ddd3bd; max-width: 34ch; }
     .hio-intro p + p { margin-top: 14px; }
@@ -249,23 +259,84 @@
     /* interactive starfield: fixed behind all content, never takes pointer input */
     .starfield { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
     .site-header, main, .site-footer { position: relative; z-index: 1; }
+    .site-header { position: sticky; top: 0; z-index: 30; background: rgba(22, 19, 15, .9); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); }
+    .c-glow img { margin-inline: auto; }
+
+    /* ---------- desktop nav stays on one row ---------- */
+    @media (min-width: 1024px) {
+      .header-bar { flex-wrap: nowrap; }
+      .nav { flex-wrap: nowrap; }
+    }
+
+    /* ---------- compact menu below 1024px (needs JS; without it the links simply wrap) ---------- */
+    @media (max-width: 1023px) {
+      :root { --header-h: 64px; }
+      .js .header-bar { flex-wrap: nowrap; gap: 12px; }
+      .js .menu-toggle {
+        display: inline-flex; align-items: center; gap: 10px; min-height: 44px; min-width: 44px; padding: 0 14px;
+        background: transparent; color: var(--cream); border: 2px solid rgba(241, 230, 208, .4); cursor: pointer;
+        font: 700 1.05rem/1 var(--head); letter-spacing: .08em; text-transform: uppercase;
+      }
+      .js .menu-toggle { -webkit-tap-highlight-color: transparent; }
+      .js .menu-toggle:hover, .js .menu-toggle[aria-expanded="true"] { border-color: var(--amber); color: var(--amber-soft); }
+      .menu-icon, .menu-icon::before, .menu-icon::after { display: block; width: 18px; height: 2px; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
+      .menu-icon { position: relative; }
+      .menu-icon::before, .menu-icon::after { content: ""; position: absolute; left: 0; }
+      .menu-icon::before { top: -6px; }
+      .menu-icon::after { top: 6px; }
+      .menu-toggle[aria-expanded="true"] .menu-icon { background: transparent; }
+      .menu-toggle[aria-expanded="true"] .menu-icon::before { transform: translateY(6px) rotate(45deg); }
+      .menu-toggle[aria-expanded="true"] .menu-icon::after { transform: translateY(-6px) rotate(-45deg); }
+      .js .site-nav { display: none; position: absolute; top: 100%; left: 0; right: 0; background: var(--char); border-bottom: 1px solid var(--line); box-shadow: 0 24px 40px -20px rgba(0, 0, 0, .9); }
+      .js .site-header.is-open .site-nav { display: block; }
+      .js .nav { flex-direction: column; max-width: var(--max); margin: 0 auto; padding: 6px var(--gutter) 18px; }
+      .js .nav a { display: flex; width: 100%; min-height: 54px; font-size: 1.4rem; border-bottom: 1px solid var(--line); -webkit-tap-highlight-color: transparent; }
+      .js .nav a::after { bottom: 12px; right: auto; width: 48px; }
+      .js .nav a:focus-visible { outline-offset: -2px; }
+    }
+    @media (max-width: 420px) {
+      .brand { font-size: 1.35rem; }
+      .js .menu-toggle { padding: 0 12px; }
+      .menu-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    }
+
+    /* ---------- tablet: two-column gallery rhythm ---------- */
+    @media (max-width: 1099px) {
+      .w-order { grid-column: 1 / span 6; }
+      .w-who   { grid-column: 7 / span 6; margin-top: 72px; }
+      .w-cup   { grid-column: 1 / span 6; }
+      .w-cupd  { grid-column: 7 / span 5; margin-top: 56px; }
+      .w-bowie { grid-column: 1 / span 7; }
+      .w-cure  { grid-column: 8 / span 5; margin-top: 56px; }
+      .c-plain { grid-column: 1 / span 7; }
+      .c-rim   { grid-column: 8 / span 5; margin-top: 40px; }
+      .c-edge  { grid-column: 1 / span 4; }
+      .c-hole  { grid-column: 5 / span 4; margin-top: 0; }
+      .c-led   { grid-column: 9 / span 4; }
+      .c-tiger { grid-column: 1 / span 6; }
+      .c-dog   { grid-column: 7 / span 6; margin-top: 56px; }
+      .c-glow  { grid-column: 1 / -1; }
+      .p-torch { grid-column: 1 / span 7; }
+      .p-shelf { grid-column: 8 / span 5; margin-top: 56px; }
+      .p-prints { grid-column: 2 / span 9; }
+      .ff-strip img { aspect-ratio: 1280 / 340; object-position: 30% 50%; }
+    }
 
     /* ---------- responsive ---------- */
     @media (max-width: 960px) {
       .hero-top, .head { grid-template-columns: 1fr; }
       .hio-intro { grid-column: 1 / -1; position: static; }
-      .h-wu, .h-sc { grid-column: 1 / -1; }
-      .k-copy, .k-doom { grid-column: 1 / -1; }
-      .k-db { grid-column: 3 / span 8; }
+      .h-wu { grid-column: 1 / -1; }
+      .k-copy { grid-column: 1 / -1; }
       .ff-row { grid-template-columns: 1fr; }
-      .rings-custom { display: none; }
+      .rings-custom, .rings-hero { display: none; }
+      .h-sc { grid-column: 2 / span 10; }
+      .k-doom { grid-column: 1 / span 8; }
+      .k-db { grid-column: 6 / span 7; }
     }
     @media (max-width: 720px) {
       body { font-size: 1.0625rem; }
-      .site-header .wrap { flex-direction: column; align-items: flex-start; }
-      .nav { gap: 2px 18px; }
       .hero-shot img { aspect-ratio: 4 / 3; object-position: 22% 50%; }
-      .hero-shot .label { position: relative; right: auto; bottom: auto; margin: -28px 12px 0 auto; }
       .hero-ctas .btn { flex: 1 1 100%; }
       .grid { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: 56px; }
       .w-order, .w-cup, .w-bowie, .c-plain, .c-tiger, .c-glow, .p-torch, .p-prints { grid-column: 1 / -1; margin-top: 0; }
@@ -274,7 +345,8 @@
       .c-edge { grid-column: 1 / -1; }
       .c-hole { grid-column: 1 / span 3; margin-top: 0; }
       .c-led { grid-column: 4 / span 3; }
-      .k-db { grid-column: 1 / -1; }
+      .k-doom, .k-db, .h-sc { grid-column: 1 / -1; }
+      .ff-strip img { aspect-ratio: 2 / 1; object-position: 28% 50%; }
       .btn { width: 100%; }
       .label { max-width: 100%; }
       .frame::before { inset: -8px -10px; }
@@ -289,11 +361,15 @@
   <a class="skip" href="#main">Skip to content</a>
 
   <header class="site-header">
-    <div class="wrap">
+    <div class="wrap header-bar">
       <a class="brand" href="#top">Purple Dragon Artwork</a>
-      <nav aria-label="Main">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span><span class="menu-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
         <ul class="nav">
           <li><a href="#work">Work</a></li>
+          <li><a href="#closeup">Details</a></li>
           <li><a href="#hio">Hole in One</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#custom">Custom</a></li>
@@ -589,6 +665,30 @@
       <p class="credit">Photos from @purpledragonartwork on Instagram. Concept preview.</p>
     </div>
   </footer>
+  <script>
+    /* Compact menu: toggle, close on link, Escape, outside click, or widening to desktop. */
+    (function () {
+      var header = document.querySelector('.site-header');
+      var btn = header.querySelector('.menu-toggle');
+      var nav = document.getElementById('site-nav');
+      var desktop = window.matchMedia('(min-width: 1024px)');
+      function set(open, focusBtn) {
+        header.classList.toggle('is-open', open);
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (!open && focusBtn) btn.focus();
+      }
+      btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+      nav.addEventListener('click', function (e) { if (e.target.closest('a')) set(false); });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && header.classList.contains('is-open')) set(false, true);
+      });
+      document.addEventListener('click', function (e) {
+        if (header.classList.contains('is-open') && !header.contains(e.target)) set(false);
+      });
+      var onWide = function () { if (desktop.matches) set(false); };
+      if (desktop.addEventListener) desktop.addEventListener('change', onWide); else desktop.addListener(onWide);
+    })();
+  </script>
   <script src="assets/starfield.js" defer></script>
 </body>
 </html>

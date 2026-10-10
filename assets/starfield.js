@@ -129,13 +129,12 @@
       if (s.hx < -10) s.hx += W + 20; else if (s.hx > W + 10) s.hx -= W + 20;
       if (s.hy < -10) s.hy += H + 20; else if (s.hy > H + 10) s.hy -= H + 20;
 
-      // Gentle scroll parallax by depth.
-      var py = s.hy - (scrollY * 0.08 * s.depth) % (H + 20);
-      if (py < -10) py += H + 20;
-      var tx = s.hx, ty = py;
+      // Springs work in home space; scroll parallax is applied only when drawing,
+      // so scrolling never turns into trails.
+      var tx = s.hx, ty = s.hy;
 
       if (useP && pointer.energy > 0.01) {
-        var ddx = pointer.sx - tx, ddy = pointer.sy - ty;
+        var ddx = pointer.sx - tx, ddy = pointer.sy - wrapY(ty - parallax(s));
         var d = Math.sqrt(ddx * ddx + ddy * ddy);
         if (d < R) {
           var f = 1 - d / R; f = f * f;
@@ -154,12 +153,15 @@
     }
   }
 
+  function parallax(s) { return (scrollY * 0.08 * s.depth) % (H + 20); }
+  function wrapY(y) { var span = H + 20; return ((y + 10) % span + span) % span - 10; }
+
   function draw(now, still) {
     ctx.clearRect(0, 0, W, H);
     var t = now / 1000;
     for (var i = 0; i < stars.length; i++) {
       var s = stars[i];
-      var x = still ? s.hx : s.x, y = still ? s.hy : s.y;
+      var x = still ? s.hx : s.x, y = still ? s.hy : wrapY(s.y - parallax(s));
       var tw = still ? 1 : 0.78 + 0.22 * Math.sin(t * s.tw + s.ph);
       var alpha = s.a * tw * dimAt(x, y);
       if (alpha < 0.02) continue;

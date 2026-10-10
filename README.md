@@ -18,6 +18,14 @@ All fonts are packaged in `assets/fonts/`: latin woff2 files from `@fontsource` 
 
 `font-synthesis: none` is set, so the browser never fakes a bold or italic. Chrome DevTools platform-font checks confirm each text style renders in its webfont, with no system fallback.
 
+## Navigation and layout
+
+- **Header:** sticky, aligned to the content grid (`--max` 1320px, `--gutter` clamp(16px, 4vw, 56px)). Links run Work, Details, Hole in One, Process, Custom, Fine Fettle, Instagram.
+- **Desktop (1024px and up):** one row of links. Each link is at least 44px tall, with an amber underline on hover and keyboard focus.
+- **Below 1024px:** a compact menu button (`aria-expanded`, `aria-controls`). It opens and closes by click, tap, Enter or Space. Escape closes it and returns focus to the button. It also closes on outside click, on choosing a link, or when the window widens to desktop. Without JavaScript, the links simply wrap.
+- **Anchors:** sections use `scroll-margin-top` tied to `--header-h`, so headings land below the sticky header.
+- **Breakpoints:** 1099px (two-column gallery rhythm), 960px (stacked hero and section heads), 720px (single-column phones).
+
 ## Accents
 
 A restrained psychedelic layer that sits around the work, never over it:
