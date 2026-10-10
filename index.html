@@ -4,28 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Purple Dragon Artwork</title>
-  <meta name="description" content="Handmade resin coasters, custom coaster sets, and accessories by Purple Dragon Artwork (@purpledragonartwork).">
+  <meta name="description" content="Handmade epoxy resin coasters, ashtrays, Hole in One pieces, and custom work by Purple Dragon Artwork (@purpledragonartwork).">
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,500;1,9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --paper: #fbf3e6;
-      --paper-2: #f4e6d0;
-      --ink: #22142f;
-      --ink-soft: #4d3d5c;
-      --red: #d3203b;
-      --purple: #6a2bb8;
-      --purple-deep: #34115e;
-      --blue: #1d5bd6;
-      --amber: #f3a712;
-      --white: #fffdf8;
-      --radius: 22px;
-      --shadow: 0 2px 0 rgba(34, 20, 47, .9), 0 14px 30px -14px rgba(34, 20, 47, .45);
-      --display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
-      --body: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
-      --gutter: clamp(16px, 4vw, 48px);
+      --char: #16130f;
+      --char-2: #1e1913;
+      --wood: #2a1d13;
+      --wood-2: #3b2818;
+      --olive: #2f321d;
+      --olive-2: #444828;
+      --rust: #b4552f;
+      --amber: #e9a84c;
+      --amber-soft: #f4cb8b;
+      --cream: #f1e6d0;
+      --cream-dim: #c9bba0;
+      --smoke: rgba(20, 17, 13, .72);
+      --line: rgba(241, 230, 208, .16);
+      --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+      --sans: "Instrument Sans", "Helvetica Neue", Arial, sans-serif;
+      --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+      --hand: "Caveat", "Bradley Hand", "Segoe Print", cursive;
+      --gutter: clamp(16px, 4vw, 56px);
+      --max: 1320px;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -34,270 +38,226 @@
 
     body {
       margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font: 400 1.0625rem/1.6 var(--body);
+      color: var(--cream);
+      background-color: var(--char);
+      /* warm lamp light falling across dark wood */
+      background-image:
+        radial-gradient(80vw 46vw at 82% -6%, rgba(233, 168, 76, .17), transparent 62%),
+        radial-gradient(60vw 60vw at -14% 48%, rgba(180, 85, 47, .10), transparent 60%),
+        repeating-linear-gradient(91deg, rgba(59, 40, 24, .20) 0 2px, transparent 2px 11px, rgba(42, 29, 19, .22) 11px 12px, transparent 12px 27px),
+        linear-gradient(180deg, var(--char-2), var(--char));
+      font: 400 1.0625rem/1.65 var(--sans);
       -webkit-font-smoothing: antialiased;
       overflow-x: hidden;
     }
 
-    img { max-width: 100%; display: block; }
+    img { display: block; max-width: 100%; height: auto; }
     a { color: inherit; }
-    h1, h2, h3 { font-family: var(--display); line-height: 1.02; margin: 0; letter-spacing: -0.02em; }
     p { margin: 0; }
+    h1, h2, h3 { margin: 0; font-family: var(--serif); font-weight: 600; line-height: .98; letter-spacing: -0.015em; }
+    :focus-visible { outline: 2px solid var(--amber); outline-offset: 4px; }
 
-    .wrap { width: 100%; max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); }
+    .wrap { width: 100%; max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
 
-    .skip {
-      position: absolute; left: 12px; top: -60px; z-index: 50;
-      background: var(--ink); color: var(--white); padding: 10px 14px; border-radius: 10px;
-    }
+    .skip { position: absolute; left: 12px; top: -80px; z-index: 50; background: var(--amber); color: var(--char); padding: 10px 14px; font-weight: 600; }
     .skip:focus { top: 12px; }
 
-    :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; border-radius: 6px; }
+    /* ---------- small shared pieces ---------- */
+    .kicker { font: 500 .75rem/1.3 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--amber); }
+    .hand { font-family: var(--hand); font-weight: 600; color: var(--amber-soft); line-height: 1.05; }
 
-    /* ---------- Header ---------- */
-    .site-header {
-      position: sticky; top: 0; z-index: 20;
-      background: color-mix(in srgb, var(--paper) 92%, transparent);
-      backdrop-filter: blur(8px);
-      border-bottom: 2px solid var(--ink);
-    }
-    .site-header .wrap {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px 20px; flex-wrap: wrap; padding-top: 12px; padding-bottom: 12px;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .brand-mark {
-      width: 38px; height: 38px; border-radius: 50%; flex: none;
-      background:
-        radial-gradient(circle at 32% 28%, rgba(255,255,255,.85) 0 8%, transparent 22%),
-        conic-gradient(from 200deg, var(--purple), var(--red), var(--amber), var(--blue), var(--purple));
-      border: 2px solid var(--ink);
-    }
-    .brand-name { font: 800 1.15rem/1 var(--display); letter-spacing: -0.02em; }
-    .brand-handle { display: block; font: 500 .8rem/1.2 var(--body); color: var(--ink-soft); letter-spacing: 0; }
-
-    .nav { display: flex; flex-wrap: wrap; gap: 4px 6px; list-style: none; margin: 0; padding: 0; }
-    .nav a {
-      display: inline-block; padding: 8px 12px; border-radius: 999px;
-      text-decoration: none; font-weight: 600; font-size: .95rem;
-    }
-    .nav a:hover { background: var(--paper-2); }
-    .nav .nav-ig { background: var(--ink); color: var(--white); }
-    .nav .nav-ig:hover { background: var(--purple); }
-
-    /* ---------- Buttons & small bits ---------- */
     .btn {
-      position: relative; display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 22px; border-radius: 999px; border: 2px solid var(--ink);
-      font: 700 1rem/1 var(--body); text-decoration: none; overflow: hidden;
-      box-shadow: 0 3px 0 var(--ink); transition: transform .12s ease, box-shadow .12s ease;
+      display: inline-flex; align-items: center; justify-content: center; gap: .5em;
+      padding: 15px 22px; min-height: 48px;
+      font: 600 .98rem/1.1 var(--sans); letter-spacing: .01em; text-decoration: none;
+      border: 1.5px solid var(--cream); color: var(--cream); background: transparent;
+      transition: background-color .15s ease, color .15s ease, border-color .15s ease;
     }
-    /* glossy resin highlight */
-    .btn::before {
-      content: ""; position: absolute; inset: 3px 14px auto; height: 42%;
-      border-radius: 999px; background: linear-gradient(rgba(255,255,255,.55), rgba(255,255,255,0));
-      pointer-events: none;
-    }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 0 var(--ink); }
-    .btn:active { transform: translateY(1px); box-shadow: 0 1px 0 var(--ink); }
-    .btn-red { background: var(--red); color: var(--white); }
-    .btn-amber { background: var(--amber); color: var(--ink); }
-    .btn-white { background: var(--white); color: var(--ink); }
-    .btn-blue { background: var(--blue); color: var(--white); }
-    .ext::after { content: "↗"; font-weight: 700; }
+    .btn:hover { background: var(--cream); color: var(--char); }
+    .btn-amber { background: var(--amber); border-color: var(--amber); color: var(--char); }
+    .btn-amber:hover { background: var(--amber-soft); border-color: var(--amber-soft); }
+    .ext::after { content: "\2197"; font-weight: 500; }
 
-    .eyebrow {
-      display: inline-block; font: 700 .78rem/1 var(--body); letter-spacing: .12em; text-transform: uppercase;
-      padding: 7px 12px; border: 2px solid currentColor; border-radius: 999px;
+    /* framed print */
+    .print { margin: 0; position: relative; }
+    .print img {
+      width: 100%; object-fit: cover;
+      box-shadow: 0 1px 0 rgba(241, 230, 208, .08), 0 24px 50px -22px rgba(0, 0, 0, .85);
     }
 
-    /* ---------- Photo placeholders ---------- */
-    .ph {
-      position: relative; margin: 0; overflow: hidden;
-      display: grid; place-items: center; text-align: center;
-      border: 2px dashed var(--ink); border-radius: var(--radius);
+    /* gallery wall label */
+    .label {
+      background: var(--cream); color: #2a2219;
+      padding: 10px 13px 11px; max-width: 250px;
+      font: 400 .76rem/1.45 var(--mono);
+      box-shadow: 0 10px 22px -12px rgba(0, 0, 0, .7);
+    }
+    .label b { display: block; font: 600 italic 1rem/1.2 var(--serif); letter-spacing: 0; margin-bottom: 3px; color: #1c1611; }
+    .label .tag { display: inline-block; margin-top: 5px; padding: 1px 6px; background: var(--rust); color: var(--cream); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; }
+    figcaption.label { margin-top: 12px; }
+
+    /* ---------- header ---------- */
+    .site-header { border-bottom: 1px solid var(--line); }
+    .site-header .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 28px; padding-top: 16px; padding-bottom: 16px; }
+    .brand { text-decoration: none; display: flex; flex-direction: column; }
+    .brand-name { font: 700 italic 1.3rem/1 var(--serif); letter-spacing: -0.01em; }
+    .brand-handle { font: 400 .72rem/1.4 var(--mono); color: var(--cream-dim); letter-spacing: .06em; margin-top: 4px; }
+    .nav { display: flex; flex-wrap: wrap; gap: 4px 22px; margin: 0; padding: 0; list-style: none; }
+    .nav a { display: inline-block; padding: 6px 0; text-decoration: none; font-weight: 500; font-size: .95rem; border-bottom: 1px solid transparent; }
+    .nav a:hover { border-bottom-color: var(--amber); color: var(--amber-soft); }
+    .nav .ext { color: var(--amber); }
+
+    /* ---------- hero ---------- */
+    .hero { padding: clamp(36px, 6vw, 80px) 0 clamp(56px, 7vw, 96px); }
+    .hero-top { display: grid; grid-template-columns: 1.35fr 1fr; gap: 24px clamp(28px, 5vw, 72px); align-items: end; }
+    .hero h1 { font-size: clamp(2.9rem, 8.2vw, 7.2rem); font-weight: 600; }
+    .hero h1 em { font-style: italic; font-weight: 500; color: var(--amber); }
+    .hero-attrib { margin-top: 14px; font-size: 1.55rem; }
+    .hero-side p { color: var(--cream-dim); font-size: 1.1rem; max-width: 38ch; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+
+    .hero-shot { position: relative; margin-top: clamp(32px, 5vw, 56px); }
+    .hero-shot img { aspect-ratio: 1600 / 600; }
+    .hero-shot .label { position: absolute; right: clamp(12px, 3vw, 36px); bottom: -34px; }
+    .hero-shot .note { position: absolute; left: clamp(10px, 3vw, 40px); top: -46px; font-size: 1.7rem; transform: rotate(-4deg); display: flex; align-items: flex-end; gap: 6px; }
+    .note svg { width: 46px; height: 40px; flex: none; stroke: var(--amber-soft); fill: none; stroke-width: 2; stroke-linecap: round; }
+
+    /* ---------- section heads ---------- */
+    section { scroll-margin-top: 16px; }
+    .section { padding: clamp(72px, 9vw, 128px) 0; }
+    .head { display: grid; grid-template-columns: auto 1fr; gap: 10px 32px; align-items: end; margin-bottom: clamp(32px, 4vw, 56px); }
+    .head h2 { font-size: clamp(2.4rem, 5.6vw, 4.6rem); grid-column: 1; }
+    .head .kicker { grid-column: 1; grid-row: 1; }
+    .head p:not(.kicker) { grid-column: 2; grid-row: 2; justify-self: end; max-width: 40ch; color: var(--cream-dim); }
+
+    /* ---------- the work: asymmetric gallery ---------- */
+    .gallery {
+      display: grid; grid-template-columns: repeat(12, 1fr);
+      column-gap: clamp(14px, 2vw, 28px); row-gap: clamp(40px, 5vw, 72px);
+      align-items: start;
+    }
+    .g-order   { grid-column: 1 / span 5; }
+    .g-order img { aspect-ratio: 1229 / 1536; }
+    .g-who     { grid-column: 7 / span 6; margin-top: clamp(40px, 8vw, 120px); }
+    .g-who img { aspect-ratio: 4 / 3; }
+    .g-cup     { grid-column: 2 / span 5; }
+    .g-cup img { aspect-ratio: 4 / 3; }
+    .g-cupd    { grid-column: 8 / span 3; margin-top: clamp(30px, 6vw, 90px); }
+    .g-cupd img { aspect-ratio: 3 / 4; object-position: 52% 60%; }
+    .g-bowie   { grid-column: 1 / span 8; }
+    .g-bowie img { aspect-ratio: 16 / 10; object-position: 40% 55%; }
+    .g-wall    { grid-column: 9 / span 4; align-self: end; padding-bottom: 8px; }
+    .g-wall p { color: var(--cream-dim); }
+    .g-wall p + p { margin-top: 14px; }
+    .g-wall a { color: var(--amber-soft); text-underline-offset: 4px; }
+
+    .with-note { position: relative; }
+    .with-note .hand { position: absolute; font-size: 1.6rem; max-width: 15ch; }
+    .g-order .hand { right: -28px; top: -40px; transform: rotate(5deg); text-align: right; }
+    .g-cup .hand { left: -6px; top: -42px; transform: rotate(-4deg); }
+    .tilt-r { transform: rotate(1.2deg); }
+    .tilt-l { transform: rotate(-1deg); }
+
+    /* ---------- hole in one ---------- */
+    .hio {
       background:
-        repeating-linear-gradient(-45deg, rgba(34,20,47,.06) 0 10px, transparent 10px 20px),
-        var(--tint, var(--paper-2));
-      color: var(--ink);
-      min-height: 180px;
-      padding: 18px;
+        radial-gradient(60vw 40vw at 15% 0%, rgba(233, 168, 76, .12), transparent 60%),
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, .10) 0 1px, transparent 1px 4px),
+        var(--olive);
+      border-block: 1px solid rgba(0, 0, 0, .4);
     }
-    .ph-label { max-width: 26ch; }
-    .ph-tag {
-      display: inline-block; margin-bottom: 8px; padding: 5px 9px; border-radius: 6px;
-      background: var(--ink); color: var(--white);
-      font: 700 .7rem/1 var(--body); letter-spacing: .1em; text-transform: uppercase;
+    .hio-grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: clamp(14px, 2vw, 28px); row-gap: 40px; align-items: start; }
+    .hio-intro { grid-column: 1 / span 4; position: sticky; top: 24px; }
+    .hio-intro h2 { font-size: clamp(2.8rem, 6vw, 5.2rem); margin: 10px 0 18px; }
+    .hio-intro h2 em { font-style: italic; color: var(--amber); font-weight: 500; }
+    .hio-intro p { color: #d9cfb8; max-width: 34ch; }
+    .hio-intro .hand { font-size: 1.75rem; margin-top: 22px; display: block; transform: rotate(-3deg); }
+    .hio-intro .btn { margin-top: 28px; }
+    .h-wu { grid-column: 6 / span 7; }
+    .h-wu img { aspect-ratio: 1311 / 1076; }
+    .h-sc { grid-column: 5 / span 5; margin-top: clamp(0px, 2vw, 24px); }
+    .h-sc img { aspect-ratio: 1434 / 1183; }
+    .h-num {
+      grid-column: 10 / span 3; align-self: center;
+      font: 500 italic clamp(4rem, 9vw, 8rem)/.9 var(--serif); color: rgba(241, 230, 208, .14);
+      text-align: right; letter-spacing: -0.04em; user-select: none;
     }
-    .ph-desc { display: block; font: 600 .95rem/1.35 var(--body); }
-    .ph.round { border-radius: 50%; aspect-ratio: 1; min-height: 0; padding: 14%; }
-    .tint-red { --tint: #f6c9cf; }
-    .tint-purple { --tint: #dccbf3; }
-    .tint-blue { --tint: #c9d8f7; }
-    .tint-amber { --tint: #fbe2ae; }
 
-    /* ---------- Hero ---------- */
-    .hero { padding: clamp(40px, 7vw, 88px) 0 clamp(48px, 7vw, 96px); position: relative; }
-    .hero .wrap { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-    .hero .eyebrow { color: var(--purple); }
-    .hero h1 { font-size: clamp(2.6rem, 7vw, 5.4rem); margin: 18px 0 20px; font-weight: 800; }
-    .hero h1 .pour {
-      background: linear-gradient(100deg, var(--red) 0%, var(--purple) 45%, var(--blue) 80%);
-      -webkit-background-clip: text; background-clip: text; color: transparent;
+    /* ---------- custom ---------- */
+    .custom-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(36px, 6vw, 96px); align-items: center; }
+    .custom-photo { position: relative; padding: clamp(14px, 2vw, 22px); background: #0f0d0a; border: 1px solid var(--line); }
+    .custom-photo img { aspect-ratio: 795 / 697; }
+    .custom-photo .hand { position: absolute; right: -18px; bottom: -30px; font-size: 1.75rem; transform: rotate(-5deg); }
+    .custom-copy h2 { font-size: clamp(2.4rem, 5vw, 4.2rem); margin: 12px 0 22px; }
+    .custom-copy h2 em { font-style: italic; color: var(--amber); font-weight: 500; }
+    .custom-copy p { color: var(--cream-dim); max-width: 44ch; font-size: 1.08rem; }
+    .custom-copy p + p { margin-top: 14px; }
+    .custom-copy .fine { font: 400 .82rem/1.5 var(--mono); color: var(--cream-dim); border-left: 2px solid var(--rust); padding-left: 12px; margin-top: 22px; }
+    .custom-copy .btn { margin-top: 28px; }
+
+    /* ---------- in person ---------- */
+    .visit-stage { position: relative; }
+    .visit-stage img { aspect-ratio: 16 / 9; object-position: 50% 45%; }
+    .visit-panel {
+      position: absolute; right: clamp(16px, 4vw, 56px); bottom: clamp(16px, 4vw, 56px);
+      width: min(440px, 46%);
+      background: var(--smoke);
+      -webkit-backdrop-filter: blur(10px) saturate(1.1); backdrop-filter: blur(10px) saturate(1.1);
+      border: 1px solid rgba(241, 230, 208, .2);
+      padding: clamp(20px, 2.6vw, 32px);
     }
-    .hero-intro { font-size: clamp(1.08rem, 1.6vw, 1.25rem); max-width: 34ch; color: var(--ink-soft); }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .visit-panel h2 { font-size: clamp(2rem, 3.6vw, 3.1rem); margin: 10px 0 14px; }
+    .visit-panel .place { font: 600 italic 1.35rem/1.2 var(--serif); color: var(--amber-soft); }
+    .visit-panel p { color: #e3d8c2; }
+    .visit-panel p + p { margin-top: 10px; }
+    .visit-panel .btn { margin-top: 20px; }
+    .visit-stage .label { position: absolute; left: clamp(16px, 4vw, 56px); top: clamp(16px, 3vw, 36px); }
+    .visit-quote { margin-top: 20px; font-size: 1.7rem; transform: rotate(-2deg); display: inline-block; }
 
-    .hero-media { position: relative; }
-    .hero-media .ph { aspect-ratio: 4 / 5; min-height: 0; border-radius: 30px; box-shadow: var(--shadow); border-style: dashed; }
-    .sticker {
-      position: absolute; display: grid; place-items: center; text-align: center;
-      width: 112px; height: 112px; border-radius: 50%; border: 2px solid var(--ink);
-      font: 800 .95rem/1.05 var(--display); padding: 10px;
-      box-shadow: 0 3px 0 var(--ink);
+    /* ---------- footer ---------- */
+    .site-footer { border-top: 1px solid var(--line); padding: 56px 0 40px; background: rgba(0, 0, 0, .25); }
+    .site-footer .wrap { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 24px; }
+    .foot-name { font: 700 italic clamp(1.8rem, 4vw, 2.8rem)/1 var(--serif); }
+    .foot-line { margin-top: 8px; color: var(--cream-dim); }
+    .site-footer .credit { width: 100%; font: 400 .75rem/1.5 var(--mono); color: #9d917b; border-top: 1px solid var(--line); padding-top: 18px; margin-top: 8px; }
+
+    /* ---------- responsive ---------- */
+    @media (max-width: 960px) {
+      .hero-top { grid-template-columns: 1fr; }
+      .head { grid-template-columns: 1fr; }
+      .head p:not(.kicker) { grid-column: 1; grid-row: auto; justify-self: start; }
+      .hio-intro { grid-column: 1 / -1; position: static; }
+      .h-wu { grid-column: 1 / -1; }
+      .h-sc { grid-column: 1 / span 8; margin-top: 0; }
+      .h-num { grid-column: 9 / span 4; }
+      .custom-grid { grid-template-columns: 1fr; }
+      .custom-photo { max-width: 620px; }
+      .visit-panel { position: static; width: auto; margin: -48px clamp(12px, 4vw, 40px) 0; position: relative; }
     }
-    .sticker::before {
-      content: ""; position: absolute; top: 12px; left: 20px; width: 34px; height: 16px;
-      border-radius: 50%; background: rgba(255,255,255,.55); transform: rotate(-25deg);
-    }
-    .sticker-1 { background: var(--amber); top: -22px; right: -14px; transform: rotate(10deg); }
-    .sticker-2 { background: var(--red); color: var(--white); bottom: 26px; left: -26px; transform: rotate(-8deg); width: 100px; height: 100px; }
-
-    /* ---------- Chip band ---------- */
-    .band { background: var(--ink); color: var(--paper); border-block: 2px solid var(--ink); }
-    .band ul {
-      list-style: none; margin: 0; padding: 14px var(--gutter);
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 22px;
-      font: 700 clamp(1rem, 2vw, 1.3rem)/1.2 var(--display);
-    }
-    .band li { display: flex; align-items: center; gap: 22px; }
-    .band li + li::before { content: "✦"; color: var(--amber); }
-
-    /* ---------- Sections ---------- */
-    section { scroll-margin-top: 84px; }
-    .section { padding: clamp(56px, 8vw, 110px) 0; }
-    .section-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px 32px; margin-bottom: clamp(28px, 4vw, 48px); }
-    .section-head h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; }
-    .section-head p { max-width: 46ch; color: var(--ink-soft); }
-
-    .collection { display: grid; gap: clamp(20px, 3vw, 36px); align-items: center; padding: clamp(24px, 3vw, 36px); border: 2px solid var(--ink); border-radius: 28px; background: var(--white); box-shadow: var(--shadow); }
-    .collection + .collection { margin-top: clamp(24px, 4vw, 44px); }
-    .collection h3 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 800; margin: 12px 0 10px; }
-    .collection p { color: var(--ink-soft); max-width: 44ch; }
-    .collection .more { display: inline-block; margin-top: 16px; font-weight: 700; text-decoration-thickness: 2px; text-underline-offset: 4px; }
-    .num { font: 800 .85rem/1 var(--display); letter-spacing: .1em; }
-
-    /* Coasters: copy left, a cluster of round "coasters" right */
-    .c-coasters { grid-template-columns: 1fr 1.25fr; }
-    .c-coasters .num { color: var(--red); }
-    .coaster-cluster { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; align-items: center; }
-    .coaster-cluster .ph:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-    .coaster-cluster .ph:nth-child(2) { transform: rotate(6deg); }
-    .coaster-cluster .ph:nth-child(3) { transform: rotate(-5deg); }
-
-    /* Custom sets: wide stacked photo left, copy right */
-    .c-sets { grid-template-columns: 1.3fr 1fr; background: #fff7f8; }
-    .c-sets .num { color: var(--purple); }
-    .sets-media { display: grid; grid-template-columns: 2fr 1fr; gap: 14px; }
-    .sets-media .ph:first-child { aspect-ratio: 4 / 3; min-height: 0; grid-row: span 2; }
-    .sets-media .ph:not(:first-child) { min-height: 0; aspect-ratio: 1; }
-
-    /* Accessories: copy on top, a row of three */
-    .c-acc { grid-template-columns: 1fr; background: #f6f8ff; }
-    .c-acc .num { color: var(--blue); }
-    .acc-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px 32px; }
-    .acc-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
-    .acc-row .ph { aspect-ratio: 1; min-height: 0; }
-    .acc-row .ph:nth-child(2) { transform: translateY(18px); }
-
-    .aside-digital {
-      margin-top: clamp(28px, 4vw, 44px);
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px;
-      padding: 20px 24px; border: 2px dashed var(--ink); border-radius: 18px; background: var(--paper-2);
-    }
-    .aside-digital strong { font-family: var(--display); font-size: 1.2rem; display: block; margin-bottom: 2px; }
-    .aside-digital p { color: var(--ink-soft); max-width: 60ch; }
-    .aside-digital a { font-weight: 700; text-underline-offset: 4px; }
-
-    /* ---------- Custom orders ---------- */
-    .custom {
-      background:
-        radial-gradient(60% 80% at 100% 0%, rgba(243,167,18,.35), transparent 60%),
-        radial-gradient(50% 70% at 0% 100%, rgba(211,32,59,.35), transparent 60%),
-        var(--purple-deep);
-      color: var(--paper);
-      border-block: 2px solid var(--ink);
-    }
-    .custom .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-    .custom .eyebrow { color: var(--amber); }
-    .custom h2 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; margin: 18px 0 18px; }
-    .custom h2 em { font-style: normal; color: var(--amber); }
-    .custom p { max-width: 46ch; color: #eadff7; font-size: 1.1rem; }
-    .custom .btn { margin-top: 26px; }
-    .ask-card { background: var(--white); color: var(--ink); border: 2px solid var(--ink); border-radius: 24px; padding: 26px; box-shadow: 0 4px 0 var(--ink); transform: rotate(1.5deg); }
-    .ask-card h3 { font-size: 1.4rem; margin-bottom: 14px; }
-    .ask-card ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
-    .ask-card li { display: flex; gap: 10px; align-items: baseline; }
-    .ask-card li::before { content: ""; flex: none; width: 12px; height: 12px; border-radius: 50%; background: var(--dot, var(--red)); border: 2px solid var(--ink); transform: translateY(1px); }
-    .ask-card li:nth-child(2) { --dot: var(--amber); }
-    .ask-card li:nth-child(3) { --dot: var(--blue); }
-    .ask-card li:nth-child(4) { --dot: var(--purple); }
-    .ask-card .fine { margin-top: 16px; font-size: .92rem; color: var(--ink-soft); border-top: 2px dashed var(--paper-2); padding-top: 14px; }
-
-    /* ---------- Pop-up ---------- */
-    .popup .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
-    .popup .ph { aspect-ratio: 5 / 4; min-height: 0; box-shadow: var(--shadow); transform: rotate(-1.5deg); }
-    .popup .eyebrow { color: var(--red); }
-    .popup h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; margin: 18px 0 16px; }
-    .popup p { color: var(--ink-soft); max-width: 44ch; }
-    .popup .where {
-      margin: 22px 0 6px; padding: 16px 18px; border: 2px solid var(--ink); border-radius: 16px;
-      background: var(--amber); font-weight: 600; color: var(--ink); max-width: 44ch;
-    }
-    .popup .where b { font-family: var(--display); font-size: 1.25rem; display: block; }
-    .popup .btn { margin-top: 18px; }
-
-    /* ---------- Footer ---------- */
-    .site-footer { background: var(--ink); color: var(--paper); padding: 48px 0 36px; }
-    .site-footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px; }
-    .site-footer .brand-handle { color: #c9bdd8; }
-    .site-footer .ig {
-      display: inline-flex; align-items: center; gap: 10px; font: 700 1.05rem/1 var(--body);
-      color: var(--paper); text-decoration: none; padding: 12px 18px; border: 2px solid var(--paper); border-radius: 999px;
-    }
-    .site-footer .ig:hover { background: var(--paper); color: var(--ink); }
-    .site-footer .note { width: 100%; font-size: .85rem; color: #b5a8c6; border-top: 1px solid #3c2d4d; padding-top: 18px; }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 900px) {
-      .hero .wrap, .custom .wrap, .popup .wrap { grid-template-columns: 1fr; }
-      .hero-media { max-width: 520px; width: 100%; margin: 0 auto; }
-      .c-coasters, .c-sets { grid-template-columns: 1fr; }
-      .c-sets .sets-media { order: 2; }
-      .ask-card { transform: none; }
-    }
-    @media (max-width: 600px) {
-      body { font-size: 1rem; }
-      .site-header { position: static; }
-      section { scroll-margin-top: 0; }
-      .site-header .wrap { justify-content: center; }
-      .nav { justify-content: center; }
-      .nav a { padding: 7px 10px; font-size: .9rem; }
-      .hero-ctas .btn { width: 100%; justify-content: center; }
-      .sticker { width: 88px; height: 88px; font-size: .8rem; }
-      .sticker-1 { right: -4px; top: -16px; }
-      .sticker-2 { left: -6px; width: 82px; height: 82px; }
-      .acc-row { grid-template-columns: 1fr 1fr; }
-      .acc-row .ph:nth-child(2) { transform: none; }
-      .acc-row .ph:nth-child(3) { grid-column: span 2; aspect-ratio: 2 / 1; }
-      .ph-desc { font-size: .82rem; }
-      .ph.round .ph-tag { font-size: .6rem; }
-      .coaster-cluster .ph:not(:first-child) .ph-desc { display: none; }
-      .custom .btn, .popup .btn { width: 100%; justify-content: center; }
-      .band li { gap: 14px; }
-      .band ul { gap: 6px 14px; }
+    @media (max-width: 720px) {
+      .site-header .wrap { flex-direction: column; align-items: flex-start; }
+      .nav { gap: 2px 18px; }
+      .hero-shot { margin-top: 64px; }
+      .hero-shot img { aspect-ratio: 4 / 3; object-position: 22% 50%; }
+      .hero-shot .label { position: static; margin: -28px 12px 0 auto; position: relative; }
+      .hero-shot .note { top: -44px; font-size: 1.5rem; }
+      .hero-ctas .btn { flex: 1 1 100%; }
+      .gallery { grid-template-columns: repeat(6, 1fr); row-gap: 48px; }
+      .g-order { grid-column: 1 / span 5; }
+      .g-who { grid-column: 2 / span 5; margin-top: 0; }
+      .g-cup { grid-column: 1 / -1; }
+      .g-cupd { grid-column: 3 / span 4; margin-top: -8px; }
+      .g-bowie { grid-column: 1 / -1; }
+      .g-wall { grid-column: 1 / -1; }
+      .with-note .hand { position: static; display: block; max-width: none; margin: 0 0 10px; font-size: 1.45rem; transform: rotate(-2deg); text-align: left; }
+      .h-sc { grid-column: 1 / -1; }
+      .h-num { display: none; }
+      .custom-photo .hand { position: static; display: block; margin-top: 14px; font-size: 1.5rem; transform: rotate(-2deg); }
+      .visit-stage img { aspect-ratio: 4 / 3; }
+      .visit-stage .label { position: static; margin-top: 12px; }
+      .visit-panel { margin: 16px 0 0; }
+      .tilt-r, .tilt-l { transform: none; }
+      .label { max-width: 100%; }
     }
   </style>
 </head>
@@ -306,190 +266,206 @@
 
   <header class="site-header">
     <div class="wrap">
-      <a class="brand" href="#top" aria-label="Purple Dragon Artwork, back to top">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Purple Dragon Artwork<span class="brand-handle">@purpledragonartwork</span></span>
+      <a class="brand" href="#top">
+        <span class="brand-name">Purple Dragon Artwork</span>
+        <span class="brand-handle">@purpledragonartwork</span>
       </a>
       <nav aria-label="Main">
         <ul class="nav">
           <li><a href="#work">The work</a></li>
-          <li><a href="#custom">Custom orders</a></li>
-          <li><a href="#popup">Pop-up</a></li>
-          <li><a class="nav-ig ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Instagram </a></li>
+          <li><a href="#hio">Hole in One</a></li>
+          <li><a href="#custom">Custom</a></li>
+          <li><a href="#visit">In person</a></li>
+          <li><a class="ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Instagram </a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- 1. HERO -->
+    <!-- HERO -->
     <section class="hero" id="top" aria-labelledby="hero-title">
       <div class="wrap">
-        <div>
-          <span class="eyebrow">Handmade resin art</span>
-          <h1 id="hero-title">Glossy little <span class="pour">worlds</span>, poured by hand.</h1>
-          <p class="hero-intro">Purple Dragon Artwork makes resin coasters, custom coaster sets, and accessories that are bright, colorful, and full of pop-culture fun.</p>
-          <div class="hero-ctas">
-            <a class="btn btn-red" href="#work">Browse the work</a>
-            <a class="btn btn-white ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Latest on Instagram </a>
+        <div class="hero-top">
+          <div>
+            <p class="kicker">Handmade epoxy resin</p>
+            <h1 id="hero-title" style="margin-top:14px">I make <em>Art</em> that sets me apart.</h1>
+            <p class="hand hero-attrib">&mdash; the artist, in caption after caption</p>
+          </div>
+          <div class="hero-side">
+            <p>Coasters, ashtrays, numbered Hole in One pieces, and custom work, glittered up and loaded with the bands, films, and anime people love. Every photo here comes straight from the artist's own posts.</p>
+            <div class="hero-ctas">
+              <a class="btn btn-amber" href="#work">See the work</a>
+              <a class="btn ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Ask about a custom piece </a>
+            </div>
           </div>
         </div>
-        <div class="hero-media">
-          <!-- REPLACE: the artist's strongest product photo, e.g. <img src="images/hero.jpg" alt="..."> -->
-          <figure class="ph tint-purple" role="img" aria-label="Photo placeholder: artist's strongest product photo">
-            <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Artist's strongest product photo, such as a glossy resin coaster set</span></span>
-          </figure>
-          <span class="sticker sticker-1" aria-hidden="true">Made by hand</span>
-          <span class="sticker sticker-2" aria-hidden="true">Custom requests</span>
-        </div>
+
+        <figure class="print hero-shot">
+          <span class="hand note" aria-hidden="true">
+            #191 &mdash; $old!!
+            <svg viewBox="0 0 46 40"><path d="M4 6 C 18 8, 30 16, 36 32"/><path d="M28 28 L36 33 L39 24"/></svg>
+          </span>
+          <img src="assets/photos/hio-191-grateful-dead-1600.jpg"
+               srcset="assets/photos/hio-191-grateful-dead-800.jpg 800w, assets/photos/hio-191-grateful-dead-1600.jpg 1600w"
+               sizes="(max-width: 1320px) 100vw, 1220px"
+               width="1600" height="600" fetchpriority="high"
+               alt="A red resin ashtray and a clear resin coaster, both printed with the Grateful Dead's red-and-blue lightning-bolt skull, on a table crowded with glitter-rimmed coasters.">
+          <figcaption class="label">
+            <b>Hole in One No. 191</b>
+            Grateful Dead, shown with a matching ashtray.
+            <span class="tag">Sold</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
-    <div class="band" aria-hidden="true">
-      <ul>
-        <li>Resin coasters</li>
-        <li>Custom sets</li>
-        <li>Accessories</li>
-        <li>Pop-up sales</li>
-      </ul>
-    </div>
-
-    <!-- 2. FEATURED WORK -->
+    <!-- THE WORK -->
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="wrap">
-        <div class="section-head">
-          <h2 id="work-title">The work</h2>
-          <p>Colorful, glossy, and made by hand. Browse by type below, and check Instagram for the newest pieces and what's already sold.</p>
+        <div class="head">
+          <p class="kicker">01 &middot; The work</p>
+          <h2 id="work-title">Fresh off the table</h2>
+          <p>Coasters, light-up ashtrays, and cupholders, rimmed in glitter and sealed in resin. Photos straight from the artist's posts.</p>
         </div>
 
-        <article class="collection c-coasters" aria-labelledby="coasters-title">
-          <div>
-            <span class="num">01</span>
-            <h3 id="coasters-title">Resin coasters</h3>
-            <p>Saturated color, deep gloss, and little details you notice up close. Each coaster is poured by hand.</p>
-            <a class="more ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">See recent coasters on Instagram </a>
-          </div>
-          <div class="coaster-cluster">
-            <!-- REPLACE each with the artist's coaster photos -->
-            <figure class="ph round tint-red" role="img" aria-label="Photo placeholder: resin coaster">
-              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Resin coaster, top-down shot</span></span>
-            </figure>
-            <figure class="ph round tint-amber" role="img" aria-label="Photo placeholder: resin coaster">
-              <span class="ph-label"><span class="ph-tag">Photo</span><span class="ph-desc">Coaster detail</span></span>
-            </figure>
-            <figure class="ph round tint-blue" role="img" aria-label="Photo placeholder: resin coaster">
-              <span class="ph-label"><span class="ph-tag">Photo</span><span class="ph-desc">Coaster detail</span></span>
-            </figure>
-          </div>
-        </article>
+        <div class="gallery">
+          <figure class="print g-order with-note">
+            <span class="hand" aria-hidden="true">&ldquo;Orders are getting bigger and bigger!!!!&rdquo;</span>
+            <img src="assets/photos/order-coasters-light-up-ashtray-1229.jpg"
+                 srcset="assets/photos/order-coasters-light-up-ashtray-800.jpg 800w, assets/photos/order-coasters-light-up-ashtray-1229.jpg 1229w"
+                 sizes="(max-width: 720px) 85vw, 42vw" width="1229" height="1536" loading="lazy"
+                 alt="A green light-up ashtray printed with Lilo and Stitch, glowing teal, on a pink bag beside a coaster of an alien on a red mushroom and a Venom coaster.">
+            <figcaption class="label"><b>One order</b>Four coasters and a light-up ashtray.</figcaption>
+          </figure>
 
-        <article class="collection c-sets" aria-labelledby="sets-title">
-          <div class="sets-media">
-            <!-- REPLACE with photos of finished custom sets -->
-            <figure class="ph tint-purple" role="img" aria-label="Photo placeholder: custom coaster set">
-              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">A finished custom coaster set, shown together</span></span>
-            </figure>
-            <figure class="ph tint-red" role="img" aria-label="Photo placeholder: custom set detail">
-              <span class="ph-label"><span class="ph-tag">Photo</span><span class="ph-desc">Set detail</span></span>
-            </figure>
-            <figure class="ph tint-amber" role="img" aria-label="Photo placeholder: custom set detail">
-              <span class="ph-label"><span class="ph-tag">Photo</span><span class="ph-desc">Set detail</span></span>
-            </figure>
-          </div>
-          <div>
-            <span class="num">02</span>
-            <h3 id="sets-title">Custom sets</h3>
-            <p>Coaster sets made around your colors, your theme, or the person you're gifting them to. Start from your idea.</p>
-            <a class="more" href="#custom">Ask about a custom set</a>
-          </div>
-        </article>
+          <figure class="print g-who tilt-r">
+            <img src="assets/photos/the-who-light-up-ashtray-1600.jpg"
+                 srcset="assets/photos/the-who-light-up-ashtray-800.jpg 800w, assets/photos/the-who-light-up-ashtray-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 85vw, 50vw" width="1600" height="1200" loading="lazy"
+                 alt="A light-up ashtray glowing blue with The Who's target logo inside, on a pale blue order bag with the band's name written in marker.">
+            <figcaption class="label"><b>Light-up ashtray</b>Custom order, bagged and tagged.</figcaption>
+          </figure>
 
-        <article class="collection c-acc" aria-labelledby="acc-title">
-          <div class="acc-top">
-            <div>
-              <span class="num">03</span>
-              <h3 id="acc-title">Accessories</h3>
-              <p>Handmade accessories with the same colorful, glossy energy as the coasters.</p>
-            </div>
-            <a class="more ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">See accessories on Instagram </a>
-          </div>
-          <div class="acc-row">
-            <!-- REPLACE with the artist's accessory photos -->
-            <figure class="ph tint-blue" role="img" aria-label="Photo placeholder: accessory">
-              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Accessory</span></span>
-            </figure>
-            <figure class="ph tint-amber" role="img" aria-label="Photo placeholder: accessory">
-              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Accessory</span></span>
-            </figure>
-            <figure class="ph tint-red" role="img" aria-label="Photo placeholder: accessory">
-              <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">Accessory</span></span>
-            </figure>
-          </div>
-        </article>
+          <figure class="print g-cup with-note">
+            <span class="hand" aria-hidden="true">&ldquo;I said I GOT YOU.&rdquo;</span>
+            <img src="assets/photos/cupholder-scarface-ashtray-1600.jpg"
+                 srcset="assets/photos/cupholder-scarface-ashtray-800.jpg 800w, assets/photos/cupholder-scarface-ashtray-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 100vw, 42vw" width="1600" height="1200" loading="lazy"
+                 alt="A red ashtray with Scarface art inside, sitting in a glittery orange cupholder in a car's center console.">
+            <figcaption class="label"><b>Cupholder + ashtray</b>Red, to match the Scarface. A customer flagged the artist down on the way out for this one.</figcaption>
+          </figure>
 
-        <!-- Digital art kept separate: products and ordering details not confirmed -->
-        <aside class="aside-digital" aria-label="Digital art">
-          <div>
-            <strong>Also: digital art</strong>
-            <p>Purple Dragon Artwork also creates high-resolution digital art. Follow along on Instagram to see it.</p>
-          </div>
-          <a class="ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">View on Instagram </a>
-        </aside>
-      </div>
-    </section>
+          <figure class="print g-cupd tilt-l">
+            <img src="assets/photos/cupholder-anime-print-800.jpg"
+                 srcset="assets/photos/cupholder-anime-print-800.jpg 800w, assets/photos/cupholder-anime-print-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 66vw, 25vw" width="800" height="600" loading="lazy"
+                 alt="The red Scarface ashtray lifted off its cupholder, showing an anime print of a golden-haired fighter in the bottom of the cup.">
+            <figcaption class="label"><b>Lift the lid</b>Anime art at the bottom of the cup.</figcaption>
+          </figure>
 
-    <!-- 3. CUSTOM ORDERS -->
-    <section class="section custom" id="custom" aria-labelledby="custom-title">
-      <div class="wrap">
-        <div>
-          <span class="eyebrow">Custom orders</span>
-          <h2 id="custom-title">Got an idea? <em>Let's pour it.</em></h2>
-          <p>Thinking about a coaster set in your favorite colors, a gift for a fan in your life, or something you haven't seen yet? Send a message on Instagram and tell the artist what you have in mind.</p>
-          <a class="btn btn-amber ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Message on Instagram </a>
-        </div>
-        <div class="ask-card">
-          <h3>Helpful to include</h3>
-          <ul>
-            <li>What you'd like made (coasters, a set, an accessory)</li>
-            <li>Colors or a theme you love</li>
-            <li>How many pieces you're picturing</li>
-            <li>A photo or two for inspiration</li>
-          </ul>
-          <p class="fine">Pricing and timing aren't listed here. Ask about them in your message.</p>
+          <figure class="print g-bowie">
+            <img src="assets/photos/custom-bowie-pair-1600.jpg"
+                 srcset="assets/photos/custom-bowie-pair-800.jpg 800w, assets/photos/custom-bowie-pair-1600.jpg 1600w"
+                 sizes="(max-width: 720px) 100vw, 66vw" width="1600" height="1200" loading="lazy"
+                 alt="Two glitter-framed resin coasters of David Bowie on an order bag marked 'David Bowie,' laid over a table covered in more coasters.">
+            <figcaption class="label"><b>Custom pair</b>David Bowie, two ways. From the artist's &ldquo;Custom Orders Dump.&rdquo;</figcaption>
+          </figure>
+
+          <div class="g-wall">
+            <p class="kicker">Wall text</p>
+            <p style="margin-top:10px">Glitter rims, clear resin, and a band, a movie, or a cartoon somebody grew up on. Orders go out bagged and tagged.</p>
+            <p>New pieces show up on <a href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Instagram</a>, sometimes with a &ldquo;$old!!&rdquo; right behind them.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- 4. POP-UP -->
-    <section class="section popup" id="popup" aria-labelledby="popup-title">
+    <!-- HOLE IN ONE -->
+    <section class="section hio" id="hio" aria-labelledby="hio-title">
       <div class="wrap">
-        <!-- REPLACE with a photo of the pop-up display -->
-        <figure class="ph tint-amber" role="img" aria-label="Photo placeholder: pop-up display">
-          <span class="ph-label"><span class="ph-tag">Photo placeholder</span><span class="ph-desc">The pop-up display, if the artist has a photo of it</span></span>
-        </figure>
-        <div>
-          <span class="eyebrow">See it in person</span>
-          <h2 id="popup-title">Catch the pop-up</h2>
-          <p>Gloss looks even better in real life. Purple Dragon Artwork holds pop-up sales where you can see the pieces up close.</p>
-          <div class="where">
-            <b>Fine Fettle, Newington</b>
-            Days and hours change, so check Instagram for the current schedule before you go.
+        <div class="hio-grid">
+          <div class="hio-intro">
+            <p class="kicker">02 &middot; Numbered series</p>
+            <h2 id="hio-title">Hole <em>in</em> One</h2>
+            <p>The HiO pieces are clear resin with a round hole cut through, and each one gets its own number. The count is past 190 and still climbing.</p>
+            <span class="hand" aria-hidden="true">&ldquo;Inventor of the HiO!&rdquo; &mdash; it says so right on the tag</span>
+            <a class="btn ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Follow the numbers </a>
           </div>
-          <a class="btn btn-blue ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Check current hours on Instagram </a>
+
+          <figure class="print h-wu">
+            <img src="assets/photos/hio-194-wu-tang-1311.jpg"
+                 srcset="assets/photos/hio-194-wu-tang-800.jpg 800w, assets/photos/hio-194-wu-tang-1311.jpg 1311w"
+                 sizes="(max-width: 960px) 100vw, 56vw" width="1311" height="1076" loading="lazy"
+                 alt="Close-up of a clear resin coaster with a gold, dripping Wu-Tang logo on red, flecked with glitter, with a round hole cut near one corner.">
+            <figcaption class="label"><b>Hole in One No. 194</b>Wu-Tang, gold on red. <span class="tag">Sold</span></figcaption>
+          </figure>
+
+          <figure class="print h-sc tilt-l">
+            <img src="assets/photos/hio-192-scarface-1434.jpg"
+                 srcset="assets/photos/hio-192-scarface-800.jpg 800w, assets/photos/hio-192-scarface-1434.jpg 1434w"
+                 sizes="(max-width: 960px) 100vw, 40vw" width="1434" height="1183" loading="lazy"
+                 alt="A clear resin coaster printed with the Scarface poster and the line 'The World Is Yours,' with a round hole through it, resting on a green order bag beside a tag card.">
+            <figcaption class="label"><b>Hole in One No. 192</b>Scarface. <span class="tag">Sold</span></figcaption>
+          </figure>
+          <p class="h-num" aria-hidden="true">#19_</p>
         </div>
+      </div>
+    </section>
+
+    <!-- CUSTOM -->
+    <section class="section" id="custom" aria-labelledby="custom-title">
+      <div class="wrap">
+        <div class="custom-grid">
+          <figure class="print custom-photo">
+            <img src="assets/photos/custom-dragon-ball-lamplit-795.jpg" width="795" height="697" loading="lazy"
+                 alt="A square resin piece with a purple-and-blue glitter rim, holding Dragon Ball Z art, lit by a single lamp in a dark room.">
+            <span class="hand" aria-hidden="true">&ldquo;Another happy customer!&rdquo;</span>
+          </figure>
+          <div class="custom-copy">
+            <p class="kicker">03 &middot; Custom work</p>
+            <h2 id="custom-title">Your favorite thing, <em>sealed in resin.</em></h2>
+            <p>A band, a movie, an anime, the cartoon you still quote. If you can picture it on a coaster or an ashtray, send it over and ask.</p>
+            <p>The Dragon Ball piece here and the Bowie pair up top were both custom orders.</p>
+            <p class="fine">Pricing, timing, and details aren't posted here. Ask the artist directly on Instagram.</p>
+            <a class="btn btn-amber ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Message @purpledragonartwork </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IN PERSON -->
+    <section class="section" id="visit" aria-labelledby="visit-title" style="padding-top:0">
+      <div class="wrap">
+        <div class="visit-stage">
+          <figure class="print" style="margin:0">
+            <img src="assets/photos/order-the-cure-table-1600.jpg"
+                 srcset="assets/photos/order-the-cure-table-800.jpg 800w, assets/photos/order-the-cure-table-1600.jpg 1600w"
+                 sizes="(max-width: 1320px) 100vw, 1220px" width="1600" height="1200" loading="lazy"
+                 alt="Two glitter-framed coasters for The Cure, one showing the band under the title 'Happy the Man,' on a green order bag with a tag card, over a table covered edge to edge with coasters.">
+            <figcaption class="label"><b>Bagged and tagged</b>A custom order waiting on the table.</figcaption>
+          </figure>
+          <div class="visit-panel">
+            <p class="kicker">04 &middot; In person</p>
+            <h2 id="visit-title">Find the table</h2>
+            <p class="place">Pop-up inside Fine Fettle, Newington</p>
+            <p style="margin-top:12px">See the glitter up close. The pop-up days have been shifting, so check Instagram for current hours before you head over.</p>
+            <a class="btn btn-amber ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">Current hours on Instagram </a>
+          </div>
+        </div>
+        <p class="hand visit-quote">&ldquo;the best place in the world&rdquo; &mdash; the artist, on the Newington spot</p>
       </div>
     </section>
   </main>
 
-  <!-- 5. FOOTER -->
   <footer class="site-footer">
     <div class="wrap">
-      <a class="brand" href="#top" aria-label="Purple Dragon Artwork, back to top">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-name">Purple Dragon Artwork<span class="brand-handle">Handmade resin art</span></span>
-      </a>
-      <a class="ig ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">@purpledragonartwork on Instagram </a>
-      <p class="note">Concept preview. Photo placeholders mark where the artist's own photos will go.</p>
+      <div>
+        <p class="foot-name">Purple Dragon Artwork</p>
+        <p class="foot-line">Handmade epoxy resin art.</p>
+      </div>
+      <a class="btn ext" href="https://www.instagram.com/purpledragonartwork/" target="_blank" rel="noopener noreferrer">@purpledragonartwork on Instagram </a>
+      <p class="credit">All photos by Purple Dragon Artwork, from the artist's Instagram posts. Sources are listed in assets/photos/manifest.json. Concept preview.</p>
     </div>
   </footer>
 </body>

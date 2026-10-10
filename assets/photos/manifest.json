@@ -1,0 +1,166 @@
+{
+  "retrieved": "2026-10-10",
+  "profile": "https://www.instagram.com/purpledragonartwork/",
+  "note": "All photos are the artist's own Instagram posts, downloaded as files (no hotlinking). Alt text lives in index.html.",
+  "photos": [
+    {
+      "slug": "hio-191-grateful-dead",
+      "files": [
+        "hio-191-grateful-dead-1600.jpg",
+        "hio-191-grateful-dead-800.jpg"
+      ],
+      "width": 2048,
+      "height": 768,
+      "source_post": "https://www.instagram.com/p/DeFJHAsF6l3/",
+      "source_item": "1",
+      "source_type": "photo",
+      "post_date": "October 4, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Bottom half only; removes the post's \"#191 HiO! $old!! $50 order!\" text overlay.",
+      "caption_excerpt": "I believe Sundays will be good 😊 "
+    },
+    {
+      "slug": "hio-194-wu-tang",
+      "files": [
+        "hio-194-wu-tang-1311.jpg",
+        "hio-194-wu-tang-800.jpg"
+      ],
+      "width": 1311,
+      "height": 1076,
+      "source_post": "https://www.instagram.com/p/DeHkdQKl4ka/",
+      "source_item": "1",
+      "source_type": "photo",
+      "post_date": "October 5, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Cropped to the coaster; removes handwritten sales tallies.",
+      "caption_excerpt": "#194 HiO! $old!!! "
+    },
+    {
+      "slug": "hio-192-scarface",
+      "files": [
+        "hio-192-scarface-1434.jpg",
+        "hio-192-scarface-800.jpg"
+      ],
+      "width": 1434,
+      "height": 1183,
+      "source_post": "https://www.instagram.com/p/DeFQDXrjbLL/",
+      "source_item": "1",
+      "source_type": "photo",
+      "post_date": "October 4, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Removes the \"#192 HiO! $old!!\" overlay and emoji.",
+      "caption_excerpt": "#200 is weak and waiting to be crushed by the Dragons jaws..."
+    },
+    {
+      "slug": "custom-dragon-ball-lamplit",
+      "files": [
+        "custom-dragon-ball-lamplit-795.jpg"
+      ],
+      "width": 795,
+      "height": 697,
+      "source_post": "https://www.instagram.com/p/DePEbwQjyaY/",
+      "source_item": "1",
+      "source_type": "carousel_item",
+      "post_date": "October 8, 2026",
+      "source_pixels": "795x697",
+      "crop": "Uncropped (largest size Instagram serves for this carousel: 795x697).",
+      "caption_excerpt": "I make Art that sets me apart. "
+    },
+    {
+      "slug": "cupholder-scarface-ashtray",
+      "files": [
+        "cupholder-scarface-ashtray-1600.jpg",
+        "cupholder-scarface-ashtray-800.jpg"
+      ],
+      "width": 2048,
+      "height": 1536,
+      "source_post": "https://www.instagram.com/p/DeFszBtDlnv/",
+      "source_item": "2",
+      "source_type": "carousel_item",
+      "post_date": "October 4, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Uncropped.",
+      "caption_excerpt": "As I was literally leaving outside I was stopped by someone hoping I was still set-up to buy a cup holder for the ash tray they bought recently. "
+    },
+    {
+      "slug": "cupholder-anime-print",
+      "files": [
+        "cupholder-anime-print-1600.jpg",
+        "cupholder-anime-print-800.jpg"
+      ],
+      "width": 2048,
+      "height": 1536,
+      "source_post": "https://www.instagram.com/p/DeFszBtDlnv/",
+      "source_item": "1",
+      "source_type": "carousel_item",
+      "post_date": "October 4, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Uncropped.",
+      "caption_excerpt": "As I was literally leaving outside I was stopped by someone hoping I was still set-up to buy a cup holder for the ash tray they bought recently. "
+    },
+    {
+      "slug": "order-coasters-light-up-ashtray",
+      "files": [
+        "order-coasters-light-up-ashtray-1229.jpg",
+        "order-coasters-light-up-ashtray-800.jpg"
+      ],
+      "width": 1229,
+      "height": 1536,
+      "source_post": "https://www.instagram.com/p/DeFcewVjT5B/",
+      "source_item": "1",
+      "source_type": "photo",
+      "post_date": "October 4, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Right side only; excludes a coaster with profanity and a cannabis-leaf coaster.",
+      "caption_excerpt": "Orders are getting bigger and bigger!!!!"
+    },
+    {
+      "slug": "the-who-light-up-ashtray",
+      "files": [
+        "the-who-light-up-ashtray-1600.jpg",
+        "the-who-light-up-ashtray-800.jpg"
+      ],
+      "width": 2048,
+      "height": 1536,
+      "source_post": "https://www.instagram.com/p/DeANNz8F0PF/",
+      "source_item": "4",
+      "source_type": "carousel_item",
+      "post_date": "October 2, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Uncropped (carousel item 4).",
+      "caption_excerpt": "Custom Orders Dump!!!!!"
+    },
+    {
+      "slug": "custom-bowie-pair",
+      "files": [
+        "custom-bowie-pair-1600.jpg",
+        "custom-bowie-pair-800.jpg"
+      ],
+      "width": 2048,
+      "height": 1536,
+      "source_post": "https://www.instagram.com/p/DeANNz8F0PF/",
+      "source_item": "1",
+      "source_type": "carousel_item",
+      "post_date": "October 2, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Uncropped (carousel item 1).",
+      "caption_excerpt": "Custom Orders Dump!!!!!"
+    },
+    {
+      "slug": "order-the-cure-table",
+      "files": [
+        "order-the-cure-table-1600.jpg",
+        "order-the-cure-table-800.jpg"
+      ],
+      "width": 2048,
+      "height": 1536,
+      "source_post": "https://www.instagram.com/p/DeANNz8F0PF/",
+      "source_item": "2",
+      "source_type": "carousel_item",
+      "post_date": "October 2, 2026",
+      "source_pixels": "2048x1536",
+      "crop": "Uncropped (carousel item 2).",
+      "caption_excerpt": "Custom Orders Dump!!!!!"
+    }
+  ]
+}
