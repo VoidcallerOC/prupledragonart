@@ -44,9 +44,10 @@ Assets live in `assets/`, not `public/`, on purpose: with Vercel's "Other" prese
 
 ## Copy rules
 
-- Quotes come word for word from the artist's captions, bio and tag cards, with emoji removed. One quote drops a doubled word from the original ("Anything thing you can screenshot…").
-- Hole in One numbers and "Sold" come from the artist's posts.
-- No prices, shipping, turnaround times, reviews, contact details other than Instagram, or pop-up days and hours.
+Short, plain labels in the format "Item · Detail · Status". No slogans, quotes, exclamation marks, emoji, or third-person references to the artist.
+
+- Hole in One numbers and "Sold" appear only where the artist's posts confirm them.
+- No prices, availability claims, shipping, turnaround times, reviews, contact details other than Instagram, process claims, or pop-up days and hours.
 
 ## Gaps
 
