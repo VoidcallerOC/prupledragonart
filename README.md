@@ -72,10 +72,10 @@ Assets live in `assets/`, not `public/`, on purpose: with Vercel's "Other" prese
 
 ## Copy rules
 
-Short, plain labels in the format "Item · Detail · Status". No slogans, quotes, exclamation marks, emoji, or third-person references to the artist.
+Plain, first-person shop voice. Each line says what a piece is or why it was made, not what the photo shows, and avoids slogans, wordplay, exclamation marks and emoji.
 
 - Hole in One numbers and "Sold" appear only where the artist's posts confirm them.
-- No prices, availability claims, shipping, turnaround times, reviews, contact details other than Instagram, process claims, or pop-up days and hours.
+- No prices, shipping, turnaround times, reviews, contact details other than Instagram, or pop-up days and hours.
 
 ## Gaps
 
