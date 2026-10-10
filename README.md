@@ -20,7 +20,7 @@ All fonts are packaged in `assets/fonts/`: latin woff2 files from `@fontsource` 
 
 ## Navigation and layout
 
-- **Header:** sticky, aligned to the content grid (`--max` 1320px, `--gutter` clamp(16px, 4vw, 56px)). Links run Work, Details, Hole in One, Process, Custom, Fine Fettle, Instagram.
+- **Header:** sticky, aligned to the content grid (`--max` 1320px, `--gutter` clamp(16px, 4vw, 56px)). Links run Work, Up close, Hole in One, Making, Custom, Fine Fettle, Instagram.
 - **Desktop (1024px and up):** one row of links. Each link is at least 44px tall, with an amber underline on hover and keyboard focus.
 - **Below 1024px:** a compact menu button (`aria-expanded`, `aria-controls`). It opens and closes by click, tap, Enter or Space. Escape closes it and returns focus to the button. It also closes on outside click, on choosing a link, or when the window widens to desktop. Without JavaScript, the links simply wrap.
 - **Anchors:** sections use `scroll-margin-top` tied to `--header-h`, so headings land below the sticky header.
@@ -39,11 +39,11 @@ The photos are never filtered or overlaid. A geometry check confirms the rings d
 ## Starfield
 
 `assets/starfield.js` (no dependencies) draws a fixed canvas behind all content. It ignores clicks and scrolling, which keep working normally.
-- **Stars:** about 320 at 1366×900, in three depth layers of cool white, violet, amber and pink, with a few larger glowing points.
-- **Mouse or pen:** stars spring toward the cursor and get dragged along by its motion, with short trails. They ease back home within about 2 seconds of the pointer stopping.
-- **Touch screens:** slow ambient drift, no pointer response.
+- **Stars:** about 270 at 1366×900, in three depth layers of cool white, violet, amber and pink, kept dim so they sit behind the work.
+- **Mouse or pen:** stars within about 140–200px lean gently toward the cursor. Movement is slow and eased, with at most about 13px of travel and only faint, short trails. Stars settle back within about 2 seconds of the pointer stopping. Scroll parallax is light (3% of scroll distance).
+- **Touch screens:** very slow ambient drift (under 1px per second), no pointer response.
 - **Reduced motion:** one still frame, with no trails and no pointer response.
-- **Readability:** stars behind text blocks, labels and buttons are drawn at about a third of their brightness. Photos sit above the canvas.
+- **Readability:** stars behind text blocks, labels and buttons are drawn at a quarter of their brightness. Photos sit above the canvas.
 - **Cost:** about 0.6 ms of script per frame at 60 fps in headless Chromium.
 
 ## Photos

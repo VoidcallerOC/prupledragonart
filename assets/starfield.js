@@ -1,8 +1,8 @@
 /* Interactive starfield behind the page content.
    - Fixed full-viewport canvas, pointer-events: none (never captures clicks or scroll).
-   - Fine pointer: stars spring toward the cursor and are dragged along by its motion,
-     leaving short trails, then ease back home when the pointer stops.
-   - Touch / no hover: gentle ambient drift only.
+   - Fine pointer: nearby stars lean gently toward the cursor (a few pixels, slow easing)
+     and settle back calmly once it stops.
+   - Touch / no hover: very slow ambient drift only, no cursor response.
    - prefers-reduced-motion: one still frame, no trails, no pointer response.
    - Stars behind text blocks and buttons are drawn dimmer to keep copy readable. */
 (function () {
@@ -22,9 +22,9 @@
     { rgb: '255,146,206', w: 0.17 }  // pink
   ];
   var LAYERS = [ // depth drives size, brightness, parallax and pointer pull
-    { depth: 0.35, share: 0.48, r: [0.8, 1.3], a: [0.45, 0.70] },
-    { depth: 0.65, share: 0.34, r: [1.2, 1.8], a: [0.60, 0.85] },
-    { depth: 1.00, share: 0.18, r: [1.7, 2.5], a: [0.80, 1.00] }
+    { depth: 0.35, share: 0.50, r: [0.8, 1.2], a: [0.40, 0.60] },
+    { depth: 0.65, share: 0.34, r: [1.1, 1.6], a: [0.50, 0.72] },
+    { depth: 1.00, share: 0.16, r: [1.5, 2.2], a: [0.62, 0.82] }
   ];
   var DIM_SELECTORS = '.site-header .wrap, .hero-top, .head, .cap, .label, .btn, .hio-intro, .k-copy, .ff-row, .site-footer .wrap';
 
@@ -51,8 +51,8 @@
     var g = s.getContext('2d');
     var grad = g.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2);
     grad.addColorStop(0, 'rgba(' + rgb + ',1)');
-    grad.addColorStop(0.22, 'rgba(' + rgb + ',0.95)');
-    grad.addColorStop(0.42, 'rgba(' + rgb + ',0.35)');
+    grad.addColorStop(0.2, 'rgba(' + rgb + ',0.85)');
+    grad.addColorStop(0.4, 'rgba(' + rgb + ',0.24)');
     grad.addColorStop(1, 'rgba(' + rgb + ',0)');
     g.fillStyle = grad;
     g.fillRect(0, 0, n, n);
@@ -61,19 +61,19 @@
 
   function build() {
     stars = [];
-    var count = Math.min(460, Math.max(150, Math.round((W * H) / 3800)));
+    var count = Math.min(380, Math.max(130, Math.round((W * H) / 4600)));
     LAYERS.forEach(function (L) {
       var n = Math.round(count * L.share);
       for (var i = 0; i < n; i++) {
-        var big = L.depth === 1 && Math.random() < 0.3; // a few larger points
+        var big = L.depth === 1 && Math.random() < 0.15; // a few larger points
         var hx = Math.random() * W, hy = Math.random() * H;
         stars.push({
           hx: hx, hy: hy, x: hx, y: hy, vx: 0, vy: 0,
           depth: L.depth,
-          r: big ? rand(3, 4.4) : rand(L.r[0], L.r[1]),
-          a: big ? rand(0.8, 1) : rand(L.a[0], L.a[1]),
+          r: big ? rand(2.2, 3) : rand(L.r[0], L.r[1]),
+          a: big ? rand(0.65, 0.85) : rand(L.a[0], L.a[1]),
           rgb: big ? (Math.random() < 0.5 ? PALETTE[1].rgb : PALETTE[2].rgb) : pick(),
-          tw: rand(0.4, 1.4), ph: rand(0, Math.PI * 2),
+          tw: rand(0.2, 0.7), ph: rand(0, Math.PI * 2),
           dx: rand(-0.06, 0.06) * L.depth, dy: rand(-0.05, 0.02) * L.depth
         });
       }
@@ -102,7 +102,7 @@
   function dimAt(x, y) {
     for (var i = 0; i < dimRects.length; i++) {
       var q = dimRects[i];
-      if (x > q[0] && x < q[2] && y > q[1] && y < q[3]) return 0.32;
+      if (x > q[0] && x < q[2] && y > q[1] && y < q[3]) return 0.25;
     }
     return 1;
   }
@@ -112,19 +112,19 @@
   function step(dt) {
     var k = dt / 16.67;
     // Pointer smoothing and energy: energy rises with movement and decays when it stops.
-    pointer.sx += (pointer.x - pointer.sx) * Math.min(1, 0.35 * k);
-    pointer.sy += (pointer.y - pointer.sy) * Math.min(1, 0.35 * k);
-    pointer.energy *= Math.pow(0.955, k);
+    pointer.sx += (pointer.x - pointer.sx) * Math.min(1, 0.08 * k);
+    pointer.sy += (pointer.y - pointer.sy) * Math.min(1, 0.08 * k);
+    pointer.energy *= Math.pow(0.975, k);
     pointer.vx *= Math.pow(0.86, k); pointer.vy *= Math.pow(0.86, k);
 
-    var R = Math.max(220, Math.min(340, W * 0.22));
+    var R = Math.max(140, Math.min(200, W * 0.14));
     var useP = interactive() && pointer.active;
     var ambient = !fineMQ.matches; // touch: drift only
 
     for (var i = 0; i < stars.length; i++) {
       var s = stars[i];
       // Ambient drift (stronger on touch screens), wrapping at the edges.
-      var drift = ambient ? 1 : 0.35;
+      var drift = ambient ? 0.5 : 0.25;
       s.hx += s.dx * drift * k; s.hy += s.dy * drift * k;
       if (s.hx < -10) s.hx += W + 20; else if (s.hx > W + 10) s.hx -= W + 20;
       if (s.hy < -10) s.hy += H + 20; else if (s.hy > H + 10) s.hy -= H + 20;
@@ -138,22 +138,22 @@
         var d = Math.sqrt(ddx * ddx + ddy * ddy);
         if (d < R) {
           var f = 1 - d / R; f = f * f;
-          var pull = Math.min(d, 120) * f * (0.4 + 0.6 * s.depth) * pointer.energy;
+          var pull = Math.min(d, 26) * f * (0.5 + 0.5 * s.depth) * pointer.energy;
           var inv = d > 0.001 ? 1 / d : 0;
-          tx += ddx * inv * pull + pointer.vx * 12 * f * s.depth;
-          ty += ddy * inv * pull + pointer.vy * 12 * f * s.depth;
+          tx += ddx * inv * pull + pointer.vx * 1.2 * f * s.depth;
+          ty += ddy * inv * pull + pointer.vy * 1.2 * f * s.depth;
         }
       }
       // Spring toward the target with damping: gives the lag and trailing ease-back.
-      s.vx = (s.vx + (tx - s.x) * 0.075 * k) * Math.pow(0.8, k);
-      s.vy = (s.vy + (ty - s.y) * 0.075 * k) * Math.pow(0.8, k);
+      s.vx = (s.vx + (tx - s.x) * 0.028 * k) * Math.pow(0.86, k);
+      s.vy = (s.vy + (ty - s.y) * 0.028 * k) * Math.pow(0.86, k);
       s.x += s.vx * k; s.y += s.vy * k;
       // Keep the wrap seamless when the home position jumps across an edge.
       if (Math.abs(tx - s.x) > W * 0.5 || Math.abs(ty - s.y) > H * 0.5) { s.x = tx; s.y = ty; s.vx = s.vy = 0; }
     }
   }
 
-  function parallax(s) { return (scrollY * 0.08 * s.depth) % (H + 20); }
+  function parallax(s) { return (scrollY * 0.03 * s.depth) % (H + 20); }
   function wrapY(y) { var span = H + 20; return ((y + 10) % span + span) % span - 10; }
 
   function draw(now, still) {
@@ -162,26 +162,26 @@
     for (var i = 0; i < stars.length; i++) {
       var s = stars[i];
       var x = still ? s.hx : s.x, y = still ? s.hy : wrapY(s.y - parallax(s));
-      var tw = still ? 1 : 0.78 + 0.22 * Math.sin(t * s.tw + s.ph);
+      var tw = still ? 1 : 0.86 + 0.14 * Math.sin(t * s.tw + s.ph);
       var alpha = s.a * tw * dimAt(x, y);
       if (alpha < 0.02) continue;
 
       // Soft trail along the velocity.
       if (!still) {
         var sp = Math.abs(s.vx) + Math.abs(s.vy);
-        if (sp > 0.35) {
-          var len = Math.min(16, 1.5 + sp * 1.4);
+        if (sp > 0.6) {
+          var len = Math.min(5, 1 + sp * 0.8);
           var ex = x - s.vx * len, ey = y - s.vy * len;
           var gr = ctx.createLinearGradient(x, y, ex, ey);
-          gr.addColorStop(0, 'rgba(' + s.rgb + ',' + (alpha * 0.8).toFixed(3) + ')');
+          gr.addColorStop(0, 'rgba(' + s.rgb + ',' + (alpha * 0.3).toFixed(3) + ')');
           gr.addColorStop(1, 'rgba(' + s.rgb + ',0)');
           ctx.strokeStyle = gr;
-          ctx.lineWidth = Math.max(1, s.r * 1.2);
+          ctx.lineWidth = Math.max(0.7, s.r * 0.8);
           ctx.lineCap = 'round';
           ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(ex, ey); ctx.stroke();
         }
       }
-      var size = s.r * 6;
+      var size = s.r * 5.5;
       ctx.globalAlpha = alpha;
       ctx.drawImage(sprite(s.rgb), x - size / 2, y - size / 2, size, size);
       ctx.globalAlpha = 1;
@@ -218,7 +218,7 @@
     if (pointer.active) {
       pointer.vx = pointer.vx * 0.5 + Math.max(-40, Math.min(40, mx)) * 0.5;
       pointer.vy = pointer.vy * 0.5 + Math.max(-40, Math.min(40, my)) * 0.5;
-      pointer.energy = Math.min(1, pointer.energy + Math.sqrt(mx * mx + my * my) / 70);
+      pointer.energy = Math.min(1, pointer.energy + Math.sqrt(mx * mx + my * my) / 170);
     }
     pointer.x = e.clientX; pointer.y = e.clientY; pointer.active = true;
   }, { passive: true });
